@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct TImeBurgApp: App {
+    
+    let serviceFactory: TServicesFactoryProtocol
+    
+    init() {
+        serviceFactory = TServicesFactory()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TTabView(viewModel: TTabViewModel(servicesFactory: serviceFactory))
         }
     }
 }

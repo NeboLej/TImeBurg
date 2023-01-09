@@ -8,18 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */; };
-		FA547A7C296C7E2900B3EA1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* ContentView.swift */; };
-		FA547A7E296C7E2D00B3EA1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Assets.xcassets */; };
+		FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* TTabView.swift */; };
+		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
+		FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DB296C84140099D470 /* TTabViewModel.swift */; };
+		FAFC71DE296C85170099D470 /* THomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DD296C85170099D470 /* THomeView.swift */; };
+		FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DF296C85280099D470 /* THomeViewModel.swift */; };
+		FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71E1296C86340099D470 /* TServicesFactory.swift */; };
+		FAFC71E4296C87850099D470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFC71E3296C87850099D470 /* Images.xcassets */; };
+		FAFC71E6296C88F40099D470 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71E5296C88F40099D470 /* Colors.swift */; };
+		FAFC7203296C8D530099D470 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAFC71F0296C8D510099D470 /* Inter-Regular.otf */; };
+		FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC7212296C8DFE0099D470 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA547A76296C7E2900B3EA1E /* TImeBurg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeBurg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeBurgApp.swift; sourceTree = "<group>"; };
-		FA547A7B296C7E2900B3EA1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		FA547A7D296C7E2D00B3EA1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA547A7B296C7E2900B3EA1E /* TTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabView.swift; sourceTree = "<group>"; };
+		FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TImeBurg.entitlements; sourceTree = "<group>"; };
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAFC71DB296C84140099D470 /* TTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabViewModel.swift; sourceTree = "<group>"; };
+		FAFC71DD296C85170099D470 /* THomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeView.swift; sourceTree = "<group>"; };
+		FAFC71DF296C85280099D470 /* THomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeViewModel.swift; sourceTree = "<group>"; };
+		FAFC71E1296C86340099D470 /* TServicesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TServicesFactory.swift; sourceTree = "<group>"; };
+		FAFC71E3296C87850099D470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FAFC71E5296C88F40099D470 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FAFC71EA296C8BFB0099D470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FAFC71F0296C8D510099D470 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		FAFC7212296C8DFE0099D470 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +69,14 @@
 		FA547A78296C7E2900B3EA1E /* TImeBurg */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC71EA296C8BFB0099D470 /* Info.plist */,
+				FA547A88296C7F8A00B3EA1E /* Views */,
+				FA547A7B296C7E2900B3EA1E /* TTabView.swift */,
+				FAFC71DB296C84140099D470 /* TTabViewModel.swift */,
+				FA547A8C296C7FDF00B3EA1E /* Services */,
+				FA547A8D296C7FED00B3EA1E /* Repositories */,
+				FA547A8B296C7FC900B3EA1E /* Resources */,
 				FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */,
-				FA547A7B296C7E2900B3EA1E /* ContentView.swift */,
-				FA547A7D296C7E2D00B3EA1E /* Assets.xcassets */,
 				FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */,
 				FA547A80296C7E2D00B3EA1E /* Preview Content */,
 			);
@@ -67,6 +89,66 @@
 				FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA547A88296C7F8A00B3EA1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAFC71DA296C81C90099D470 /* Home */,
+				FA547A8A296C7FAE00B3EA1E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA547A8A296C7FAE00B3EA1E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA547A8B296C7FC900B3EA1E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */,
+				FAFC71E3296C87850099D470 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA547A8C296C7FDF00B3EA1E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FAFC71E1296C86340099D470 /* TServicesFactory.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FA547A8D296C7FED00B3EA1E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FAFC71EB296C8D040099D470 /* InterFont */,
+				FAFC71E5296C88F40099D470 /* Colors.swift */,
+				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FAFC71DA296C81C90099D470 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FAFC71DD296C85170099D470 /* THomeView.swift */,
+				FAFC71DF296C85280099D470 /* THomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FAFC71EB296C8D040099D470 /* InterFont */ = {
+			isa = PBXGroup;
+			children = (
+				FAFC71F0296C8D510099D470 /* Inter-Regular.otf */,
+			);
+			path = InterFont;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */,
-				FA547A7E296C7E2D00B3EA1E /* Assets.xcassets in Resources */,
+				FAFC7203296C8D530099D470 /* Inter-Regular.otf in Resources */,
+				FAFC71E4296C87850099D470 /* Images.xcassets in Resources */,
+				FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA547A7C296C7E2900B3EA1E /* ContentView.swift in Sources */,
+				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
+				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
+				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
+				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
+				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
+				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
+				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +359,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TImeBurg/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -279,7 +370,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -307,6 +398,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TImeBurg/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -317,7 +409,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
