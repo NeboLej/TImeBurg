@@ -11,6 +11,8 @@
 		FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* TTabView.swift */; };
 		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
+		FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBB51A296D8A3A008166A0 /* TButtons.swift */; };
+		FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBB51C296DDE7F008166A0 /* TTagView.swift */; };
 		FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DB296C84140099D470 /* TTabViewModel.swift */; };
 		FAFC71DE296C85170099D470 /* THomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DD296C85170099D470 /* THomeView.swift */; };
 		FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DF296C85280099D470 /* THomeViewModel.swift */; };
@@ -28,6 +30,8 @@
 		FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TImeBurg.entitlements; sourceTree = "<group>"; };
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAEBB51A296D8A3A008166A0 /* TButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TButtons.swift; sourceTree = "<group>"; };
+		FAEBB51C296DDE7F008166A0 /* TTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTagView.swift; sourceTree = "<group>"; };
 		FAFC71DB296C84140099D470 /* TTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabViewModel.swift; sourceTree = "<group>"; };
 		FAFC71DD296C85170099D470 /* THomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeView.swift; sourceTree = "<group>"; };
 		FAFC71DF296C85280099D470 /* THomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		FA547A8A296C7FAE00B3EA1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FAEBB51A296D8A3A008166A0 /* TButtons.swift */,
+				FAEBB51C296DDE7F008166A0 /* TTagView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -224,12 +230,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
+				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
 				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
+				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +378,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -409,7 +417,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;

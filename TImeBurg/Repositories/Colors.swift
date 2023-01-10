@@ -11,4 +11,6 @@ extension Color {
     
     static let blueViolet = Color("BlueViolet")
     static let brightNavyBlue = Color("BrightNavyBlue")
+    static let newYorkPink = Color("NewYorkPink")
+    static let outerSpace = Color("OuterSpace")
 }
