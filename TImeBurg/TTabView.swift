@@ -14,7 +14,7 @@ struct TTabView: View {
     
     var body: some View {
         TabView(selection: $selectionTab) {
-            THomeView(viewModel: THomeViewModel())
+            THomeView(vm: THomeViewModel())
                 .tabItem {
                 Image(systemName: "home")
                 Text("home")
