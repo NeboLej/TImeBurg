@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
+		FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753342972F1F9008AA4DD /* ViewModifiers.swift */; };
+		FA4753372972F979008AA4DD /* TCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753362972F979008AA4DD /* TCity.swift */; };
 		FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */; };
 		FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* TTabView.swift */; };
 		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
+		FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3922971CEE3000952DD /* TActivityType.swift */; };
+		FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3942971DA67000952DD /* TCityStatisticView.swift */; };
+		FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3972971DAD3000952DD /* TCityVM.swift */; };
+		FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */; };
+		FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBB51A296D8A3A008166A0 /* TButtons.swift */; };
+		FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBB51C296DDE7F008166A0 /* TTagView.swift */; };
 		FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DB296C84140099D470 /* TTabViewModel.swift */; };
 		FAFC71DE296C85170099D470 /* THomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DD296C85170099D470 /* THomeView.swift */; };
 		FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DF296C85280099D470 /* THomeViewModel.swift */; };
@@ -22,12 +31,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
+		FA4753342972F1F9008AA4DD /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		FA4753362972F979008AA4DD /* TCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCity.swift; sourceTree = "<group>"; };
 		FA547A76296C7E2900B3EA1E /* TImeBurg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeBurg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeBurgApp.swift; sourceTree = "<group>"; };
 		FA547A7B296C7E2900B3EA1E /* TTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabView.swift; sourceTree = "<group>"; };
 		FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TImeBurg.entitlements; sourceTree = "<group>"; };
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA83E3922971CEE3000952DD /* TActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TActivityType.swift; sourceTree = "<group>"; };
+		FA83E3942971DA67000952DD /* TCityStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityStatisticView.swift; sourceTree = "<group>"; };
+		FA83E3972971DAD3000952DD /* TCityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityVM.swift; sourceTree = "<group>"; };
+		FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPeopleCounterView.swift; sourceTree = "<group>"; };
+		FAEBB51A296D8A3A008166A0 /* TButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TButtons.swift; sourceTree = "<group>"; };
+		FAEBB51C296DDE7F008166A0 /* TTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTagView.swift; sourceTree = "<group>"; };
 		FAFC71DB296C84140099D470 /* TTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabViewModel.swift; sourceTree = "<group>"; };
 		FAFC71DD296C85170099D470 /* THomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeView.swift; sourceTree = "<group>"; };
 		FAFC71DF296C85280099D470 /* THomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +121,12 @@
 		FA547A8A296C7FAE00B3EA1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA83E3962971DA86000952DD /* CityStatistic */,
+				FAEBB51A296D8A3A008166A0 /* TButtons.swift */,
+				FAEBB51C296DDE7F008166A0 /* TTagView.swift */,
+				FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */,
+				FA4753322972E977008AA4DD /* TRatingView.swift */,
+				FA4753342972F1F9008AA4DD /* ViewModifiers.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -119,6 +143,7 @@
 		FA547A8C296C7FDF00B3EA1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA83E3912971CEAD000952DD /* Models */,
 				FAFC71E1296C86340099D470 /* TServicesFactory.swift */,
 			);
 			path = Services;
@@ -132,6 +157,24 @@
 				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FA83E3912971CEAD000952DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA83E3922971CEE3000952DD /* TActivityType.swift */,
+				FA4753362972F979008AA4DD /* TCity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA83E3962971DA86000952DD /* CityStatistic */ = {
+			isa = PBXGroup;
+			children = (
+				FA83E3942971DA67000952DD /* TCityStatisticView.swift */,
+				FA83E3972971DAD3000952DD /* TCityVM.swift */,
+			);
+			path = CityStatistic;
 			sourceTree = "<group>";
 		};
 		FAFC71DA296C81C90099D470 /* Home */ = {
@@ -223,14 +266,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */,
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
+				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
 				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
+				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
+				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
+				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
+				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
+				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
+				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
+				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +422,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -409,7 +461,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
