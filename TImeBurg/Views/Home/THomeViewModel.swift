@@ -19,4 +19,8 @@ class THomeViewModel: ObservableObject {
     func StartActivity() {
         
     }
+    
+    func getCurrentCity() -> TCityVM {
+        return TCityVM(city: TCity(name: "Челябинск", numberOfPeople: 431, comfortRating: 0.8, greenRating: 1.9, buildings: ["asd", "asd", "asd"] ))
+    }
 }

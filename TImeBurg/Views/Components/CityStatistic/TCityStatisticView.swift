@@ -25,15 +25,26 @@ struct TCityStatisticView: View {
             
             HStack {
                 VStack(spacing: 9) {
-                    lineView(title: "Количество зданий", rightView: Text("sd"))
+                    lineView(title: "Количество зданий", rightView: Text("\(vm.buildings.count)").modifier(WhiteCapsule()))
                     lineView(title: "Самый популярный тег", rightView: TTagView(vm: TTagVM(name: "game", color: .green)))
-                    lineView(title: "Озеленение", rightView: Button(action: {}, label: { Text("asdadadas") }))
-                    lineView(title: "Комфорт", rightView: Text("dfv"))
-                    lineView(title: "Уникальные постройки", rightView: Text("dfv"))
+                    lineView(title: "Озеленение", rightView: TRatingView(rating: vm.greenRating))
+                    lineView(title: "Комфорт", rightView: TRatingView(rating: vm.comfortRating))
+                    lineView(title: "Уникальные постройки", rightView: Text("\(vm.getUnicalBuildingsCount())").modifier(WhiteCapsule()))
+                }
+                VStack(alignment: .trailing,  spacing: 9) {
+                    Image(vm.getTopBuilding())
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.leading, 40)
+                        .padding(.trailing, 10)
+                    Text("Самое большое здание")
+                        .modifier(WhiteCapsule())
                 }
             }
+            .padding(.top, 15)
         }
         .padding(.horizontal, 20)
+        .padding(.bottom, 40)
         .background {
             LinearGradient(colors: [.blueViolet, .brightNavyBlue.opacity(0.53)], startPoint: .top, endPoint: .bottom)
         }
@@ -54,6 +65,6 @@ struct TCityStatisticView: View {
 
 struct TCityStatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityStatisticView(vm: TCityVM(city: TCity(name: "Tagil", numberOfPeople: 20, numberOfBuildings: 4, comfortRating: 5.0, greenRating: 3.4)))
+        TCityStatisticView(vm: TCityVM(city: TCity(name: "Tagil", numberOfPeople: 20, comfortRating: 5.0, greenRating: 3.4, buildings: ["", "", "", ""])))
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
+		FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753342972F1F9008AA4DD /* ViewModifiers.swift */; };
+		FA4753372972F979008AA4DD /* TCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753362972F979008AA4DD /* TCity.swift */; };
 		FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */; };
 		FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* TTabView.swift */; };
 		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
+		FA4753342972F1F9008AA4DD /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		FA4753362972F979008AA4DD /* TCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCity.swift; sourceTree = "<group>"; };
 		FA547A76296C7E2900B3EA1E /* TImeBurg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeBurg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeBurgApp.swift; sourceTree = "<group>"; };
 		FA547A7B296C7E2900B3EA1E /* TTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabView.swift; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 				FAEBB51A296D8A3A008166A0 /* TButtons.swift */,
 				FAEBB51C296DDE7F008166A0 /* TTagView.swift */,
 				FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */,
+				FA4753322972E977008AA4DD /* TRatingView.swift */,
+				FA4753342972F1F9008AA4DD /* ViewModifiers.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				FA83E3922971CEE3000952DD /* TActivityType.swift */,
+				FA4753362972F979008AA4DD /* TCity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,9 +274,12 @@
 				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
+				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
+				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
+				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,

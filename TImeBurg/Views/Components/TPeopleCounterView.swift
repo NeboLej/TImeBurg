@@ -20,10 +20,11 @@ struct TPeopleCounterView: View {
                 .font(.custom(TFont.interRegular, size: 14))
                 .foregroundColor(.black)
         }
-        .padding(.vertical, 6)
-        .padding(.horizontal, 12)
-        .background(Color.white.opacity(0.67))
-        .cornerRadius(20)
+        .modifier(WhiteCapsule())
+//        .padding(.vertical, 6)
+//        .padding(.horizontal, 12)
+//        .background(Color.white.opacity(0.67))
+//        .cornerRadius(20)
     }
 }
 

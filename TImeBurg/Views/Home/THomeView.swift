@@ -18,6 +18,9 @@ struct THomeView: View {
             cityView()
             newHouseView()
                 .padding(.top, -30)
+                .padding(.horizontal, 5)
+            TCityStatisticView(vm: vm.getCurrentCity())
+                .padding(.horizontal, 5)
         }
         .ignoresSafeArea(.all, edges: .top)
     }
@@ -133,7 +136,6 @@ struct THomeView: View {
             LinearGradient(colors: [.blueViolet, .brightNavyBlue.opacity(0.53)], startPoint: .top, endPoint: .bottom)
         }
         .cornerRadius(25)
-        .padding(.horizontal, 5)
     }
     
     @ViewBuilder

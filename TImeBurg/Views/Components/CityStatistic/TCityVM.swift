@@ -10,27 +10,29 @@ import Foundation
 class TCityVM: ObservableObject {
     @Published var name: String
     @Published var numberOfPeople: Int
-    @Published var numberOfBuildings: Int
     @Published var comfortRating: Double
     @Published var greenRating: Double
+    @Published var buildings: [String]
     
-    init(name: String, numberOfPeople: Int, numberOfBuildings: Int, comfortRating: Double, greenRating: Double) {
+    init(name: String, numberOfPeople: Int, comfortRating: Double, greenRating: Double, buildings: [String]) {
         self.name = name
         self.numberOfPeople = numberOfPeople
-        self.numberOfBuildings = numberOfBuildings
         self.comfortRating = comfortRating
         self.greenRating = greenRating
+        self.buildings = buildings
     }
     
-    convenience init(city: TCity) {
-        self.init(name: city.name, numberOfPeople: city.numberOfPeople, numberOfBuildings: city.numberOfBuildings, comfortRating: city.comfortRating, greenRating: city.greenRating)
-    }
-}
 
-struct TCity {
-    let name: String
-    let numberOfPeople: Int
-    let numberOfBuildings: Int
-    let comfortRating: Double
-    let greenRating: Double
+    convenience init(city: TCity) {
+        self.init(name: city.name, numberOfPeople: city.numberOfPeople, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings)
+    }
+    
+    func getUnicalBuildingsCount() -> Int {
+        return 2
+    }
+    
+    func getTopBuilding() -> String {
+        return "House1"
+    }
+    
 }
