@@ -12,19 +12,18 @@ class TCityVM: ObservableObject {
     @Published var numberOfPeople: Int
     @Published var comfortRating: Double
     @Published var greenRating: Double
-    @Published var buildings: [String]
+    @Published var buildings: [THouseVM] = []
     
-    init(name: String, numberOfPeople: Int, comfortRating: Double, greenRating: Double, buildings: [String]) {
+    init(name: String, numberOfPeople: Int, comfortRating: Double, greenRating: Double, buildings: [THouse], parent: Any? = nil) {
         self.name = name
         self.numberOfPeople = numberOfPeople
         self.comfortRating = comfortRating
         self.greenRating = greenRating
-        self.buildings = buildings
+        self.buildings = buildings.map { THouseVM(house: $0, parent: parent) }
     }
     
-
-    convenience init(city: TCity) {
-        self.init(name: city.name, numberOfPeople: city.numberOfPeople, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings)
+    convenience init(city: TCity, parent: Any? = nil) {
+        self.init(name: city.name, numberOfPeople: city.numberOfPeople, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
     }
     
     func getUnicalBuildingsCount() -> Int {

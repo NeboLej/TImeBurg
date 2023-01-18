@@ -65,6 +65,6 @@ struct TCityStatisticView: View {
 
 struct TCityStatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityStatisticView(vm: TCityVM(city: TCity(name: "Tagil", numberOfPeople: 20, comfortRating: 5.0, greenRating: 3.4, buildings: ["", "", "", ""])))
+        TCityStatisticView(vm: TCityVM(city: TCity(name: "Tagil", numberOfPeople: 20, comfortRating: 5.0, greenRating: 3.4, buildings: [])))
     }
 }

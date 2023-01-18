@@ -12,5 +12,5 @@ struct TCity {
     let numberOfPeople: Int
     let comfortRating: Double
     let greenRating: Double
-    let buildings: [String]
+    let buildings: [THouse]
 }

@@ -16,7 +16,7 @@ struct TPeopleCounterView: View {
             Image(systemName: "person")
                 .foregroundColor(.black)
             Spacer()
-            Text("\(count)")
+            Text(String(count))
                 .font(.custom(TFont.interRegular, size: 14))
                 .foregroundColor(.black)
         }
@@ -30,6 +30,6 @@ struct TPeopleCounterView: View {
 
 struct TPeopleCounterView_Previews: PreviewProvider {
     static var previews: some View {
-        TPeopleCounterView(count: 124334)
+        TPeopleCounterView(count: 100)
     }
 }

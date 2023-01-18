@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
-import UIKit
+//import UIKit
 
 struct THomeView: View {
     
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
     
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            cityView()
+            TCityView(vm: vm.getCurrentCity())
+                .gesture(TapGesture()
+                    .onEnded { vm.emptyClick() })
             newHouseView()
                 .padding(.top, -30)
                 .padding(.horizontal, 5)
@@ -25,61 +28,20 @@ struct THomeView: View {
         .ignoresSafeArea(.all, edges: .top)
     }
     
-    
-    @ViewBuilder
-    private func cityView() -> some View {
-        VStack(alignment: .center, spacing: 0) {
-            Rectangle()
-                .fill(LinearGradient(colors: [.pink.opacity(0.8), .blueViolet, .brightNavyBlue], startPoint: .bottom, endPoint: .top))
-                .frame(height: 300)
-            Rectangle()
-                .fill(Color.gray)
-                .frame(height: 20)
-            Rectangle()
-                .fill(Color.black.opacity(0.85))
-                .frame(height: 6)
-            ZStack(alignment: .center) {
-                Rectangle()
-                    .fill(Color.black.opacity(0.8))
-                    .frame(height: 100)
-                HStack(alignment: .center, spacing: 30) {
-                    Rectangle()
-                        .fill(Color.white.opacity(0.8))
-                        .frame(width: 50, height: 3)
-                    Rectangle()
-                        .fill(Color.white.opacity(0.8))
-                        .frame(width: 50, height: 3)
-                    Rectangle()
-                        .fill(Color.white.opacity(0.8))
-                        .frame(width: 50, height: 3)
-                    Rectangle()
-                        .fill(Color.white.opacity(0.8))
-                        .frame(width: 50, height: 3)
-                    Rectangle()
-                        .fill(Color.white.opacity(0.8))
-                        .frame(width: 50, height: 3)
-                }
-
-            }
-            
-        }
-
-    }
-    
     @ViewBuilder
     private func newHouseView() -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("New House")
+            Text(vm.selectedHouse == nil ? "New House": "House upgrade")
                 .font(.custom(TFont.interRegular, size: 20))
                 .foregroundColor(.white)
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
-
+            
             
             HStack(alignment: .top, spacing: 0) {
                 
                 VStack(alignment: .center, spacing: 0) {
-
+                    
                     Text("\(Int(vm.timeActivity))")
                         .font(.custom(TFont.interRegular, size: 60))
                         .foregroundColor(.white)
@@ -89,7 +51,7 @@ struct THomeView: View {
                         .foregroundColor(.white)
                         .padding(.top, -15)
                     Spacer()
-                    TButton(action: { vm.StartActivity() }, text: Text("Start") )
+                    TButton(action: { vm.startActivity() }, text: Text("Start") )
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.leading, 15)
@@ -98,6 +60,10 @@ struct THomeView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     activityPicker()
+                        .opacity(vm.selectedHouse == nil ? 1 : 0)
+                    TPeopleCounterView(count: vm.selectedHouse?.timeExpenditure ?? 0)
+                        .frame(width: 80)
+                        .opacity(vm.selectedHouse == nil ? 0 : 1)
                     
                     HStack(alignment: .top, spacing: 0) {
                         VStack(alignment: .leading, spacing: 16) {
@@ -114,7 +80,7 @@ struct THomeView: View {
                                 .foregroundColor(.white)
                             )
                         }
-                        Image(vm.imageSet[vm.activityType.rawValue])
+                        Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
                             .resizable()
                             .scaledToFit()
                             .padding(.horizontal)
@@ -150,16 +116,16 @@ struct THomeView: View {
             Text("строить").tag(0)
             Text("озеленение").tag(1)
             Text("комфорт").tag(2)
-
+            
         } label: { }
-        .pickerStyle(.segmented)
-        .padding(.top, 10)
-        .onAppear {
-            UISegmentedControl.appearance().backgroundColor = .white
-            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(.newYorkPink)
-            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black, .font: UIFont(name: TFont.interRegular, size: 10)!], for: .normal)
-            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-        }
+            .pickerStyle(.segmented)
+            .padding(.top, 10)
+            .onAppear {
+                UISegmentedControl.appearance().backgroundColor = .white
+                UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(.newYorkPink)
+                UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black, .font: UIFont(name: TFont.interRegular, size: 10)!], for: .normal)
+                UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+            }
     }
     
     @ViewBuilder
@@ -196,16 +162,16 @@ struct THomeView_Previews: PreviewProvider {
 struct CheckBoxView: View {
     @Binding var checked: Bool
     let text: Text
-
+    
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
             Image(systemName: checked ? "dot.square" : "square")
-                .foregroundColor(checked ? Color(UIColor.white) : Color.white)
+                .foregroundColor(checked ? .white : .white)
                 .onTapGesture {
                     self.checked.toggle()
                 }
             text
         }
-
+        
     }
 }
