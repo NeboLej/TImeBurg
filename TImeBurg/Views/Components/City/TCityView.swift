@@ -37,7 +37,7 @@ struct TCityView: View {
     func backgroundView() -> some View {
         Image("BackgroundCity1")
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
     }
     
     @ViewBuilder

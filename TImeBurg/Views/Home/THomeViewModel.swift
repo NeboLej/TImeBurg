@@ -16,12 +16,13 @@ class THomeViewModel: ObservableObject, THouseListener {
     @Published var selectedHouse: THouseVM?
     @Published var selectedHouseCount: Int = 0
     private let buildings = [
-        THouse(image: "House1", timeExpenditure: 60, width: 55, line: 0, offsetX: -0),
-        THouse(image: "House2", timeExpenditure: 10, width: 35, line: 0, offsetX: -60),
-        THouse(image: "House3", timeExpenditure: 160, width: 60, line: 0, offsetX: -120),
-        THouse(image: "House1", timeExpenditure: 60, width: 55, line: 0, offsetX: 150),
+        THouse(image: "House4", timeExpenditure: 60, width: 60, line: 0, offsetX: -0),
+        THouse(image: "House8", timeExpenditure: 10, width: 35, line: 0, offsetX: -60),
         THouse(image: "House2", timeExpenditure: 10, width: 35, line: 0, offsetX: 50),
-        THouse(image: "House3", timeExpenditure: 100, width: 60, line: 1, offsetX: 100)
+        THouse(image: "House6", timeExpenditure: 160, width: 60, line: 0, offsetX: -120),
+        THouse(image: "House1", timeExpenditure: 60, width: 55, line: 0, offsetX: 150),
+        THouse(image: "House7", timeExpenditure: 60, width: 55, line: 0, offsetX: 60),
+        THouse(image: "House5", timeExpenditure: 100, width: 55, line: 0, offsetX: 100)
     ]
     
     let imageSet = ["House1", "House2", "House3"]

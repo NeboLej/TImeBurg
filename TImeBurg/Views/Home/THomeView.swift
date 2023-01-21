@@ -16,16 +16,33 @@ struct THomeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            TCityView(vm: vm.getCurrentCity())
+//            TCityView(vm: vm.getCurrentCity())
+            city(vm: vm.getCurrentCity())
                 .gesture(TapGesture()
                     .onEnded { vm.emptyClick() })
             newHouseView()
-                .padding(.top, -30)
+//                .padding(.top, 100)
                 .padding(.horizontal, 5)
             TCityStatisticView(vm: vm.getCurrentCity())
                 .padding(.horizontal, 5)
         }
+        .coordinateSpace(name: "SCROLL")
         .ignoresSafeArea(.all, edges: .top)
+        .background(.white)
+    }
+    
+    @ViewBuilder
+    private func city(vm: TCityVM) -> some View {
+        GeometryReader { proxy in
+            let minY = proxy.frame(in: .named("SCROLL")).minY
+            let size = proxy.size
+            let height = size.height + minY
+            
+            TCityView(vm: vm)
+                .frame(width: size.width, height: height, alignment: .top)
+                .offset(y: minY > 0 ? -minY : minY / 10)
+        }
+        .frame(height: 350)
     }
     
     @ViewBuilder

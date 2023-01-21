@@ -33,6 +33,7 @@ struct TTagView: View {
                 .font(.custom(TFont.interRegular, size: 10))
                 .foregroundColor(.outerSpace)
         }
+        .frame(height: 16)
         .padding(3)
         .background(.white.opacity(0.67))
         .cornerRadius(20)
