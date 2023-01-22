@@ -13,15 +13,13 @@ struct THomeView: View {
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
     
-    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-//            TCityView(vm: vm.getCurrentCity())
             city(vm: vm.getCurrentCity())
                 .gesture(TapGesture()
                     .onEnded { vm.emptyClick() })
             newHouseView()
-//                .padding(.top, 100)
+                .padding(.top, -30)
                 .padding(.horizontal, 5)
             TCityStatisticView(vm: vm.getCurrentCity())
                 .padding(.horizontal, 5)
@@ -40,7 +38,7 @@ struct THomeView: View {
             
             TCityView(vm: vm)
                 .frame(width: size.width, height: height, alignment: .top)
-                .offset(y: minY > 0 ? -minY : minY / 10)
+                .offset(y: minY > 0 ? -minY : 0)
         }
         .frame(height: 350)
     }
@@ -86,12 +84,12 @@ struct THomeView: View {
                         VStack(alignment: .leading, spacing: 16) {
                             TTagView(vm: TTagVM(name: "reading", color: .pink))
                                 .padding(.top, 23)
-                            CheckBoxView(checked: $vm.isSetting1,
+                            TCheckBoxView(checked: $vm.isSetting1,
                                          text: Text("Некий выбор")
                                 .font(.custom(TFont.interRegular, size: 10))
                                 .foregroundColor(.white)
                             )
-                            CheckBoxView(checked: $vm.isSetting2,
+                            TCheckBoxView(checked: $vm.isSetting2,
                                          text: Text("Некий выбор2")
                                 .font(.custom(TFont.interRegular, size: 10))
                                 .foregroundColor(.white)
@@ -173,22 +171,5 @@ struct THomeView: View {
 struct THomeView_Previews: PreviewProvider {
     static var previews: some View {
         THomeView(vm: THomeViewModel())
-    }
-}
-
-struct CheckBoxView: View {
-    @Binding var checked: Bool
-    let text: Text
-    
-    var body: some View {
-        HStack(alignment: .center, spacing: 0) {
-            Image(systemName: checked ? "dot.square" : "square")
-                .foregroundColor(checked ? .white : .white)
-                .onTapGesture {
-                    self.checked.toggle()
-                }
-            text
-        }
-        
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */; };
+		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
 		FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753342972F1F9008AA4DD /* ViewModifiers.swift */; };
 		FA4753372972F979008AA4DD /* TCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753362972F979008AA4DD /* TCity.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckBoxView.swift; sourceTree = "<group>"; };
+		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
 		FA4753342972F1F9008AA4DD /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		FA4753362972F979008AA4DD /* TCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCity.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */,
 				FA4753322972E977008AA4DD /* TRatingView.swift */,
 				FA4753342972F1F9008AA4DD /* ViewModifiers.swift */,
+				FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */,
+				FA362F4F297DD83700EE0CE1 /* TTimerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */,
 				FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */,
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
 				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
@@ -297,6 +304,7 @@
 				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
+				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
