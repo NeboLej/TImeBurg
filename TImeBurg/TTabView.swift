@@ -19,6 +19,11 @@ struct TTabView: View {
                 Image(systemName: "home")
                 Text("home")
             }.tag(0)
+            TProgressView(vm: .init(minutes: 1.0))
+                .tabItem {
+                Image(systemName: "home")
+                Text("home")
+            }.tag(1)
         }
 //        .onAppear() {
 //            UITabBar.appearance().unselectedItemTintColor = UIColor.gray
@@ -33,3 +38,5 @@ struct ContentView_Previews: PreviewProvider {
         TTabView(viewModel: TTabViewModel(servicesFactory: TServicesFactory()))
     }
 }
+
+
