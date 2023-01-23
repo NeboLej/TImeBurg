@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "92b75c5ce6e82cf32d58eadffe0d5c36b235ae54",
+        "version" : "4.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}

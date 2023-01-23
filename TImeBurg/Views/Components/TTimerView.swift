@@ -14,10 +14,16 @@ struct TTimerView: View {
     
     var body: some View {
         VStack {
+            
+            Spacer()
+            TLottieView(lottieFile: "OrangeHome")
+                .frame(width: 400, height: 250)
             Text(vm.time)
                 .font(.custom(TFont.interRegular, size: 70))
+                .foregroundColor(.white)
             
             Slider(value: $vm.minutes, in: 1...10, step: 1)
+                .padding()
                 .disabled(vm.isActive)
                 .animation(.easeOut, value: vm.minutes)
             
@@ -37,12 +43,16 @@ struct TTimerView: View {
                 }
                 
             }
-            
-                
+
+            Spacer()
         }
+        .background {
+            LinearGradient(colors: [.blueViolet, .brightNavyBlue.opacity(0.53)], startPoint: .top, endPoint: .bottom) }
+        .ignoresSafeArea(.all)
         .onReceive(vm.timer) { _ in
             vm.updateCountdown()
         }
+        
     }
 }
 
@@ -99,3 +109,4 @@ class TTimerVM: ObservableObject {
         time = String(format: "%d:%02d", min, sec)
     }
 }
+
