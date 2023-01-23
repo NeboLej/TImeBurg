@@ -19,8 +19,8 @@ struct TProgressView: View {
                 case .completed:
                     completedView()
             }
-            Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background { LinearGradient(colors: [.blueViolet, .brightNavyBlue], startPoint: .top, endPoint: .bottom) }
         .ignoresSafeArea(.all)
         .animation(.easeOut, value: vm.state)
@@ -28,29 +28,32 @@ struct TProgressView: View {
     
     @ViewBuilder
     func processView() -> some View {
-        VStack {
-            HStack{
-                Button { }
-            label: {
-                Image(systemName: "xmark")
-                    .resizable()
+        GeometryReader { proxy in
+            VStack {
+                HStack{
+                    Button { }
+                label: {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 20, height: 20)
+                }
+                    Spacer()
+                }
+                .padding(.top, 50)
+                .padding(.leading, 30)
+                TLottieView(lottieFile: "OrangeHome")
+                    .frame(width: proxy.size.width * 0.8, height: proxy.size.width * 0.8 * 9 / 12)
+                    .padding(.top, 30)
+                TTimerView(vm: vm.getTimerVM())
+                progressView()
+                Text("do it now")
+                    .font(.custom(TFont.interRegular, size: 20))
                     .foregroundColor(.white)
-                    .frame(width: 20, height: 20)
+                    .padding(.top, 40)
             }
-                Spacer()
-            }
-            .padding(.top, 50)
-            .padding(.leading, 30)
-            TLottieView(lottieFile: "OrangeHome")
-                .frame(width: 400, height: 250)
-                .padding(.top, 30)
-            TTimerView(vm: vm.getTimerVM())
-            progressView()
-            Text("do it now")
-                .font(.custom(TFont.interRegular, size: 20))
-                .foregroundColor(.white)
-                .padding(.top, 40)
         }
+
     }
     
     @ViewBuilder
