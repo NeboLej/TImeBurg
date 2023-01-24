@@ -10,6 +10,8 @@ import SwiftUI
 struct TProgressView: View {
     
     @ObservedObject var vm: TProgressVM
+    @Environment(\.dismiss) var dismiss
+    @State var isShowAlert = false
     
     var body: some View {
         VStack {
@@ -23,7 +25,7 @@ struct TProgressView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background { LinearGradient(colors: [.blueViolet, .brightNavyBlue], startPoint: .top, endPoint: .bottom) }
         .ignoresSafeArea(.all)
-        .animation(.easeOut, value: vm.state)
+        .animation(.easeIn, value: vm.state)
     }
     
     @ViewBuilder
@@ -31,7 +33,7 @@ struct TProgressView: View {
         GeometryReader { proxy in
             VStack {
                 HStack{
-                    Button { }
+                    Button { isShowAlert = true }
                 label: {
                     Image(systemName: "xmark")
                         .resizable()
@@ -43,14 +45,22 @@ struct TProgressView: View {
                 .padding(.top, 50)
                 .padding(.leading, 30)
                 TLottieView(lottieFile: "OrangeHome")
-                    .frame(width: proxy.size.width * 0.8, height: proxy.size.width * 0.8 * 9 / 12)
-                    .padding(.top, 30)
+                    .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7 * 9 / 12)
+                    .padding(.top, 10)
                 TTimerView(vm: vm.getTimerVM())
-                progressView()
+                progressCircleView()
                 Text("do it now")
                     .font(.custom(TFont.interRegular, size: 20))
                     .foregroundColor(.white)
-                    .padding(.top, 40)
+                    .padding(.top, 20)
+            }
+        }
+        .alert("При закрытии этого экрана таймер будет остановлен", isPresented: $isShowAlert) {
+            Button(role: .destructive) {  dismiss() } label: {
+                Text("Закрыть")
+            }
+            Button(role: .cancel) { } label: {
+                Text("Остаться")
             }
         }
 
@@ -58,40 +68,43 @@ struct TProgressView: View {
     
     @ViewBuilder
     func completedView() -> some View {
-        VStack {
-            ZStack(alignment: .bottom) {
-                TLottieView(lottieFile: "Bubbles")
-                    .frame(width: 300, height: 300)
-                    
-                Image(vm.getHome().image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 120)
-            }
-            .padding(.top, 80)
+        GeometryReader { proxy in
+            VStack {
+                ZStack(alignment: .bottom) {
+                    TLottieView(lottieFile: "Bubbles")
+                        .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7)
+                        
+                    Image(vm.getHome().image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120)
+                }
+                .padding(.top, 60)
 
-            Rectangle()
-                .fill(.white)
-                .frame(height: 1)
-                .padding(.horizontal, 30)
-                .offset(y: -10)
-            
-            Text("Completed!")
-                .font(.custom(TFont.interRegular, size: 27))
-                .foregroundColor(.white)
-                .padding(.vertical, 30)
-            progressView()
-            TButton(action: {
+                Rectangle()
+                    .fill(.white)
+                    .frame(height: 1)
+                    .padding(.horizontal, 30)
+                    .offset(y: -10)
                 
-            }, text: Text("Разместить"))
-            .frame(width: 180)
-            .padding(.top, 50)
+                Text("Completed!")
+                    .font(.custom(TFont.interRegular, size: 27))
+                    .foregroundColor(.white)
+                    .padding(.vertical, 20)
+                progressCircleView()
+                TButton(action: {
+                    
+                }, text: Text("Разместить")
+                    .font(.custom(TFont.interRegular, size: 16))
+                    .foregroundColor(.black))
+                .frame(width: 180)
+                .padding(.top, 40)
+            }
         }
-        .frame(maxWidth: .infinity)
     }
     
     @ViewBuilder
-    func progressView() -> some View {
+    func progressCircleView() -> some View {
         TCircleProgressView(progress: vm.progress)
             .overlay(alignment: .bottom) {
                 if vm.state == .completed {

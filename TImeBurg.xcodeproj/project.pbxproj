@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317B29801726001169B8 /* TTimerVM.swift */; };
 		FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */; };
 		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1B317B29801726001169B8 /* TTimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerVM.swift; sourceTree = "<group>"; };
 		FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckBoxView.swift; sourceTree = "<group>"; };
 		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1B317A2980170B001169B8 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				FA362F4F297DD83700EE0CE1 /* TTimerView.swift */,
+				FA1B317B29801726001169B8 /* TTimerVM.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		FA547A6D296C7E2900B3EA1E = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +161,7 @@
 		FA547A8A296C7FAE00B3EA1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA1B317A2980170B001169B8 /* Timer */,
 				FA83E3972971DAD3000952DD /* TCityVM.swift */,
 				FAB2242D29783E3F00B9482C /* THouseVM.swift */,
 				FAB224262978335300B9482C /* City */,
@@ -160,7 +172,6 @@
 				FA4753322972E977008AA4DD /* TRatingView.swift */,
 				FA4753342972F1F9008AA4DD /* ViewModifiers.swift */,
 				FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */,
-				FA362F4F297DD83700EE0CE1 /* TTimerView.swift */,
 				FADCDBE7297ED368000B3FDC /* TLottieView.swift */,
 			);
 			path = Components;
@@ -345,6 +356,7 @@
 				FADCDBF3297EFCB6000B3FDC /* TProgressVM.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
+				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
@@ -496,8 +508,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -507,9 +518,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -535,8 +548,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -546,9 +558,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
