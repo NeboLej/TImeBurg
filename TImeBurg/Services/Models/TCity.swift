@@ -8,9 +8,12 @@
 import Foundation
 
 struct TCity {
+    let id: String
     let name: String
-    let numberOfPeople: Int
+    let image: String
+    let spentTime: Int
     let comfortRating: Double
     let greenRating: Double
     let buildings: [THouse]
+    let history: [Date: [TBuildingType]]
 }
