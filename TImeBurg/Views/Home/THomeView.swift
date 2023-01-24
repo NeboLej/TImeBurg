@@ -27,6 +27,11 @@ struct THomeView: View {
         .coordinateSpace(name: "SCROLL")
         .ignoresSafeArea(.all, edges: .top)
         .background(.white)
+        .fullScreenCover(isPresented: $vm.isProgress) {
+            vm.isProgress = false
+        } content: {
+            TProgressView(vm: vm.startActivity())
+        }
     }
     
     @ViewBuilder
@@ -66,7 +71,7 @@ struct THomeView: View {
                         .foregroundColor(.white)
                         .padding(.top, -15)
                     Spacer()
-                    TButton(action: { vm.startActivity() }, text: Text("Start") )
+                    TButton(action: { vm.isProgress = true }, text: Text("Start") )
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.leading, 15)

@@ -15,6 +15,8 @@ class THomeViewModel: ObservableObject, THouseListener {
     @Published var isSetting2 = false
     @Published var selectedHouse: THouseVM?
     @Published var selectedHouseCount: Int = 0
+    @Published var isProgress = false
+    
     private let buildings = [
         THouse(image: "House1", timeExpenditure: 60, width: 60, line: 0, offsetX: -0),
         THouse(image: "House2", timeExpenditure: 10, width: 35, line: 0, offsetX: -60),
@@ -24,8 +26,8 @@ class THomeViewModel: ObservableObject, THouseListener {
     
     let imageSet = ["House1", "House2", "House3"]
     
-    func startActivity() {
-        
+    func startActivity() -> TProgressVM {
+        TProgressVM(minutes: Float(timeActivity))
     }
     
     func getCurrentCity() -> TCityVM {
