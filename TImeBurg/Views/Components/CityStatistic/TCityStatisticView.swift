@@ -18,7 +18,7 @@ struct TCityStatisticView: View {
                     .foregroundColor(.white)
                     .font(.custom(TFont.interRegular, size: 20))
                 Spacer()
-                TPeopleCounterView(count: vm.numberOfPeople)
+                TPeopleCounterView(count: $vm.numberOfPeople)
                     .frame(width: 90)
             }
             .padding(.top, 22)

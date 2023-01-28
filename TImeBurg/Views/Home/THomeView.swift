@@ -64,7 +64,7 @@ struct THomeView: View {
                     Text("\(Int(vm.timeActivity))")
                         .font(.custom(TFont.interRegular, size: 60))
                         .foregroundColor(.white)
-                        .padding(.top, 16)
+                        .padding(.top, 10)
                     Text("min")
                         .font(.custom(TFont.interRegular, size: 40))
                         .foregroundColor(.white)
@@ -76,22 +76,27 @@ struct THomeView: View {
                 .padding(.leading, 15)
                 .frame(width: 150)
                 
-                VStack(alignment: .center, spacing: 0) {
+                VStack {
+                    VStack(alignment: .trailing, spacing: 0) {
+                        activityPicker()
+                            .opacity(vm.selectedHouse == nil ? 1 : 0)
+                        TPeopleCounterView(count: $vm.countPeople)
+                            .frame(width: 80)
+                            .opacity(vm.selectedHouse == nil ? 0 : 1)
+                    }
+                    .offset(y: vm.selectedHouse == nil ?  0 : -30)
                     
-                    activityPicker()
-                        .opacity(vm.selectedHouse == nil ? 1 : 0)
-                    TPeopleCounterView(count: vm.selectedHouse?.timeExpenditure ?? 0)
-                        .frame(width: 80)
-                        .opacity(vm.selectedHouse == nil ? 0 : 1)
-                    
-                    Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                        .offset(x: offsetX)
-                        .frame(height: 150)
-                        .animation(Animation.easeOut, value: offsetX)
+                    VStack(alignment: .center, spacing: 0) {
+                        Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.horizontal)
+                            .offset(x: offsetX)
+                            .frame(height: 150)
+                            .animation(Animation.easeOut, value: offsetX)
+                    }
                 }
+
                 Spacer()
             }
             .padding(.top, 17)
@@ -130,7 +135,6 @@ struct THomeView: View {
         }, set: { newValue in
             move(offset: 500)
             vm.activityType = TActivityType(rawValue: newValue)!
-            
         })) {
             Text("строить").tag(0)
             Text("озеленение").tag(1)
@@ -138,7 +142,6 @@ struct THomeView: View {
             
         } label: { }
             .pickerStyle(.segmented)
-            .padding(.top, 10)
             .onAppear {
                 UISegmentedControl.appearance().backgroundColor = .white
                 UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(.newYorkPink)

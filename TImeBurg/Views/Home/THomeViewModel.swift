@@ -14,9 +14,14 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var timeActivity: Double = 10.0
     @Published var isSetting1 = false
     @Published var isSetting2 = false
-    @Published var selectedHouse: THouseVM?
+    @Published var selectedHouse: THouseVM? {
+        didSet {
+            countPeople = selectedHouse?.timeExpenditure ?? 0
+        }
+    }
     @Published var isProgress = false
     @Published var currentCity: TCityVM  = TCityVM()
+    @Published var countPeople: Int = 0
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
@@ -44,18 +49,13 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         selectedHouse = nil
     }
     
-    func getPeopleCount() -> Int {
-        guard let house = selectedHouse else { return 0 }
-        return house.timeExpenditure / 10
-    }
-    
     //MARK: - THouseListenerProtocol
-    
     func onHouseClick(id: String) {
         selectedHouse = nil
         let house = currentCity.buildings.first { $0.id == id }
         if let house = house {
             selectedHouse = house
+//            count = house.timeExpenditure
         }
     }
 }
