@@ -26,8 +26,8 @@ class TLocalStorageManager: TLocalStorageManagerProtocol {
         TCity(id: "12023", name: "January 2023", image: "", spentTime: 120, comfortRating: 0.7, greenRating: 0.2,
               buildings: [.init(image: "House1", timeExpenditure: 170, width: 60, line: 0, offsetX: -50),
                           .init(image: "House2", timeExpenditure: 50, width: 30, line: 0, offsetX: -100),
-                          .init(image: "House3", timeExpenditure: 200, width: 60, line: 0, offsetX: 50),
-                          .init(image: "House4", timeExpenditure: 150, width: 65, line: 0, offsetX: 100)],
+                          .init(image: "House3", timeExpenditure: 160, width: 60, line: 0, offsetX: 50),
+                          .init(image: "House4", timeExpenditure: 200, width: 65, line: 0, offsetX: 100)],
               history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
     ]
     

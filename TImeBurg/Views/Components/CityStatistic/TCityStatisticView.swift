@@ -31,12 +31,13 @@ struct TCityStatisticView: View {
                     lineView(title: "Комфорт", rightView: TRatingView(rating: vm.comfortRating))
                     lineView(title: "Уникальные постройки", rightView: Text("\(vm.getUnicalBuildingsCount())").modifier(WhiteCapsule()))
                 }
-                VStack(alignment: .trailing,  spacing: 9) {
+                VStack(alignment: .center,  spacing: 9) {
                     Image(vm.getTopBuilding()?.image ?? "")
                         .resizable()
                         .scaledToFit()
-                        .padding(.leading, 40)
-                        .padding(.trailing, 10)
+                        .frame(width: 100)
+//                        .padding(.leading, 40)
+//                        .padding(.trailing, 10)
                     Text("Самое большое здание")
                         .modifier(WhiteCapsule())
                 }
