@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-//import UIKit
 
 struct THomeView: View {
     
@@ -15,13 +14,13 @@ struct THomeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            city(vm: vm.getCurrentCity())
+            city(vm: vm.currentCity)
                 .gesture(TapGesture()
                     .onEnded { vm.emptyClick() })
             newHouseView()
                 .padding(.top, -30)
                 .padding(.horizontal, 5)
-            TCityStatisticView(vm: vm.getCurrentCity())
+            TCityStatisticView(vm: vm.currentCity)
                 .padding(.horizontal, 5)
         }
         .coordinateSpace(name: "SCROLL")
@@ -77,7 +76,7 @@ struct THomeView: View {
                 .padding(.leading, 15)
                 .frame(width: 150)
                 
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .center, spacing: 0) {
                     
                     activityPicker()
                         .opacity(vm.selectedHouse == nil ? 1 : 0)
@@ -85,37 +84,37 @@ struct THomeView: View {
                         .frame(width: 80)
                         .opacity(vm.selectedHouse == nil ? 0 : 1)
                     
-                    HStack(alignment: .top, spacing: 0) {
-                        VStack(alignment: .leading, spacing: 16) {
-                            TTagView(vm: TTagVM(name: "reading", color: .pink))
-                                .padding(.top, 23)
-                            TCheckBoxView(checked: $vm.isSetting1,
-                                         text: Text("Некий выбор")
-                                .font(.custom(TFont.interRegular, size: 10))
-                                .foregroundColor(.white)
-                            )
-                            TCheckBoxView(checked: $vm.isSetting2,
-                                         text: Text("Некий выбор2")
-                                .font(.custom(TFont.interRegular, size: 10))
-                                .foregroundColor(.white)
-                            )
-                        }
-                        Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
-                            .resizable()
-                            .scaledToFit()
-                            .padding(.horizontal)
-                            .offset(x: offsetX)
-                            .frame(height: 150)
-                            .animation(Animation.easeOut, value: offsetX)
-                    }
+                    Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .offset(x: offsetX)
+                        .frame(height: 150)
+                        .animation(Animation.easeOut, value: offsetX)
                 }
                 Spacer()
             }
             .padding(.top, 17)
             
+            HStack(alignment: .center, spacing: 16) {
+                TCheckBoxView(checked: $vm.isSetting1,
+                              text: Text("Некий выбор")
+                    .font(.custom(TFont.interRegular, size: 10))
+                    .foregroundColor(.white)
+                )
+                TCheckBoxView(checked: $vm.isSetting2,
+                              text: Text("Некий выбор2")
+                    .font(.custom(TFont.interRegular, size: 10))
+                    .foregroundColor(.white)
+                )
+                TTagView(vm: TTagVM(name: "reading", color: .pink))
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, 20)
+            
             timeSlider()
                 .padding(.horizontal, 30)
-                .padding(.top, 16)
+                .padding(.top, 12)
                 .padding(.bottom, 30)
         }
         .background {
@@ -175,6 +174,6 @@ struct THomeView: View {
 
 struct THomeView_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel())
+        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
     }
 }

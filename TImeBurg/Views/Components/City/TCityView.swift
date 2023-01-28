@@ -79,6 +79,6 @@ struct TCityView: View {
 
 struct TCityView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityView(vm: TCityVM(city: TCity(name: "Gtgt", numberOfPeople: 22, comfortRating: 0.78, greenRating: 2.31, buildings: [] )))
+        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [], history: [:])))
     }
 }

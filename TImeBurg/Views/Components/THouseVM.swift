@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol THouseListener {
+protocol THouseListenerProtocol {
     func onHouseClick(id: String)
 }
 
@@ -48,7 +48,7 @@ class THouseVM: ObservableObject {
     }
     
     func onHouseClick() {
-        (parent as! THouseListener).onHouseClick(id: id)
+        (parent as! THouseListenerProtocol).onHouseClick(id: id)
     }
 }
 

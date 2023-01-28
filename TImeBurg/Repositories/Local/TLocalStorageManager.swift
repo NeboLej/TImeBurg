@@ -17,8 +17,18 @@ protocol TLocalStorageManagerProtocol {
 class TLocalStorageManager: TLocalStorageManagerProtocol {
     
     private var cities: [TCity] =  [
-        TCity(id: "122022", name: "December 2022", image: "", spentTime: 2330, comfortRating: 0.3, greenRating: 0.8, buildings: [], history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
-        TCity(id: "12023", name: "January 2023", image: "", spentTime: 2330, comfortRating: 0.7, greenRating: 0.2, buildings: [], history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
+        TCity(id: "122022", name: "December 2022", image: "", spentTime: 1220, comfortRating: 0.3, greenRating: 0.8,
+              buildings: [.init(image: "House1", timeExpenditure: 200, width: 60, line: 0, offsetX: -50),
+                          .init(image: "House2", timeExpenditure: 50, width: 30, line: 0, offsetX: -100),
+                          .init(image: "House3", timeExpenditure: 200, width: 60, line: 0, offsetX: 50),
+                          .init(image: "House4", timeExpenditure: 150, width: 65, line: 0, offsetX: 100)],
+              history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
+        TCity(id: "12023", name: "January 2023", image: "", spentTime: 120, comfortRating: 0.7, greenRating: 0.2,
+              buildings: [.init(image: "House1", timeExpenditure: 170, width: 60, line: 0, offsetX: -50),
+                          .init(image: "House2", timeExpenditure: 50, width: 30, line: 0, offsetX: -100),
+                          .init(image: "House3", timeExpenditure: 200, width: 60, line: 0, offsetX: 50),
+                          .init(image: "House4", timeExpenditure: 150, width: 65, line: 0, offsetX: 100)],
+              history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
     ]
     
     func getCityPreviews() -> [TCityPreview] {
