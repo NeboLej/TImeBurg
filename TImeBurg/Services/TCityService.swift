@@ -23,7 +23,6 @@ class TCityService: TCityServiceProtocol {
     
     init(storage: TLocalStorageManagerProtocol) {
         self.storage = storage
-        //self.currentCity = CurrentValueSubject<TCity, Never>(self.getCurrentCity())
         
         getCityPreviews()
     }

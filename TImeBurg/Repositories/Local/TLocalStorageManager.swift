@@ -12,6 +12,8 @@ protocol TLocalStorageManagerProtocol {
     func getCity(id: String) -> TCity?
     func updateCity(city: TCity) -> Bool
     func addCity(city: TCity)
+    
+    func getHouses(time: Int) -> [THouseStorage]
 }
 
 class TLocalStorageManager: TLocalStorageManagerProtocol {
@@ -30,6 +32,15 @@ class TLocalStorageManager: TLocalStorageManagerProtocol {
                           .init(image: "House4", timeExpenditure: 200, width: 65, line: 0, offsetX: 100)],
               history: [Date() : [.upgrade(time: 120), .newBuilding(time: 30), .newBuilding(time: 60)]]),
     ]
+    
+    private var houses: [THouseStorage] = [
+        THouseStorage(image: "House1", width: 55, timeRange: 60...180),
+        THouseStorage(image: "House2", width: 30, timeRange: 10...60),
+        THouseStorage(image: "House3", width: 60, timeRange: 80...200),
+        THouseStorage(image: "House4", width: 60, timeRange: 180...360)
+    ]
+    
+    //MARK: - CITY
     
     func getCityPreviews() -> [TCityPreview] {
         cities.map { TCityPreview(city: $0) }
@@ -51,4 +62,11 @@ class TLocalStorageManager: TLocalStorageManagerProtocol {
     func addCity(city: TCity) {
         cities.append(city)
     }
+    
+    //MARK: - HOUSE
+    
+    func getHouses(time: Int) -> [THouseStorage] {
+        houses.filter { $0.timeRange.contains(time) }
+    }
+    
 }
