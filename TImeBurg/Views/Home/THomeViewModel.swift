@@ -6,43 +6,38 @@
 //
 
 import Foundation
+import Combine
 
-class THomeViewModel: ObservableObject, THouseListener {
+class THomeViewModel: ObservableObject, THouseListenerProtocol {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
     @Published var isSetting1 = false
     @Published var isSetting2 = false
     @Published var selectedHouse: THouseVM?
-    @Published var selectedHouseCount: Int = 0
     @Published var isProgress = false
+    @Published var currentCity: TCityVM  = TCityVM()
     
-    private let buildings = [
-        THouse(image: "House1", timeExpenditure: 60, width: 60, line: 0, offsetX: -0),
-        THouse(image: "House2", timeExpenditure: 10, width: 35, line: 0, offsetX: -60),
-        THouse(image: "House3", timeExpenditure: 160, width: 60, line: 0, offsetX: -120),
-        THouse(image: "House4", timeExpenditure: 60, width: 65, line: 0, offsetX: 150),
-    ]
+    let imageSet = ["Building", "Tree", "FixRoad"]
     
-    let imageSet = ["House1", "House2", "House3"]
+    let citySetvice: TCityServiceProtocol
+    
+    private var cancellableSet: Set<AnyCancellable> = []
+    
+    init(serviceFactory: TServicesFactoryProtocol) {
+        citySetvice = serviceFactory.cityService
+        
+        weak var _self = self
+        
+        citySetvice.currentCity
+            .sink {
+                _self?.currentCity = TCityVM(city: $0, parent: _self)
+            }
+            .store(in: &cancellableSet)
+    }
     
     func startActivity() -> TProgressVM {
         TProgressVM(minutes: Float(timeActivity))
-    }
-    
-    func getCurrentCity() -> TCityVM {
-
-        
-        return TCityVM(city: TCity(name: "Челябинск", numberOfPeople: 431, comfortRating: 0.8, greenRating: 1.9, buildings: buildings), parent: self)
-    }
-    
-    func onHouseClick(id: String) {
-        selectedHouse = nil
-        let house = buildings.first { $0.id == id }
-        if let house = house {
-            selectedHouse = THouseVM(house: house)
-            selectedHouseCount = 50
-        }
     }
     
     func emptyClick() {
@@ -52,5 +47,15 @@ class THomeViewModel: ObservableObject, THouseListener {
     func getPeopleCount() -> Int {
         guard let house = selectedHouse else { return 0 }
         return house.timeExpenditure / 10
+    }
+    
+    //MARK: - THouseListenerProtocol
+    
+    func onHouseClick(id: String) {
+        selectedHouse = nil
+        let house = currentCity.buildings.first { $0.id == id }
+        if let house = house {
+            selectedHouse = house
+        }
     }
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317B29801726001169B8 /* TTimerVM.swift */; };
+		FA1B317E298055D5001169B8 /* TCityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317D298055D5001169B8 /* TCityService.swift */; };
+		FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */; };
+		FA1B318429805913001169B8 /* TCityPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B318329805913001169B8 /* TCityPreview.swift */; };
+		FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3185298062C2001169B8 /* TBuildingType.swift */; };
 		FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */; };
 		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
@@ -47,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		FA1B317B29801726001169B8 /* TTimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerVM.swift; sourceTree = "<group>"; };
+		FA1B317D298055D5001169B8 /* TCityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityService.swift; sourceTree = "<group>"; };
+		FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLocalStorageManager.swift; sourceTree = "<group>"; };
+		FA1B318329805913001169B8 /* TCityPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityPreview.swift; sourceTree = "<group>"; };
+		FA1B3185298062C2001169B8 /* TBuildingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBuildingType.swift; sourceTree = "<group>"; };
 		FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckBoxView.swift; sourceTree = "<group>"; };
 		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
@@ -105,6 +113,21 @@
 				FA1B317B29801726001169B8 /* TTimerVM.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		FA1B317F298057A6001169B8 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		FA1B3180298057BE001169B8 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Net;
 			sourceTree = "<group>";
 		};
 		FA547A6D296C7E2900B3EA1E = {
@@ -180,6 +203,8 @@
 		FA547A8B296C7FC900B3EA1E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC71E5296C88F40099D470 /* Colors.swift */,
+				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
 				FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */,
 				FADCDBF6297F38D7000B3FDC /* Bubbles.json */,
 				FADCDBEA297ED70C000B3FDC /* OrangeHome.json */,
@@ -195,6 +220,7 @@
 			children = (
 				FA83E3912971CEAD000952DD /* Models */,
 				FAFC71E1296C86340099D470 /* TServicesFactory.swift */,
+				FA1B317D298055D5001169B8 /* TCityService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -202,8 +228,8 @@
 		FA547A8D296C7FED00B3EA1E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				FAFC71E5296C88F40099D470 /* Colors.swift */,
-				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
+				FA1B3180298057BE001169B8 /* Net */,
+				FA1B317F298057A6001169B8 /* Local */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -212,8 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				FA83E3922971CEE3000952DD /* TActivityType.swift */,
+				FA1B3185298062C2001169B8 /* TBuildingType.swift */,
 				FA4753362972F979008AA4DD /* TCity.swift */,
 				FAB224292978388500B9482C /* THouse.swift */,
+				FA1B318329805913001169B8 /* TCityPreview.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,6 +377,7 @@
 				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
 				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
+				FA1B318429805913001169B8 /* TCityPreview.swift in Sources */,
 				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
@@ -360,10 +389,13 @@
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
+				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
+				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
 				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
+				FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,

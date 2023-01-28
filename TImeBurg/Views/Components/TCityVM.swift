@@ -14,7 +14,7 @@ class TCityVM: ObservableObject {
     @Published var greenRating: Double
     @Published var buildings: [THouseVM] = []
     
-    init(name: String, numberOfPeople: Int, comfortRating: Double, greenRating: Double, buildings: [THouse], parent: Any? = nil) {
+    init(name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
         self.name = name
         self.numberOfPeople = numberOfPeople
         self.comfortRating = comfortRating
@@ -23,15 +23,14 @@ class TCityVM: ObservableObject {
     }
     
     convenience init(city: TCity, parent: Any? = nil) {
-        self.init(name: city.name, numberOfPeople: city.numberOfPeople, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
+        self.init(name: city.name, numberOfPeople: Int(city.spentTime / 10), comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
     }
     
     func getUnicalBuildingsCount() -> Int {
         return 2
     }
     
-    func getTopBuilding() -> String {
-        return "House1"
+    func getTopBuilding() -> THouseVM? {
+        buildings.max { $0.timeExpenditure < $1.timeExpenditure }
     }
-    
 }

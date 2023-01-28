@@ -31,12 +31,13 @@ struct TCityStatisticView: View {
                     lineView(title: "Комфорт", rightView: TRatingView(rating: vm.comfortRating))
                     lineView(title: "Уникальные постройки", rightView: Text("\(vm.getUnicalBuildingsCount())").modifier(WhiteCapsule()))
                 }
-                VStack(alignment: .trailing,  spacing: 9) {
-                    Image(vm.getTopBuilding())
+                VStack(alignment: .center,  spacing: 9) {
+                    Image(vm.getTopBuilding()?.image ?? "")
                         .resizable()
                         .scaledToFit()
-                        .padding(.leading, 40)
-                        .padding(.trailing, 10)
+                        .frame(width: 100)
+//                        .padding(.leading, 40)
+//                        .padding(.trailing, 10)
                     Text("Самое большое здание")
                         .modifier(WhiteCapsule())
                 }
@@ -65,6 +66,6 @@ struct TCityStatisticView: View {
 
 struct TCityStatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityStatisticView(vm: TCityVM(city: TCity(name: "Tagil", numberOfPeople: 20, comfortRating: 5.0, greenRating: 3.4, buildings: [])))
+        TCityStatisticView(vm: TCityVM(city: .init(id: "sad", name: "Predsfs", image: "", spentTime: 123, comfortRating: 0.5, greenRating: 0.7, buildings: [], history: [:])))
     }
 }

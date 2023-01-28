@@ -18,7 +18,7 @@ struct TImeBurgApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TTabView(viewModel: TTabViewModel(servicesFactory: serviceFactory))
+            TTabView(vm: TTabViewModel(servicesFactory: serviceFactory))
         }
     }
 }
