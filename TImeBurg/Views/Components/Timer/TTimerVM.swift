@@ -13,7 +13,6 @@ protocol TTimerListenerProtocol {
 }
 
 class TTimerVM: ObservableObject {
-    @Published var isActive: Bool = true
     @Published var time: String = "00:00"
     @Published var minutes: Float = 1 {
         didSet {
@@ -25,6 +24,7 @@ class TTimerVM: ObservableObject {
     private var endDate = Date()
     private let parent: Any?
     private var calendar = Calendar.current
+    private var isActive: Bool = true
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -58,6 +58,7 @@ class TTimerVM: ObservableObject {
         
         if diff <= 0 {
             (parent as? TTimerListenerProtocol)?.timeFinish(on: true)
+            isActive = false
             time = "0:00"
             return
         }

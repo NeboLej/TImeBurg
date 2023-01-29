@@ -9,12 +9,12 @@ import Foundation
 
 protocol THouseServiceProtocol {
     func getNewHouse(time: Int) -> THouse
-    func updateHouse(oldHouse: THouse, time: Int) -> THouse
+    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse
 }
 
 class THouseService: THouseServiceProtocol {
     
-    let storage: TLocalStorageManagerProtocol
+    private let storage: TLocalStorageManagerProtocol
     
     init(storage: TLocalStorageManagerProtocol) {
         self.storage = storage
@@ -23,10 +23,11 @@ class THouseService: THouseServiceProtocol {
     func getNewHouse(time: Int) -> THouse {
         let house = storage.getHouses(time: time).randomElement()
         guard let house = house else { return THouse(image: "House2", timeExpenditure: time, width: 30, line: 0, offsetX: 0) }
-        return THouse(image: house.image, timeExpenditure: time, width: house.width, line: 0, offsetX: 0)
+        let newHouse = THouse(image: house.image, timeExpenditure: time, width: house.width, line: 0, offsetX: 0)
+        return newHouse
     }
     
-    func updateHouse(oldHouse: THouse, time: Int) -> THouse {
+    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse {
         let generalTime = time + oldHouse.timeExpenditure
         let newHouse = storage.getHouses(time: generalTime).randomElement()
         guard let newHouse = newHouse else { return oldHouse.copy(timeExpenditure: generalTime) }
