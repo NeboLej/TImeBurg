@@ -162,7 +162,7 @@ struct THomeView: View {
                     .font(.custom(TFont.interRegular, size: 12))
                     .foregroundColor(.white)
             }
-            Slider(value: $vm.timeActivity, in: 10...120, step: 5)
+            Slider(value: $vm.timeActivity, in: 1...120, step: 1)
                 .tint(.white)
         }
     }

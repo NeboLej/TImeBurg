@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
+		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
 		FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317B29801726001169B8 /* TTimerVM.swift */; };
 		FA1B317E298055D5001169B8 /* TCityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317D298055D5001169B8 /* TCityService.swift */; };
 		FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
+		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
 		FA1B317B29801726001169B8 /* TTimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerVM.swift; sourceTree = "<group>"; };
 		FA1B317D298055D5001169B8 /* TCityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityService.swift; sourceTree = "<group>"; };
 		FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLocalStorageManager.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				FA83E3912971CEAD000952DD /* Models */,
 				FAFC71E1296C86340099D470 /* TServicesFactory.swift */,
 				FA1B317D298055D5001169B8 /* TCityService.swift */,
+				FA0CAD142985AA2300A19F19 /* THouseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				FA4753362972F979008AA4DD /* TCity.swift */,
 				FAB224292978388500B9482C /* THouse.swift */,
 				FA1B318329805913001169B8 /* TCityPreview.swift */,
+				FA0CAD162985ABE300A19F19 /* THouseStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,9 +402,11 @@
 				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */,
+				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
+				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,

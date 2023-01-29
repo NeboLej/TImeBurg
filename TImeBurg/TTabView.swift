@@ -19,7 +19,7 @@ struct TTabView: View {
                 Image(systemName: "home")
                 Text("home")
             }.tag(0)
-            TProgressView(vm: .init(minutes: 1.0))
+            TProgressView(vm: .init(minutes: 1.0, serviceFactory: vm.servicesFactory))
                 .tabItem {
                 Image(systemName: "home")
                 Text("home")

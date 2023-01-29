@@ -13,6 +13,7 @@ protocol TCityServiceProtocol {
     var currentCity: CurrentValueSubject<TCity, Never> { get }
     
     func getCity(id: String) -> TCity
+    func updateCurrentCity(house: THouse)
 }
 
 class TCityService: TCityServiceProtocol {
@@ -23,13 +24,18 @@ class TCityService: TCityServiceProtocol {
     
     init(storage: TLocalStorageManagerProtocol) {
         self.storage = storage
-        //self.currentCity = CurrentValueSubject<TCity, Never>(self.getCurrentCity())
         
         getCityPreviews()
     }
     
     func getCity(id: String) -> TCity {
         storage.getCity(id: id)!
+    }
+    
+    func updateCurrentCity(house: THouse) {
+        var city = getCurrentCity()
+        city.buildings.append(house)
+        currentCity.send(city)
     }
     
     private func getCityPreviews() {

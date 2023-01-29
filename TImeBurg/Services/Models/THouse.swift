@@ -14,4 +14,8 @@ struct THouse {
     let width: Double
     let line: Int
     let offsetX: Double
+    
+    func copy(image: String? = nil, timeExpenditure: Int? = nil, width: Double? = nil, line: Int? = nil, offsetX: Double? = nil) -> THouse {
+        THouse(image: image ?? self.image, timeExpenditure: timeExpenditure ?? self.timeExpenditure, width: width ?? self.width, line: line ?? self.line, offsetX: offsetX ?? self.offsetX)
+    }
 }

@@ -63,7 +63,6 @@ struct TProgressView: View {
                 Text("Остаться")
             }
         }
-
     }
     
     @ViewBuilder
@@ -93,7 +92,8 @@ struct TProgressView: View {
                     .padding(.vertical, 20)
                 progressCircleView()
                 TButton(action: {
-                    
+                    vm.saveHouse()
+                    dismiss()
                 }, text: Text("Разместить")
                     .font(.custom(TFont.interRegular, size: 16))
                     .foregroundColor(.black))
@@ -121,6 +121,6 @@ struct TProgressView: View {
 
 struct TProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        TProgressView(vm: .init(minutes: 1))
+        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
     }
 }
