@@ -35,6 +35,7 @@ class TCityService: TCityServiceProtocol {
     func updateCurrentCity(house: THouse) {
         var city = getCurrentCity()
         city.buildings.append(house)
+        _ = storage.updateCity(city: city)
         currentCity.send(city)
     }
     
