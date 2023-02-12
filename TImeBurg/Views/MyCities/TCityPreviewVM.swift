@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TCityPreviewVM: ObservableObject {
+class TCityPreviewVM: ObservableObject, Identifiable {
     @Published var id: String
     @Published var name: String
     @Published var iamge: String
