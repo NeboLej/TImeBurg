@@ -27,6 +27,9 @@
 		FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3942971DA67000952DD /* TCityStatisticView.swift */; };
 		FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3972971DAD3000952DD /* TCityVM.swift */; };
 		FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */; };
+		FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C44298C140300FB89DA /* AllCitiesVM.swift */; };
+		FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C46298C141900FB89DA /* AllCitiesView.swift */; };
+		FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */; };
 		FAB224252978334800B9482C /* TCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224242978334800B9482C /* TCityView.swift */; };
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
@@ -74,6 +77,9 @@
 		FA83E3942971DA67000952DD /* TCityStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityStatisticView.swift; sourceTree = "<group>"; };
 		FA83E3972971DAD3000952DD /* TCityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityVM.swift; sourceTree = "<group>"; };
 		FA83E3992971DFFE000952DD /* TPeopleCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPeopleCounterView.swift; sourceTree = "<group>"; };
+		FAA32C44298C140300FB89DA /* AllCitiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesVM.swift; sourceTree = "<group>"; };
+		FAA32C46298C141900FB89DA /* AllCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesView.swift; sourceTree = "<group>"; };
+		FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityPreviewVM.swift; sourceTree = "<group>"; };
 		FAB224242978334800B9482C /* TCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityView.swift; sourceTree = "<group>"; };
 		FAB224292978388500B9482C /* THouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouse.swift; sourceTree = "<group>"; };
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		FA547A88296C7F8A00B3EA1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAA32C43298C13DB00FB89DA /* MyCities */,
 				FADCDBEF297EFC76000B3FDC /* Progress */,
 				FAFC71DA296C81C90099D470 /* Home */,
 				FA547A8A296C7FAE00B3EA1E /* Components */,
@@ -258,6 +265,16 @@
 				FA83E3942971DA67000952DD /* TCityStatisticView.swift */,
 			);
 			path = CityStatistic;
+			sourceTree = "<group>";
+		};
+		FAA32C43298C13DB00FB89DA /* MyCities */ = {
+			isa = PBXGroup;
+			children = (
+				FAA32C46298C141900FB89DA /* AllCitiesView.swift */,
+				FAA32C44298C140300FB89DA /* AllCitiesVM.swift */,
+				FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */,
+			);
+			path = MyCities;
 			sourceTree = "<group>";
 		};
 		FAB224262978335300B9482C /* City */ = {
@@ -392,10 +409,12 @@
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
+				FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */,
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
+				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
@@ -405,6 +424,7 @@
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
+				FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
 				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
