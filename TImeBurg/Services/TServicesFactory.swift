@@ -18,10 +18,8 @@ class TServicesFactory: TServicesFactoryProtocol {
     var houseService: THouseServiceProtocol
     
     init() {
-        let storage = TLocalStorageManager()
-        
+        let storage = RealmManager()
         cityService = TCityService(storage: storage)
         houseService = THouseService(storage: storage)
-        
     }
 }

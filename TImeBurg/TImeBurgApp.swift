@@ -18,6 +18,8 @@ struct TImeBurgApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let _ = UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnstatisfiable")
+            let _ = print("BD---\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)")
             TTabView(vm: TTabViewModel(servicesFactory: serviceFactory))
         }
     }

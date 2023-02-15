@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
 		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
+		FA1831B8299D4B4B00D9E1D2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA1831B7299D4B4B00D9E1D2 /* Realm */; };
+		FA1831BA299D4B4B00D9E1D2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1831B9299D4B4B00D9E1D2 /* RealmSwift */; };
+		FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BB299D56B300D9E1D2 /* RealmManager.swift */; };
+		FA1831BF299D5A5E00D9E1D2 /* HouseStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BE299D5A5E00D9E1D2 /* HouseStored.swift */; };
+		FA1831C3299D6F7200D9E1D2 /* CityStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831C2299D6F7200D9E1D2 /* CityStored.swift */; };
+		FA1831C5299D724400D9E1D2 /* UserHouseStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831C4299D724400D9E1D2 /* UserHouseStored.swift */; };
 		FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317B29801726001169B8 /* TTimerVM.swift */; };
 		FA1B317E298055D5001169B8 /* TCityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B317D298055D5001169B8 /* TCityService.swift */; };
 		FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */; };
@@ -57,6 +63,10 @@
 /* Begin PBXFileReference section */
 		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
 		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
+		FA1831BB299D56B300D9E1D2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		FA1831BE299D5A5E00D9E1D2 /* HouseStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseStored.swift; sourceTree = "<group>"; };
+		FA1831C2299D6F7200D9E1D2 /* CityStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStored.swift; sourceTree = "<group>"; };
+		FA1831C4299D724400D9E1D2 /* UserHouseStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHouseStored.swift; sourceTree = "<group>"; };
 		FA1B317B29801726001169B8 /* TTimerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerVM.swift; sourceTree = "<group>"; };
 		FA1B317D298055D5001169B8 /* TCityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityService.swift; sourceTree = "<group>"; };
 		FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLocalStorageManager.swift; sourceTree = "<group>"; };
@@ -109,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1831BA299D4B4B00D9E1D2 /* RealmSwift in Frameworks */,
+				FA1831B8299D4B4B00D9E1D2 /* Realm in Frameworks */,
 				FADCDBE6297ED291000B3FDC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +128,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1831BD299D59FF00D9E1D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA1831BE299D5A5E00D9E1D2 /* HouseStored.swift */,
+				FA1831C2299D6F7200D9E1D2 /* CityStored.swift */,
+				FA1831C4299D724400D9E1D2 /* UserHouseStored.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FA1B317A2980170B001169B8 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1B3181298057F9001169B8 /* TLocalStorageManager.swift */,
+				FA1831BB299D56B300D9E1D2 /* RealmManager.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -240,6 +263,7 @@
 		FA547A8D296C7FED00B3EA1E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				FA1831BD299D59FF00D9E1D2 /* Models */,
 				FA1B3180298057BE001169B8 /* Net */,
 				FA1B317F298057A6001169B8 /* Local */,
 			);
@@ -331,6 +355,8 @@
 			name = TImeBurg;
 			packageProductDependencies = (
 				FADCDBE5297ED291000B3FDC /* Lottie */,
+				FA1831B7299D4B4B00D9E1D2 /* Realm */,
+				FA1831B9299D4B4B00D9E1D2 /* RealmSwift */,
 			);
 			productName = TImeBurg;
 			productReference = FA547A76296C7E2900B3EA1E /* TImeBurg.app */;
@@ -362,6 +388,7 @@
 			mainGroup = FA547A6D296C7E2900B3EA1E;
 			packageReferences = (
 				FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = FA547A77296C7E2900B3EA1E /* Products */;
 			projectDirPath = "";
@@ -399,13 +426,16 @@
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
 				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
 				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
+				FA1831C3299D6F7200D9E1D2 /* CityStored.swift in Sources */,
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
 				FA1B318429805913001169B8 /* TCityPreview.swift in Sources */,
 				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
 				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
+				FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */,
 				FADCDBF3297EFCB6000B3FDC /* TProgressVM.swift in Sources */,
+				FA1831C5299D724400D9E1D2 /* UserHouseStored.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
@@ -421,6 +451,7 @@
 				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FA1B3182298057F9001169B8 /* TLocalStorageManager.swift in Sources */,
+				FA1831BF299D5A5E00D9E1D2 /* HouseStored.swift in Sources */,
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
@@ -650,6 +681,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -661,6 +700,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA1831B7299D4B4B00D9E1D2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FA1831B9299D4B4B00D9E1D2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		FADCDBE5297ED291000B3FDC /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */;
