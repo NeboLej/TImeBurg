@@ -16,12 +16,12 @@ struct TTabView: View {
         TabView(selection: $selectionTab) {
             THomeView(vm: THomeViewModel(serviceFactory: vm.servicesFactory))
                 .tabItem {
-                Image(systemName: "home")
-                Text("home")
+                Image(systemName: "house")
+                Text("house")
             }.tag(0)
             TProgressView(vm: .init(minutes: 1.0, serviceFactory: vm.servicesFactory))
                 .tabItem {
-                Image(systemName: "home")
+                Image(systemName: "house")
                 Text("home")
             }.tag(1)
         }

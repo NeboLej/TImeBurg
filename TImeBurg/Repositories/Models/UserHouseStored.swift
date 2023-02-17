@@ -8,7 +8,15 @@
 import Foundation
 import RealmSwift
 
-class UserHouseStored: Object, ObjectKeyIdentifiable {
+protocol UserHouseProtocol {
+    var image: String { get }
+    var timeExpenditure: Int { get }
+    var width: Double { get }
+    var line: Int { get }
+    var offsetX: Double { get }
+}
+
+class UserHouseStored: Object, ObjectKeyIdentifiable, UserHouseProtocol {
     
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var image: String

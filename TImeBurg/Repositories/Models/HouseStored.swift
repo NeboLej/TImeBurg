@@ -8,8 +8,14 @@
 import Foundation
 import RealmSwift
 
-class HouseStored: Object { 
-    
+protocol HouseProtocol {
+    var image: String { get }
+    var width: Double { get }
+    var startTimeInterval: Int { get }
+    var endTimeInterval: Int { get }
+}
+
+class HouseStored: Object, HouseProtocol {
     @Persisted var image: String
     @Persisted var width: Double
     @Persisted var startTimeInterval: Int

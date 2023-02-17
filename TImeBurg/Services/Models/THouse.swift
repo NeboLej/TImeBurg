@@ -23,7 +23,7 @@ struct THouse {
         self.offsetX = offsetX
     }
     
-    init(house: UserHouseStored) {
+    init(house: UserHouseProtocol) {
         self.init(image: house.image, timeExpenditure: house.timeExpenditure, width: house.width, line: house.line, offsetX: house.offsetX)
     }
     

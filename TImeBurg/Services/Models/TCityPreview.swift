@@ -13,7 +13,6 @@ struct TCityPreview {
     let image: String
     let spentTime: Int
     
-    
     init(id: String, name: String, image: String, spentTime: Int) {
         self.id = id
         self.name = name

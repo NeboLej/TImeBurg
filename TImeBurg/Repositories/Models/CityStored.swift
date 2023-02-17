@@ -8,8 +8,17 @@
 import Foundation
 import RealmSwift
 
-class CityStored: Object {
-    
+protocol CityProtocol {
+    var id: String { get }
+    var name: String { get }
+    var image: String { get }
+    var spentTime: Int { get }
+    var comfortRating: Double { get }
+    var greenRating: Double { get }
+    var buildings: List<UserHouseStored> { get }
+}
+
+class CityStored: Object, CityProtocol {
     @Persisted var id: String
     @Persisted var name: String
     @Persisted var image: String
