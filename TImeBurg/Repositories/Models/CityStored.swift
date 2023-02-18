@@ -15,7 +15,7 @@ protocol CityProtocol {
     var spentTime: Int { get }
     var comfortRating: Double { get }
     var greenRating: Double { get }
-    var buildings: List<UserHouseStored> { get }
+    var buildings: List<HouseStored> { get }
 }
 
 class CityStored: Object, CityProtocol {
@@ -26,17 +26,17 @@ class CityStored: Object, CityProtocol {
     @Persisted var comfortRating: Double
     @Persisted var greenRating: Double
 //    @Persisted var history
-    @Persisted var buildings: List<UserHouseStored>
+    @Persisted var buildings: List<HouseStored>
     
     override class func primaryKey() -> String? {
         return "id"
     }
     
-    static func initModel(id: String, name: String, image: String, spentTime: Int, comfortRating: Double, greenRating: Double, buildings: [UserHouseStored]) -> [String: Any] {
+    static func initModel(id: String, name: String, image: String, spentTime: Int, comfortRating: Double, greenRating: Double, buildings: [HouseStored]) -> [String: Any] {
         return ["id": id, "name": name, "image": image, "spentTime": spentTime, "comfortRating": comfortRating, "greenRating": greenRating, "buildings": buildings]
     }
     
     static func initModel(city: TCity) -> [String: Any] {
-        return ["id": city.id, "name": city.name, "image": city.image, "spentTime": city.spentTime, "comfortRating": city.comfortRating, "greenRating": city.greenRating, "buildings": city.buildings.map { UserHouseStored.initModel(house: $0) }]
+        return ["id": city.id, "name": city.name, "image": city.image, "spentTime": city.spentTime, "comfortRating": city.comfortRating, "greenRating": city.greenRating, "buildings": city.buildings.map { HouseStored.initModel(house: $0) }]
     }
 }

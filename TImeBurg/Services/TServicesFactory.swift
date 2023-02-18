@@ -10,20 +10,24 @@ import Foundation
 protocol TServicesFactoryProtocol {
     var cityService: TCityServiceProtocol { get }
     var houseService: THouseServiceProtocol { get }
+    var buildingService: BuildingServiceProtocol { get }
 }
 
 class TServicesFactory: TServicesFactoryProtocol {
     
     var cityService: TCityServiceProtocol
     var houseService: THouseServiceProtocol
+    var buildingService: BuildingServiceProtocol
     
     init() {
-        let realmQueue = DispatchQueue( label: "REALM" )
+        let dataQueue = DispatchQueue( label: "REALM" )
         let netQueue = DispatchQueue( label: "NET" )
         
-        let storage = RealmManager(queue: realmQueue)
-        let houseRepository = HouseRepositoryNet(queue: netQueue)
-        cityService = TCityService(storage: storage)
-        houseService = THouseService(storage: storage, net: houseRepository)
+        let storage = RealmManager(queue: dataQueue)
+        let buildingRepository = BuildingRepositoryNet(queue: netQueue)
+        
+        cityService = TCityService(queue: dataQueue, storage: storage)
+        houseService = THouseService(queue: dataQueue, storage: storage)
+        buildingService = BuildingService(queue: dataQueue, storage: storage, net: buildingRepository)
     }
 }

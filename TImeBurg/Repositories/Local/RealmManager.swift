@@ -34,7 +34,7 @@ class RealmManager: StoreManagerProtocol {
     init(queue: DispatchQueue) {
         realmQueue = queue
         realmQueue.async {
-            print("создал в  \(Thread.current)")
+            print("---Realm--- created Realm in  \(Thread.current)")
             do {
                 let config = Realm.Configuration(schemaVersion: 2)
                 Realm.Configuration.defaultConfiguration = config
@@ -47,7 +47,7 @@ class RealmManager: StoreManagerProtocol {
     
     func saveObjects<T>(_ objects: [T]) where T : Object {
         realmQueue.async {
-            print("сохранил в бд в\(Thread.current)")
+            print("---Realm--- save \(T.self) in \(Thread.current)")
             guard let realm = self.realm else { return }
             do {
                 try realm.write {
@@ -71,7 +71,7 @@ class RealmManager: StoreManagerProtocol {
     }
     
     func getObjects<T>(_ type: T.Type) -> [T] where T: Object {
-        print("достал из бд \(T.self) в \(Thread.current)")
+        print("---Realm--- get \(T.self) in \(Thread.current)")
             guard let realm = try? Realm() else { return [] }
             let results = realm.objects(type)
             return Array(results)
@@ -94,7 +94,7 @@ class RealmManager: StoreManagerProtocol {
     
     func updateObject<T>(_ object: T) where T: Object {
         realmQueue.async {
-            print("обновляю все в \(Thread.current)")
+            print("---Realm--- update \(T.self) in  \(Thread.current)")
             guard let realm = self.realm else { return }
             let result = realm.object(ofType: T.self, forPrimaryKey: object.value(forKeyPath: T.primaryKey()!) as? AnyObject)
             if result != nil
@@ -125,7 +125,7 @@ class RealmManager: StoreManagerProtocol {
     
     func removeAllObjectsOfType<T>(_ type: T.Type) where T: Object {
         realmQueue.async {
-            print("удалил в \(Thread.current)")
+            print("---Realm--- deleted type \(T.self) in  \(Thread.current)")
             guard let realm = self.realm else { return }
             do {
                 try realm.write {
@@ -138,7 +138,7 @@ class RealmManager: StoreManagerProtocol {
     }
     
     func removeAll() {
-        print("удалил все в \(Thread.current)")
+        print("---Realm--- deleted all in  \(Thread.current)")
         guard let realm = self.realm else { return }
         do {
             try realm.write {

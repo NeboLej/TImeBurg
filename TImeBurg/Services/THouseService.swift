@@ -19,29 +19,15 @@ class THouseService: THouseServiceProtocol {
     private var cancellableSet: Set<AnyCancellable> = []
 
     
-    init(storage: StoreManagerProtocol, net: HouseRepositoryProtocol) {
+    init(queue: DispatchQueue, storage: StoreManagerProtocol) {
         self.storage = storage
-        net.fetch()
-//            .receive(on: DispatchQueue.main)
-            .sink { buildings in
-                print("вызываю перезапись в \(Thread.current)")
-                self.rewriteBiuldings(buildings: buildings)
-            }.store(in: &cancellableSet)
     }
     
     func getNewHouse(time: Int) -> THouse {
-        let house = storage.getObjects(HouseStored.self).filter { ($0.startTimeInterval...$0.endTimeInterval).contains(time) }.randomElement()
-        guard let house = house else { return THouse(image: "House2", timeExpenditure: time, width: 30, line: 0, offsetX: 0) }
-        let newHouse = THouse(image: house.image, timeExpenditure: time, width: house.width, line: 0, offsetX: 0)
+        let building = storage.getObjects(BuildingStored.self).filter { ($0.startTimeInterval...$0.endTimeInterval).contains(time) }.randomElement()
+        guard let building = building else { return THouse(image: "House2", timeExpenditure: time, width: 30, line: 0, offsetX: 0) }
+        let newHouse = THouse(image: building.image, timeExpenditure: time, width: building.width, line: 0, offsetX: 0)
         return newHouse
-    }
-    
-    func rewriteBiuldings(buildings: [HouseProtocol]) {
-        let newBuildings = buildings.map { HouseStored(value: HouseStored.initModel(house: $0)) }
-        if !newBuildings.isEmpty {
-            storage.removeAllObjectsOfType(HouseStored.self)
-            storage.saveObjects(newBuildings)
-        }
     }
     
 //    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse {
