@@ -42,7 +42,7 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
             case .progress:
                 return THouse(image: "House3", timeExpenditure: 0, width: 0, line: 0, offsetX: 0)
             case .completed:
-                newHome = houseService.getNewHouse(time: Int(120))
+                newHome = houseService.getNewHouse(time: Int(minutes))
                 return newHome!
         }
     }
