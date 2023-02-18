@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
 		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
-		FA1831B8299D4B4B00D9E1D2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA1831B7299D4B4B00D9E1D2 /* Realm */; };
-		FA1831BA299D4B4B00D9E1D2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1831B9299D4B4B00D9E1D2 /* RealmSwift */; };
 		FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BB299D56B300D9E1D2 /* RealmManager.swift */; };
 		FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BE299D5A5E00D9E1D2 /* BuildingStored.swift */; };
 		FA1831C3299D6F7200D9E1D2 /* CityStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831C2299D6F7200D9E1D2 /* CityStored.swift */; };
@@ -30,6 +28,7 @@
 		FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA547A7B296C7E2900B3EA1E /* TTabView.swift */; };
 		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
+		FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */; };
 		FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3922971CEE3000952DD /* TActivityType.swift */; };
 		FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3942971DA67000952DD /* TCityStatisticView.swift */; };
 		FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3972971DAD3000952DD /* TCityVM.swift */; };
@@ -41,7 +40,6 @@
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
 		FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242D29783E3F00B9482C /* THouseVM.swift */; };
-		FADCDBE6297ED291000B3FDC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FADCDBE5297ED291000B3FDC /* Lottie */; };
 		FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCDBE7297ED368000B3FDC /* TLottieView.swift */; };
 		FADCDBEB297ED70D000B3FDC /* AnimationHome1.json in Resources */ = {isa = PBXBuildFile; fileRef = FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */; };
 		FADCDBEC297ED70D000B3FDC /* OrangeHome.json in Resources */ = {isa = PBXBuildFile; fileRef = FADCDBEA297ED70C000B3FDC /* OrangeHome.json */; };
@@ -62,6 +60,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TImeBurg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DAC34CCB7ACF360DF89F56D /* Pods-TImeBurg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TImeBurg.release.xcconfig"; path = "Target Support Files/Pods-TImeBurg/Pods-TImeBurg.release.xcconfig"; sourceTree = "<group>"; };
+		6A8DB99D8123A222121200BC /* Pods-TImeBurg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TImeBurg.debug.xcconfig"; path = "Target Support Files/Pods-TImeBurg/Pods-TImeBurg.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
 		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
 		FA1831BB299D56B300D9E1D2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -121,15 +122,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1831BA299D4B4B00D9E1D2 /* RealmSwift in Frameworks */,
-				FA1831B8299D4B4B00D9E1D2 /* Realm in Frameworks */,
-				FADCDBE6297ED291000B3FDC /* Lottie in Frameworks */,
+				FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41F94F4C1BFFCC3734B4555F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A8DB99D8123A222121200BC /* Pods-TImeBurg.debug.xcconfig */,
+				3DAC34CCB7ACF360DF89F56D /* Pods-TImeBurg.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E2B99C5E668AD71F015A7B84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA1831BD299D59FF00D9E1D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +186,8 @@
 			children = (
 				FA547A78296C7E2900B3EA1E /* TImeBurg */,
 				FA547A77296C7E2900B3EA1E /* Products */,
+				41F94F4C1BFFCC3734B4555F /* Pods */,
+				E2B99C5E668AD71F015A7B84 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,20 +365,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA547A85296C7E2D00B3EA1E /* Build configuration list for PBXNativeTarget "TImeBurg" */;
 			buildPhases = (
+				287550212AB56D79CEF78C16 /* [CP] Check Pods Manifest.lock */,
 				FA547A72296C7E2900B3EA1E /* Sources */,
 				FA547A73296C7E2900B3EA1E /* Frameworks */,
 				FA547A74296C7E2900B3EA1E /* Resources */,
+				86C0ABAF1EC315403C884FC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TImeBurg;
-			packageProductDependencies = (
-				FADCDBE5297ED291000B3FDC /* Lottie */,
-				FA1831B7299D4B4B00D9E1D2 /* Realm */,
-				FA1831B9299D4B4B00D9E1D2 /* RealmSwift */,
-			);
 			productName = TImeBurg;
 			productReference = FA547A76296C7E2900B3EA1E /* TImeBurg.app */;
 			productType = "com.apple.product-type.application";
@@ -389,10 +404,6 @@
 				Base,
 			);
 			mainGroup = FA547A6D296C7E2900B3EA1E;
-			packageReferences = (
-				FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */,
-			);
 			productRefGroup = FA547A77296C7E2900B3EA1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -418,6 +429,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		287550212AB56D79CEF78C16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TImeBurg-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86C0ABAF1EC315403C884FC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TImeBurg/Pods-TImeBurg-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TImeBurg/Pods-TImeBurg-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TImeBurg/Pods-TImeBurg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA547A72296C7E2900B3EA1E /* Sources */ = {
@@ -505,6 +558,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -563,6 +617,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -583,12 +638,15 @@
 		};
 		FA547A86296C7E2D00B3EA1E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A8DB99D8123A222121200BC /* Pods-TImeBurg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TImeBurg/TImeBurg.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TImeBurg/Preview Content\"";
 				DEVELOPMENT_TEAM = 955DP87LHM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -623,12 +681,15 @@
 		};
 		FA547A87296C7E2D00B3EA1E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DAC34CCB7ACF360DF89F56D /* Pods-TImeBurg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TImeBurg/TImeBurg.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TImeBurg/Preview Content\"";
 				DEVELOPMENT_TEAM = 955DP87LHM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -683,43 +744,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FA1831B7299D4B4B00D9E1D2 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		FA1831B9299D4B4B00D9E1D2 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA1831B6299D4B4B00D9E1D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-		FADCDBE5297ED291000B3FDC /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FADCDBE4297ED291000B3FDC /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA547A6E296C7E2900B3EA1E /* Project object */;
 }
