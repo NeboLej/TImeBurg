@@ -28,7 +28,7 @@ struct TCity {
         self.history = history
     }
     
-    init(city: CityStored) {
+    init(city: CityProtocol) {
         self.init(id: city.id, name: city.name, image: city.image, spentTime: city.spentTime, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings.map { THouse(house: $0) }, history: [:] )
     }
 }

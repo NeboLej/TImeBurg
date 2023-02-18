@@ -24,7 +24,6 @@ class TCityService: TCityServiceProtocol {
     
     init(storage: StoreManagerProtocol) {
         self.storage = storage
-        
         getCityPreviews()
     }
     

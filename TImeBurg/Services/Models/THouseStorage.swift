@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct THouseStorage {
-    let image: String
-    let width: Double
-    let timeRange: ClosedRange<Int>
-}
+//struct THouseStorage {
+//    let image: String
+//    let width: Double
+//    let timeRange: ClosedRange<Int>
+//}
