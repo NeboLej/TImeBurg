@@ -12,24 +12,23 @@ struct TTabView: View {
     @State private var selectionTab = 0
     @ObservedObject var vm: TTabViewModel
     
+    init(vm: TTabViewModel) {
+        self.vm = vm
+        UITabBar.appearance().isHidden = true
+    }
+    
     var body: some View {
-        TabView(selection: $selectionTab) {
-            THomeView(vm: THomeViewModel(serviceFactory: vm.servicesFactory))
-                .tabItem {
-                Image(systemName: "house")
-                Text("house")
-            }.tag(0)
-            TProgressView(vm: .init(minutes: 1.0, serviceFactory: vm.servicesFactory))
-                .tabItem {
-                Image(systemName: "house")
-                Text("home")
-            }.tag(1)
+        VStack(spacing: 0) {
+            TabView(selection: $vm.currentTab) {
+                Text("list")
+                    .tag(Tab.list)
+                THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+                    .tag(Tab.home)
+                Text("gear")
+                    .tag(Tab.gear)
+            }
+            CustomTabBarView(currentTab: $vm.currentTab)
         }
-//        .onAppear() {
-//            UITabBar.appearance().unselectedItemTintColor = UIColor.gray
-//        }
-//        .accentColor(Color("backgroundFirst"))
-        .font(.headline)
     }
 }
 
@@ -38,5 +37,4 @@ struct ContentView_Previews: PreviewProvider {
         TTabView(vm: TTabViewModel(servicesFactory: TServicesFactory()))
     }
 }
-
 
