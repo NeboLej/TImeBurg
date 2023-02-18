@@ -19,7 +19,7 @@ class THouseService: THouseServiceProtocol {
     private var cancellableSet: Set<AnyCancellable> = []
 
     
-    init(queue: DispatchQueue, storage: StoreManagerProtocol) {
+    init(storage: StoreManagerProtocol) {
         self.storage = storage
     }
     

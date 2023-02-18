@@ -14,15 +14,9 @@ protocol BuildingRepositoryProtocol {
 
 class BuildingRepositoryNet: BuildingRepositoryProtocol {
     
-    private let netQueue: DispatchQueue
-    
-    init(queue: DispatchQueue) {
-        netQueue = queue
-    }
-    
     func fetch() -> Future<[BuildingProtocol], Never> {
         Future.init { promise in
-            self.netQueue.asyncAfter(deadline: .now() + .seconds(5)) {
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(5)) {
                 promise(.success(
                 [
                     BuildingStored(value: BuildingStored.initModel(image: "House1", width: 55, startTimeInterval: 80, endTimeInterval: 120)),

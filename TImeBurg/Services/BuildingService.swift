@@ -17,10 +17,10 @@ class BuildingService: BuildingServiceProtocol {
     private let storage: StoreManagerProtocol
     private var cancellableSet: Set<AnyCancellable> = []
     
-    init(queue: DispatchQueue, storage: StoreManagerProtocol, net: BuildingRepositoryProtocol) {
+    init(storage: StoreManagerProtocol, net: BuildingRepositoryProtocol) {
         self.storage = storage
         net.fetch()
-            .receive(on: queue)
+            .receive(on: DispatchQueue.main)
             .sink { buildings in
                 self.rewriteBiuldings(buildings: buildings)
             }.store(in: &cancellableSet)
