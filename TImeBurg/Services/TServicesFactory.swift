@@ -18,8 +18,12 @@ class TServicesFactory: TServicesFactoryProtocol {
     var houseService: THouseServiceProtocol
     
     init() {
-        let storage = RealmManager()
+        let realmQueue = DispatchQueue( label: "REALM" )
+        let netQueue = DispatchQueue( label: "NET" )
+        
+        let storage = RealmManager(queue: realmQueue)
+        let houseRepository = HouseRepositoryNet(queue: netQueue)
         cityService = TCityService(storage: storage)
-        houseService = THouseService(storage: storage)
+        houseService = THouseService(storage: storage, net: houseRepository)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol UserHouseProtocol {
+    var id: String { get }
     var image: String { get }
     var timeExpenditure: Int { get }
     var width: Double { get }
@@ -16,20 +17,24 @@ protocol UserHouseProtocol {
     var offsetX: Double { get }
 }
 
-class UserHouseStored: Object, ObjectKeyIdentifiable, UserHouseProtocol {
+class UserHouseStored: Object, UserHouseProtocol {
     
-    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var id: String
     @Persisted var image: String
     @Persisted var timeExpenditure: Int
     @Persisted var width: Double
     @Persisted var line: Int
     @Persisted var offsetX: Double
     
-    static func initModel(image: String, timeExpenditure: Int, width: Double, line: Int, offsetX: Double) -> [String: Any] {
-        return ["image": image, "timeExpenditure": timeExpenditure, "width": width, "line": line, "offsetX": offsetX]
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    static func initModel(id: String, image: String, timeExpenditure: Int, width: Double, line: Int, offsetX: Double) -> [String: Any] {
+        return ["id": id, "image": image, "timeExpenditure": timeExpenditure, "width": width, "line": line, "offsetX": offsetX]
     }
     
     static func initModel(house: THouse) -> [String: Any] {
-        return ["image": house.image, "timeExpenditure": house.timeExpenditure, "width": house.width, "line": house.line, "offsetX": house.offsetX]
+        return ["id": house.id, "image": house.image, "timeExpenditure": house.timeExpenditure, "width": house.width, "line": house.line, "offsetX": house.offsetX]
     }
 }

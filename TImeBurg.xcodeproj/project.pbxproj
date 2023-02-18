@@ -22,6 +22,7 @@
 		FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3185298062C2001169B8 /* TBuildingType.swift */; };
 		FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */; };
 		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
+		FA3C25CB29A00C5B00F1B639 /* HouseRepositoryNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C25CA29A00C5B00F1B639 /* HouseRepositoryNet.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
 		FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753342972F1F9008AA4DD /* ViewModifiers.swift */; };
 		FA4753372972F979008AA4DD /* TCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753362972F979008AA4DD /* TCity.swift */; };
@@ -74,6 +75,7 @@
 		FA1B3185298062C2001169B8 /* TBuildingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBuildingType.swift; sourceTree = "<group>"; };
 		FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckBoxView.swift; sourceTree = "<group>"; };
 		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
+		FA3C25CA29A00C5B00F1B639 /* HouseRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRepositoryNet.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
 		FA4753342972F1F9008AA4DD /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		FA4753362972F979008AA4DD /* TCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCity.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		FA1B3180298057BE001169B8 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				FA3C25CA29A00C5B00F1B639 /* HouseRepositoryNet.swift */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
+				FA3C25CB29A00C5B00F1B639 /* HouseRepositoryNet.swift in Sources */,
 				FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
 				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
