@@ -53,6 +53,7 @@
 		FAFAAC5429A2956000779E13 /* TImeBurgTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC5329A2956000779E13 /* TImeBurgTests.swift */; };
 		FAFAAC5B29A295F000779E13 /* CityServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */; };
 		FAFAAC5F29A2968100779E13 /* StorageManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC5E29A2968100779E13 /* StorageManagerMock.swift */; };
+		FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC6A29A2CD3D00779E13 /* TestView.swift */; };
 		FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DB296C84140099D470 /* TTabViewModel.swift */; };
 		FAFC71DE296C85170099D470 /* THomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DD296C85170099D470 /* THomeView.swift */; };
 		FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DF296C85280099D470 /* THomeViewModel.swift */; };
@@ -125,6 +126,7 @@
 		FAFAAC5329A2956000779E13 /* TImeBurgTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TImeBurgTests.swift; sourceTree = "<group>"; };
 		FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityServiceTests.swift; sourceTree = "<group>"; };
 		FAFAAC5E29A2968100779E13 /* StorageManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerMock.swift; sourceTree = "<group>"; };
+		FAFAAC6A29A2CD3D00779E13 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FAFC71DB296C84140099D470 /* TTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabViewModel.swift; sourceTree = "<group>"; };
 		FAFC71DD296C85170099D470 /* THomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeView.swift; sourceTree = "<group>"; };
 		FAFC71DF296C85280099D470 /* THomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeViewModel.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		FA547A88296C7F8A00B3EA1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAFAAC6929A2CD2900779E13 /* TestView */,
 				FAA32C43298C13DB00FB89DA /* MyCities */,
 				FADCDBEF297EFC76000B3FDC /* Progress */,
 				FAFC71DA296C81C90099D470 /* Home */,
@@ -394,6 +397,14 @@
 				FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FAFAAC6929A2CD2900779E13 /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				FAFAAC6A29A2CD3D00779E13 /* TestView.swift */,
+			);
+			path = TestView;
 			sourceTree = "<group>";
 		};
 		FAFC71DA296C81C90099D470 /* Home */ = {
@@ -586,6 +597,7 @@
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
+				FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
