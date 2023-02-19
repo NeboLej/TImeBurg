@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct THouse {
+struct THouse: Equatable {
     let id: String
     let image: String
     let timeExpenditure: Int

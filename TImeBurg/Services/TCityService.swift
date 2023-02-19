@@ -66,6 +66,6 @@ class TCityService: TCityServiceProtocol {
         let storageCity = CityStored(value: CityStored.initModel(city: newCity))
         
         storage.saveObject(storageCity)
-        return getCity(id: id)!
+        return newCity
     }
 }

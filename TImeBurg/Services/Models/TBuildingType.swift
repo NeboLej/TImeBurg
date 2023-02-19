@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TBuildingType {
+enum TBuildingType: Equatable {
     case newBuilding(time: Int)
     case upgrade(time: Int)
 }
