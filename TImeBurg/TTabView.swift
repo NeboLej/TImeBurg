@@ -20,9 +20,9 @@ struct TTabView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $vm.currentTab) {
-                Text("list")
+                AllCitiesView(vm: vm.getAllCitiesViewModel())
                     .tag(Tab.list)
-                THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+                THomeView(vm: vm.getHomeViewModel())
                     .tag(Tab.home)
                 Text("gear")
                     .tag(Tab.gear)

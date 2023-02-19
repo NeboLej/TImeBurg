@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TCity {
+struct TCity: Equatable {
     var id: String
     var name: String
     var image: String

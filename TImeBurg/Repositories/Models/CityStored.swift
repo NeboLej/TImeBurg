@@ -39,4 +39,18 @@ class CityStored: Object, CityProtocol {
     static func initModel(city: TCity) -> [String: Any] {
         return ["id": city.id, "name": city.name, "image": city.image, "spentTime": city.spentTime, "comfortRating": city.comfortRating, "greenRating": city.greenRating, "buildings": city.buildings.map { HouseStored.initModel(house: $0) }]
     }
+    
+    convenience init(id: String, name: String, image: String, spentTime: Int, comfortRating: Double, greenRating: Double, buildings: [HouseStored]) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.image = image
+        self.spentTime = spentTime
+        self.comfortRating = comfortRating
+        self.greenRating = greenRating
+        self.buildings = List<HouseStored>()
+        buildings.forEach {
+            self.buildings.append($0)
+        }
+    }
 }

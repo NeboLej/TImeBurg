@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TCityPreview {
+struct TCityPreview: Equatable {
     let id: String //month+year 12023
     let name: String
     let image: String
