@@ -26,13 +26,13 @@ struct AllCitiesView: View {
     @ViewBuilder
     func header() -> some View {
         HStack {
-            Text("All Cities")
-                .padding(.bottom, 6)
-                .font(.custom(TFont.interRegular, size: 20))
-                .foregroundColor(.white)
+            Image("MyCitiesLogo")
+                .padding(.horizontal, 16)
+                .padding(.bottom, 10)
+            Spacer()
         }
         .frame(maxWidth: .infinity)
-        .background( LinearGradient(colors: [ .blueViolet.opacity(0.8), .brightNavyBlue.opacity(0.5)], startPoint: .leading, endPoint: .trailing))
+        .background( LinearGradient(colors: [ .blueViolet, .blueViolet.opacity(0.7)], startPoint: .top, endPoint: .bottom))
     }
     
     @ViewBuilder
@@ -44,13 +44,14 @@ struct AllCitiesView: View {
             HStack {
                 Text(city.name)
                     .font(.custom(TFont.interRegular, size: 18))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 Spacer()
                 TPeopleCounterView(count: .init(get: { city.spentTime / 10 }, set: { _ in }))
                     .frame(width: 80)
             }
             .padding(10)
-            .background( LinearGradient(colors: [ .blueViolet.opacity(0.8), .brightNavyBlue.opacity(0.5)], startPoint: .leading, endPoint: .trailing))
+            .background( Color.mellowApricot)
+            .shadow(color: .black.opacity(0.4), radius: 3, x: 0, y: 3)
         }
     }
 }

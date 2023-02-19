@@ -13,7 +13,7 @@ class TCityPreviewVM: ObservableObject, Identifiable {
     @Published var iamge: String
     @Published var spentTime: Int
     
-    init(id: String, name: String, iamge: String, spentTime: Int) {
+    init(id: String, name: String, iamge: String, spentTime: Int, parent: Any? = nil) {
         self.id = id
         self.name = name
         self.iamge = iamge
@@ -21,6 +21,6 @@ class TCityPreviewVM: ObservableObject, Identifiable {
     }
     
     convenience init(city: TCityPreview, parent: Any? = nil) {
-        self.init(id: city.id, name: city.name, iamge: city.image, spentTime: city.spentTime)
+        self.init(id: city.id, name: city.name, iamge: city.image, spentTime: city.spentTime, parent: parent)
     }
 }
