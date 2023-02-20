@@ -24,7 +24,7 @@ struct TTabView: View {
                     .tag(Tab.list)
                 THomeView(vm: vm.getHomeViewModel())
                     .tag(Tab.home)
-                Text("gear")
+                TestView(vm: TestVM())
                     .tag(Tab.gear)
             }
             CustomTabBarView(currentTab: $vm.currentTab)

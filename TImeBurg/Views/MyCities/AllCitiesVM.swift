@@ -20,7 +20,7 @@ class AllCitiesVM: ObservableObject {
         
         cityService.cityPreviews
             .sink {
-                _self?.citiesPreview = $0.map { TCityPreviewVM(city: $0, parent: _self)}.reversed()
+                _self?.citiesPreview = $0.map { TCityPreviewVM(city: $0, parent: _self) }
             }
             .store(in: &cancellableSet)
     }

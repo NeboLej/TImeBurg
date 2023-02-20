@@ -14,6 +14,7 @@ protocol TCityServiceProtocol {
 //
 //    func getCity(id: String) -> TCity
     func updateCurrentCity(house: THouse)
+    func updateCurrentCity(city: TCity)
 }
 
 class TCityService: TCityServiceProtocol {
@@ -41,9 +42,14 @@ class TCityService: TCityServiceProtocol {
     func updateCurrentCity(house: THouse) {
         var city = getCurrentCity()
         city.buildings.append(house)
+        updateCurrentCity(city: city)
+    }
+    
+    func updateCurrentCity(city: TCity) {
         let storageCity = CityStored(value: CityStored.initModel(city: city))
         storage.updateObject(storageCity)
         currentCity.send(city)
+        getCityPreviews()
     }
     
     private func getCurrentCity() -> TCity {

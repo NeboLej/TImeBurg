@@ -14,13 +14,19 @@ struct THomeView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            city(vm: vm.currentCity)
-                .gesture(TapGesture()
-                    .onEnded { vm.emptyClick() })
+            city(vm: vm.currentCityVM)
+                .gesture(TapGesture().onEnded { vm.emptyClick() })
+                .onReceive(vm.$snapshotCity, perform: { newValue in
+                    if newValue {
+                        let image = TCityView(vm: vm.currentCityVM)
+                            .frame(height: 350).snapshot()
+                        vm.saveImage(image: image)
+                    }
+                })
             newHouseView()
                 .padding(.top, -30)
                 .padding(.horizontal, 5)
-            TCityStatisticView(vm: vm.currentCity)
+            TCityStatisticView(vm: vm.currentCityVM)
                 .padding(.horizontal, 5)
         }
         .coordinateSpace(name: "SCROLL")

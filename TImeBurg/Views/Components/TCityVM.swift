@@ -8,13 +8,15 @@
 import Foundation
 
 class TCityVM: ObservableObject {
+    var id: String
     @Published var name: String
     @Published var numberOfPeople: Int
     @Published var comfortRating: Double
     @Published var greenRating: Double
     @Published var buildings: [THouseVM] = []
     
-    init(name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
+    init(id: String = "", name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
+        self.id = id
         self.name = name
         self.numberOfPeople = numberOfPeople
         self.comfortRating = comfortRating
@@ -23,7 +25,7 @@ class TCityVM: ObservableObject {
     }
     
     convenience init(city: TCity, parent: Any? = nil) {
-        self.init(name: city.name, numberOfPeople: Int(city.spentTime / 10), comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
+        self.init(id: city.id, name: city.name, numberOfPeople: Int(city.spentTime / 10), comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
     }
     
     func getUnicalBuildingsCount() -> Int {

@@ -38,7 +38,8 @@ struct AllCitiesView: View {
     @ViewBuilder
     func cityCell(city: TCityPreviewVM) -> some View {
         ZStack(alignment: .top) {
-            Image(city.iamge)
+//            Image(city.iamge)
+            Image(uiImage: city.image ?? UIImage(systemName: "house")!)
                 .resizable()
                 .scaledToFit()
             HStack {
