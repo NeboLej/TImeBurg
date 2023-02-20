@@ -40,6 +40,9 @@
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
 		FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242D29783E3F00B9482C /* THouseVM.swift */; };
+		FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A229A3F77000FFF367 /* View +.swift */; };
+		FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A429A3F85900FFF367 /* ImageService.swift */; };
+		FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */; };
 		FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCDBE7297ED368000B3FDC /* TLottieView.swift */; };
 		FADCDBEB297ED70D000B3FDC /* AnimationHome1.json in Resources */ = {isa = PBXBuildFile; fileRef = FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */; };
 		FADCDBEC297ED70D000B3FDC /* OrangeHome.json in Resources */ = {isa = PBXBuildFile; fileRef = FADCDBEA297ED70C000B3FDC /* OrangeHome.json */; };
@@ -112,6 +115,9 @@
 		FAB224292978388500B9482C /* THouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouse.swift; sourceTree = "<group>"; };
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
 		FAB2242D29783E3F00B9482C /* THouseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseVM.swift; sourceTree = "<group>"; };
+		FAD4D6A229A3F77000FFF367 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
+		FAD4D6A429A3F85900FFF367 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
 		FADCDBE7297ED368000B3FDC /* TLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLottieView.swift; sourceTree = "<group>"; };
 		FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimationHome1.json; sourceTree = "<group>"; };
 		FADCDBEA297ED70C000B3FDC /* OrangeHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OrangeHome.json; sourceTree = "<group>"; };
@@ -269,6 +275,7 @@
 		FA547A8A296C7FAE00B3EA1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FAD4D6A129A3F75000FFF367 /* Ext */,
 				FA1B317A2980170B001169B8 /* Timer */,
 				FA83E3972971DAD3000952DD /* TCityVM.swift */,
 				FAB2242D29783E3F00B9482C /* THouseVM.swift */,
@@ -309,6 +316,7 @@
 				FA1B317D298055D5001169B8 /* TCityService.swift */,
 				FA0CAD142985AA2300A19F19 /* THouseService.swift */,
 				FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */,
+				FAD4D6A429A3F85900FFF367 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -363,6 +371,14 @@
 			path = City;
 			sourceTree = "<group>";
 		};
+		FAD4D6A129A3F75000FFF367 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				FAD4D6A229A3F77000FFF367 /* View +.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
 		FADCDBEF297EFC76000B3FDC /* Progress */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */,
+				FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -573,6 +590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */,
 				FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */,
 				FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */,
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
@@ -603,6 +621,7 @@
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
 				FAF6899529A1577D00CAB875 /* CustomTabBarView.swift in Sources */,
 				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
+				FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FA3C25CD29A0EE8B00F1B639 /* BuildingService.swift in Sources */,
 				FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */,
@@ -625,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFAAC5B29A295F000779E13 /* CityServiceTests.swift in Sources */,
+				FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */,
 				FAFAAC5429A2956000779E13 /* TImeBurgTests.swift in Sources */,
 				FAFAAC5F29A2968100779E13 /* StorageManagerMock.swift in Sources */,
 			);

@@ -5,22 +5,23 @@
 //  Created by Nebo on 02.02.2023.
 //
 
-import Foundation
+import UIKit
 
 class TCityPreviewVM: ObservableObject, Identifiable {
     @Published var id: String
     @Published var name: String
-    @Published var iamge: String
+    @Published var image: UIImage?
     @Published var spentTime: Int
     
-    init(id: String, name: String, iamge: String, spentTime: Int, parent: Any? = nil) {
+    init(id: String, name: String, image: String, spentTime: Int, parent: Any? = nil) {
+        let imageService = ImageService()
         self.id = id
         self.name = name
-        self.iamge = iamge
+        self.image = imageService.getImage(fileName: id)
         self.spentTime = spentTime
     }
     
     convenience init(city: TCityPreview, parent: Any? = nil) {
-        self.init(id: city.id, name: city.name, iamge: city.image, spentTime: city.spentTime, parent: parent)
+        self.init(id: city.id, name: city.name, image: city.image, spentTime: city.spentTime, parent: parent)
     }
 }
