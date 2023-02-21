@@ -29,6 +29,7 @@
 		FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */; };
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
 		FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */; };
+		FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA800F8729A58250005D6F73 /* RoundedCorner.swift */; };
 		FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3922971CEE3000952DD /* TActivityType.swift */; };
 		FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3942971DA67000952DD /* TCityStatisticView.swift */; };
 		FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3972971DAD3000952DD /* TCityVM.swift */; };
@@ -104,6 +105,7 @@
 		FA547A7D296C7E2D00B3EA1E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TImeBurg.entitlements; sourceTree = "<group>"; };
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA800F8729A58250005D6F73 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		FA83E3922971CEE3000952DD /* TActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TActivityType.swift; sourceTree = "<group>"; };
 		FA83E3942971DA67000952DD /* TCityStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityStatisticView.swift; sourceTree = "<group>"; };
 		FA83E3972971DAD3000952DD /* TCityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityVM.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		FA547A8A296C7FAE00B3EA1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA800F8629A58236005D6F73 /* Shapes */,
 				FAD4D6A129A3F75000FFF367 /* Ext */,
 				FA1B317A2980170B001169B8 /* Timer */,
 				FA83E3972971DAD3000952DD /* TCityVM.swift */,
@@ -329,6 +332,14 @@
 				FA1B317F298057A6001169B8 /* Local */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FA800F8629A58236005D6F73 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				FA800F8729A58250005D6F73 /* RoundedCorner.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 		FA83E3912971CEAD000952DD /* Models */ = {
@@ -619,6 +630,7 @@
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
+				FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */,
 				FAF6899529A1577D00CAB875 /* CustomTabBarView.swift in Sources */,
 				FA4753372972F979008AA4DD /* TCity.swift in Sources */,
 				FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */,

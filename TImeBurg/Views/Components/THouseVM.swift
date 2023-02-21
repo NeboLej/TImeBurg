@@ -47,8 +47,12 @@ class THouseVM: ObservableObject {
         }
     }
     
+    func move(offsetX: CGFloat) {
+        offset = CGSize(width: offsetX, height: offset.height)
+    }
+    
     func onHouseClick() {
-        (parent as! THouseListenerProtocol).onHouseClick(id: id)
+        (parent as? THouseListenerProtocol)?.onHouseClick(id: id)
     }
 }
 

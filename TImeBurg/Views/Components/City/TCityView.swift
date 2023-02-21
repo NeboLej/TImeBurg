@@ -26,7 +26,7 @@ struct TCityView: View {
     func houses() -> some View {
         ZStack(alignment: .bottom) {
             ForEach(vm.buildings) {
-                THouseView(vm: $0)
+                THouseView(vm: $0, isCanEdit: $vm.isCanEdit)
                     .zIndex(1.0/Double($0.line))
             }
         }
@@ -79,6 +79,6 @@ struct TCityView: View {
 
 struct TCityView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [], history: [:])))
+        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [ .init(image: "House1", timeExpenditure: 123, width: 60, line: 0, offsetX: 50)], history: [:])))
     }
 }

@@ -20,6 +20,8 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var snapshotCity = false
     @Published var currentCityVM: TCityVM = TCityVM()
     @Published var countPeople: Int = 0
+    @Published var cityCanEdit = false
+    @Published var isShowMenu = false
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
@@ -63,10 +65,25 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
             cityService.updateCurrentCity(city: city)
         }
     }
+    func testEdit() {
+        cityCanEdit.toggle()
+        currentCityVM.isCanEdit = cityCanEdit
+    }
+    
+    func onClickCity() {
+        if cityCanEdit {
+            isShowMenu.toggle()
+        }
+        else if selectedHouse != nil {
+            selectedHouse = nil
+        } else {
+            isShowMenu.toggle()
+        }
+    }
     
     //MARK: - THouseListenerProtocol
     func onHouseClick(id: String) {
-        snapshotCity = true //tmp
+//        snapshotCity = true //tmp
         selectedHouse = nil
         let house = currentCityVM.buildings.first { $0.id == id }
         if let house = house {

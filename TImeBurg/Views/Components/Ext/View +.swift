@@ -22,4 +22,15 @@ extension View {
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
     }
+
+    func canBeInteract(isCan : Bool) -> some View {
+        self.overlay(alignment: .center) {
+            Rectangle()
+                .foregroundColor(.white.opacity(isCan ? 0 : 0.00001 ))
+        }
+    }
+    
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
 }
