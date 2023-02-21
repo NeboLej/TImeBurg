@@ -69,6 +69,10 @@ struct THomeView: View {
                     Image(systemName: "checkmark.circle")
                         .foregroundColor(.black)
                 } )
+                Button(action: { withAnimation { vm.testEdit() }  }, label: {
+                    Image(systemName: "xmark.circle")
+                        .foregroundColor(.black)
+                } )
             } else {
                 Button(action: { withAnimation { vm.testEdit() }  }, label: {
                     Image(systemName: "paintbrush")
