@@ -16,7 +16,6 @@ struct THomeView: View {
         ScrollView(.vertical, showsIndicators: false) {
             city(vm: vm.currentCityVM)
                 .gesture(TapGesture().onEnded {
-//                    vm.emptyClick()
                     withAnimation(.easeInOut) {
                         vm.onClickCity()
                     }
@@ -97,18 +96,31 @@ struct THomeView: View {
     
     @ViewBuilder
     private func newHouseView() -> some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(vm.selectedHouse == nil ? "New House": "House upgrade")
-                .font(.custom(TFont.interRegular, size: 20))
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
-            
-            
+        VStack(alignment: .center, spacing: 0) {
             HStack(alignment: .top, spacing: 0) {
+                Text(vm.selectedHouse == nil ? "New House": "House upgrade")
+                    .font(.custom(TFont.interRegular, size: 20))
+                    .foregroundColor(.white)
+                    .padding(.top, 3)
+
+                Spacer()
                 
+                VStack(alignment: .trailing, spacing: 0) {
+                    activityPicker()
+                        .opacity(vm.selectedHouse == nil ? 1 : 0)
+                        .padding(.leading, 10)
+                    TPeopleCounterView(count: $vm.countPeople)
+                        .frame(width: 80)
+                        .opacity(vm.selectedHouse == nil ? 0 : 1)
+                }
+                .offset(y: vm.selectedHouse == nil ?  0 : -33)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+
+ 
+            HStack(alignment: .top, spacing: 0) {
                 VStack(alignment: .center, spacing: 0) {
-                    
                     Text("\(Int(vm.timeActivity))")
                         .font(.custom(TFont.interRegular, size: 60))
                         .foregroundColor(.white)
@@ -121,52 +133,26 @@ struct THomeView: View {
                     TButton(action: { vm.isProgress = true }, text: Text("Start") )
                         .frame(maxWidth: .infinity)
                 }
-                .padding(.leading, 15)
                 .frame(width: 150)
+                .padding(.leading, 20)
                 
-                VStack {
-                    VStack(alignment: .trailing, spacing: 0) {
-                        activityPicker()
-                            .opacity(vm.selectedHouse == nil ? 1 : 0)
-                        TPeopleCounterView(count: $vm.countPeople)
-                            .frame(width: 80)
-                            .opacity(vm.selectedHouse == nil ? 0 : 1)
-                    }
-                    .offset(y: vm.selectedHouse == nil ?  0 : -30)
-                    
-                    VStack(alignment: .center, spacing: 0) {
-                        Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
-                            .resizable()
-                            .scaledToFit()
-                            .padding(.horizontal)
-                            .offset(x: offsetX)
-                            .frame(height: 150)
-                            .animation(Animation.easeOut, value: offsetX)
-                    }
-                }
-
                 Spacer()
+                
+                VStack(alignment: .center, spacing: 10) {
+                    Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .offset(x: offsetX)
+                        .frame(height: 150)
+                        .animation(Animation.easeOut, value: offsetX)
+                    TTagView(vm: TTagVM(name: "reading", color: .pink))
+                }
+                .padding(.trailing, vm.selectedHouse == nil ? 20 : 40)
             }
-            .padding(.top, 17)
-            
-            HStack(alignment: .center, spacing: 16) {
-                TCheckBoxView(checked: $vm.isSetting1,
-                              text: Text("Некий выбор")
-                    .font(.custom(TFont.interRegular, size: 10))
-                    .foregroundColor(.white)
-                )
-                TCheckBoxView(checked: $vm.isSetting2,
-                              text: Text("Некий выбор2")
-                    .font(.custom(TFont.interRegular, size: 10))
-                    .foregroundColor(.white)
-                )
-                TTagView(vm: TTagVM(name: "reading", color: .pink))
-            }
-            .padding(.horizontal, 30)
-            .padding(.top, 20)
-            
+
             timeSlider()
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 20)
                 .padding(.top, 12)
                 .padding(.bottom, 30)
         }
@@ -184,9 +170,9 @@ struct THomeView: View {
             move(offset: 500)
             vm.activityType = TActivityType(rawValue: newValue)!
         })) {
-            Text("строить").tag(0)
-            Text("озеленение").tag(1)
-            Text("комфорт").tag(2)
+            Text("build").tag(0)
+            Text("greening").tag(1)
+            Text("cleaning").tag(2)
             
         } label: { }
             .pickerStyle(.segmented)

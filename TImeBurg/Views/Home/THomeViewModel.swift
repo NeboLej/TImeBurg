@@ -13,8 +13,6 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
-    @Published var isSetting1 = false
-    @Published var isSetting2 = false
     @Published var selectedHouse: THouseVM? { didSet { countPeople = selectedHouse?.timeExpenditure ?? 0 } }
     @Published var isProgress = false
     @Published var snapshotCity = false
