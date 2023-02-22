@@ -9,6 +9,7 @@ import Foundation
 
 protocol THouseListenerProtocol {
     func onHouseClick(id: String)
+    func onHouseMove(id: String, offsetX: CGFloat, line: Int)
 }
 
 class THouseVM: ObservableObject {
@@ -49,6 +50,10 @@ class THouseVM: ObservableObject {
     
     func move(offsetX: CGFloat) {
         offset = CGSize(width: offsetX, height: offset.height)
+    }
+    
+    func endMove() {
+        (parent as? THouseListenerProtocol)?.onHouseMove(id: id, offsetX: offset.width, line: line)
     }
     
     func onHouseClick() {

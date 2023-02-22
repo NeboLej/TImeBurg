@@ -32,6 +32,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
+    private var changedСity: TCity!
     
     init(serviceFactory: TServicesFactoryProtocol) {
         self.serviceFactory = serviceFactory
@@ -53,10 +54,6 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         TProgressVM(minutes: Float(timeActivity), serviceFactory: serviceFactory)
     }
     
-    func emptyClick() {
-        selectedHouse = nil
-    }
-    
     func saveImage(image: UIImage) {
         guard var city = currentCity else { return }
         let path = imageService.saveImage(imageName: city.id, image: image)
@@ -65,9 +62,25 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
             cityService.updateCurrentCity(city: city)
         }
     }
-    func testEdit() {
-        cityCanEdit.toggle()
-        currentCityVM.isCanEdit = cityCanEdit
+    
+    func editCity() {
+        cityCanEdit = true
+        currentCityVM.isCanEdit = true
+        changedСity = currentCity
+    }
+    
+    func saveCity() {
+        cityCanEdit = false
+        currentCityVM.isCanEdit = false
+        guard let city = changedСity else { return }
+        cityService.updateCurrentCity(city: city)
+        snapshotCity = true
+    }
+    
+    func dontSaveCity() {
+        cityCanEdit = false
+        currentCityVM.isCanEdit = false
+        changedСity = currentCity
     }
     
     func onClickCity() {
@@ -83,11 +96,19 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     
     //MARK: - THouseListenerProtocol
     func onHouseClick(id: String) {
-//        snapshotCity = true //tmp
         selectedHouse = nil
         let house = currentCityVM.buildings.first { $0.id == id }
         if let house = house {
             selectedHouse = house
         }
+    }
+    
+    func onHouseMove(id: String, offsetX: CGFloat, line: Int) {
+        let house = changedСity.buildings.first { $0.id == id }
+        guard var house = house else { return }
+        house.offsetX = offsetX
+        house.line = line
+        changedСity.buildings.removeAll(where: { $0.id == id } )
+        changedСity.buildings.append(house)
     }
 }

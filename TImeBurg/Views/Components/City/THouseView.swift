@@ -44,7 +44,11 @@ struct THouseView: View {
                 }
             }
             .onEnded{ value in
-                self.accumulated = vm.offset })
+                if isCanEdit {
+                    self.accumulated = vm.offset
+                    vm.endMove()
+                }
+            })
         .gesture(TapGesture()
             .onEnded {
                 withAnimation {
@@ -94,6 +98,7 @@ struct THouseView: View {
 }
 
 struct THouseView_Previews: PreviewProvider, THouseListenerProtocol {
+    
     static var previews: some View {
         THouseView(vm: THouseVM(house: THouse(image: "House1", timeExpenditure: 60, width: 50, line: 1, offsetX: 130)), isCanEdit: .init(get: {
             false
@@ -103,6 +108,10 @@ struct THouseView_Previews: PreviewProvider, THouseListenerProtocol {
     }
     
     func onHouseClick(id: String) {
+        
+    }
+    
+    func onHouseMove(id: String, offsetX: CGFloat, line: Int) {
         
     }
 }

@@ -25,7 +25,7 @@ struct THomeView: View {
                     if newValue {
                         let image = TCityView(vm: vm.currentCityVM)
                             .frame(height: 350).snapshot()
-                        vm.saveImage(image: image)
+                            vm.saveImage(image: image)
                     }
                 })
                 .overlay(alignment: .trailing) {
@@ -65,16 +65,16 @@ struct THomeView: View {
     private func cityMenu() -> some View {
         VStack(alignment: .center, spacing: 25) {
             if vm.cityCanEdit {
-                Button(action: { withAnimation { vm.testEdit() }  }, label: {
+                Button(action: { withAnimation { vm.saveCity() }  }, label: {
                     Image(systemName: "checkmark.circle")
                         .foregroundColor(.black)
                 } )
-                Button(action: { withAnimation { vm.testEdit() }  }, label: {
+                Button(action: { withAnimation { vm.dontSaveCity() }  }, label: {
                     Image(systemName: "xmark.circle")
                         .foregroundColor(.black)
                 } )
             } else {
-                Button(action: { withAnimation { vm.testEdit() }  }, label: {
+                Button(action: { withAnimation { vm.editCity() }  }, label: {
                     Image(systemName: "paintbrush")
                         .foregroundColor(.black)
                 } )
@@ -92,7 +92,7 @@ struct THomeView: View {
         .padding(.horizontal, 12)
         .background(Color.white.opacity(0.67))
         .cornerRadius(20, corners: [.bottomLeft, .topLeft])
-        .offset(x: vm.isShowMenu ? 50 : 0, y: -20)
+        .offset(x: vm.isShowMenu ? 0 : 50, y: -20)
     }
     
     @ViewBuilder
