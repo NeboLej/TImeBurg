@@ -20,6 +20,8 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var snapshotCity = false
     @Published var currentCityVM: TCityVM = TCityVM()
     @Published var countPeople: Int = 0
+    @Published var cityCanEdit = false
+    @Published var isShowMenu = false
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
@@ -30,6 +32,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
+    private var changedСity: TCity!
     
     init(serviceFactory: TServicesFactoryProtocol) {
         self.serviceFactory = serviceFactory
@@ -51,10 +54,6 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         TProgressVM(minutes: Float(timeActivity), serviceFactory: serviceFactory)
     }
     
-    func emptyClick() {
-        selectedHouse = nil
-    }
-    
     func saveImage(image: UIImage) {
         guard var city = currentCity else { return }
         let path = imageService.saveImage(imageName: city.id, image: image)
@@ -64,13 +63,52 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         }
     }
     
+    func editCity() {
+        cityCanEdit = true
+        currentCityVM.isCanEdit = true
+        changedСity = currentCity
+    }
+    
+    func saveCity() {
+        cityCanEdit = false
+        currentCityVM.isCanEdit = false
+        guard let city = changedСity else { return }
+        cityService.updateCurrentCity(city: city)
+        snapshotCity = true
+    }
+    
+    func dontSaveCity() {
+        cityCanEdit = false
+        currentCityVM.isCanEdit = false
+        changedСity = currentCity
+    }
+    
+    func onClickCity() {
+        if cityCanEdit {
+            isShowMenu.toggle()
+        }
+        else if selectedHouse != nil {
+            selectedHouse = nil
+        } else {
+            isShowMenu.toggle()
+        }
+    }
+    
     //MARK: - THouseListenerProtocol
     func onHouseClick(id: String) {
-        snapshotCity = true //tmp
         selectedHouse = nil
         let house = currentCityVM.buildings.first { $0.id == id }
         if let house = house {
             selectedHouse = house
         }
+    }
+    
+    func onHouseMove(id: String, offsetX: CGFloat, line: Int) {
+        let house = changedСity.buildings.first { $0.id == id }
+        guard var house = house else { return }
+        house.offsetX = offsetX
+        house.line = line
+        changedСity.buildings.removeAll(where: { $0.id == id } )
+        changedСity.buildings.append(house)
     }
 }

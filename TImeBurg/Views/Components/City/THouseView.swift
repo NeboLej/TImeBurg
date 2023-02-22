@@ -12,10 +12,12 @@ struct THouseView: View {
     @ObservedObject var vm: THouseVM
     
     @State private var accumulated: CGSize
-    @State private var isEdit = false
+    @State var isEdit: Bool = false
+    @Binding var isCanEdit: Bool
     
-    init(vm: THouseVM) {
+    init(vm: THouseVM, isCanEdit: Binding<Bool>) {
         self.vm = vm
+        self._isCanEdit = isCanEdit
         self.accumulated = vm.offset
     }
     
@@ -26,49 +28,90 @@ struct THouseView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: vm.width)
                 .colorMultiply( vm.line == 0 ? .white : vm.line == 1 ? .gray : .black)
-            if isEdit {
-                VStack {
-                    if vm.line == 0 || vm.line == 1 {
-                        Button {
-                            vm.changedLine(st: 1)
-                        } label: {
-                            Image(systemName: "chevron.up")
-                        }
-                        .modifier(WhiteCapsule())
-                    }
-
-                    if vm.line == 1 || vm.line == 2 {
-                        Button {
-                            vm.changedLine(st: -1)
-                        } label: {
-                            Image(systemName: "chevron.down")
-                        }
-                        .modifier(WhiteCapsule())
+                .overlay {
+                    if isEdit && isCanEdit {
+                        changeLineView()
+                    } else if isEdit && !isCanEdit {
+                        pickView()
                     }
                 }
-                .offset(x: -20)
-            }
         }
         .offset(x: vm.offset.width, y: vm.offset.height)
         .gesture(DragGesture()
             .onChanged{ value in
-                vm.offset = CGSize(width: value.translation.width + self.accumulated.width, height: vm.offset.height)
+                if isCanEdit {
+                    vm.move(offsetX: value.translation.width + self.accumulated.width)
+                }
             }
             .onEnded{ value in
-                self.accumulated = vm.offset })
+                if isCanEdit {
+                    self.accumulated = vm.offset
+                    vm.endMove()
+                }
+            })
         .gesture(TapGesture()
             .onEnded {
-                isEdit.toggle()
-                vm.onHouseClick()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    isEdit = false
+                withAnimation {
+                    isEdit.toggle()
+                    vm.onHouseClick()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isEdit = false
+                    }
                 }
             })
     }
+    
+    @ViewBuilder
+    func changeLineView() -> some View {
+        VStack {
+            if vm.line == 0 || vm.line == 1 {
+                Button {
+                    vm.changedLine(st: 1)
+                } label: {
+                    Image(systemName: "chevron.up")
+                }
+                .modifier(WhiteCapsule())
+            }
+
+            if vm.line == 1 || vm.line == 2 {
+                Button {
+                    vm.changedLine(st: -1)
+                } label: {
+                    Image(systemName: "chevron.down")
+                }
+                .modifier(WhiteCapsule())
+            }
+        }
+        .offset(x: -20)
+    }
+    
+    @ViewBuilder
+    func pickView() -> some View {
+        Rectangle()
+            .stroke(
+                Color.white.opacity(0.4),
+                 style: StrokeStyle(
+                     lineWidth: 2
+                 ))
+            .frame(width: vm.width + 10)
+    }
 }
 
-struct THouseView_Previews: PreviewProvider {
+struct THouseView_Previews: PreviewProvider, THouseListenerProtocol {
+    
     static var previews: some View {
-        THouseView(vm: THouseVM(house: THouse(image: "House1", timeExpenditure: 60, width: 50, line: 1, offsetX: 130)))
+        THouseView(vm: THouseVM(house: THouse(image: "House1", timeExpenditure: 60, width: 50, line: 1, offsetX: 130)), isCanEdit: .init(get: {
+            false
+        }, set: { _ in
+            
+        }))
+    }
+    
+    func onHouseClick(id: String) {
+        
+    }
+    
+    func onHouseMove(id: String, offsetX: CGFloat, line: Int) {
+        
     }
 }

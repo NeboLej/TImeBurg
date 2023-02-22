@@ -10,10 +10,10 @@ import Foundation
 struct THouse: Equatable {
     let id: String
     let image: String
-    let timeExpenditure: Int
+    var timeExpenditure: Int
     let width: Double
-    let line: Int
-    let offsetX: Double
+    var line: Int
+    var offsetX: Double
     
     init(id: String = UUID().uuidString, image: String, timeExpenditure: Int, width: Double, line: Int, offsetX: Double) {
         self.id = id

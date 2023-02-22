@@ -14,6 +14,7 @@ class TCityVM: ObservableObject {
     @Published var comfortRating: Double
     @Published var greenRating: Double
     @Published var buildings: [THouseVM] = []
+    @Published var isCanEdit: Bool = false
     
     init(id: String = "", name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
         self.id = id

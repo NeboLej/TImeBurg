@@ -15,14 +15,22 @@ struct THomeView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             city(vm: vm.currentCityVM)
-                .gesture(TapGesture().onEnded { vm.emptyClick() })
+                .gesture(TapGesture().onEnded {
+//                    vm.emptyClick()
+                    withAnimation(.easeInOut) {
+                        vm.onClickCity()
+                    }
+                })
                 .onReceive(vm.$snapshotCity, perform: { newValue in
                     if newValue {
                         let image = TCityView(vm: vm.currentCityVM)
                             .frame(height: 350).snapshot()
-                        vm.saveImage(image: image)
+                            vm.saveImage(image: image)
                     }
                 })
+                .overlay(alignment: .trailing) {
+                    cityMenu()
+                }
             newHouseView()
                 .padding(.top, -30)
                 .padding(.horizontal, 5)
@@ -51,6 +59,40 @@ struct THomeView: View {
                 .offset(y: minY > 0 ? -minY : 0)
         }
         .frame(height: 350)
+    }
+    
+    @ViewBuilder
+    private func cityMenu() -> some View {
+        VStack(alignment: .center, spacing: 25) {
+            if vm.cityCanEdit {
+                Button(action: { withAnimation { vm.saveCity() }  }, label: {
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(.black)
+                } )
+                Button(action: { withAnimation { vm.dontSaveCity() }  }, label: {
+                    Image(systemName: "xmark.circle")
+                        .foregroundColor(.black)
+                } )
+            } else {
+                Button(action: { withAnimation { vm.editCity() }  }, label: {
+                    Image(systemName: "paintbrush")
+                        .foregroundColor(.black)
+                } )
+                Button(action: {}, label: {
+                    Image(systemName: "info.circle")
+                        .foregroundColor(.black)
+                } )
+                Button(action: {}, label: {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(.black)
+                } )
+            }
+        }
+        .padding(.vertical, 20)
+        .padding(.horizontal, 12)
+        .background(Color.white.opacity(0.67))
+        .cornerRadius(20, corners: [.bottomLeft, .topLeft])
+        .offset(x: vm.isShowMenu ? 0 : 50, y: -20)
     }
     
     @ViewBuilder
