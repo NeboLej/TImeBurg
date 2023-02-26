@@ -30,6 +30,14 @@
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
 		FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */; };
 		FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA800F8729A58250005D6F73 /* RoundedCorner.swift */; };
+		FA82FFCC29AB935D00DA091A /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCB29AB935D00DA091A /* HistoryVM.swift */; };
+		FA82FFCE29AB936B00DA091A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCD29AB936B00DA091A /* HistoryView.swift */; };
+		FA82FFD029AB98FD00DA091A /* Color +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCF29AB98FD00DA091A /* Color +.swift */; };
+		FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFD129ABC1A800DA091A /* TagVM.swift */; };
+		FA82FFD429ABC1FC00DA091A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFD329ABC1FC00DA091A /* Tag.swift */; };
+		FA82FFD629ABC35F00DA091A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFD529ABC35F00DA091A /* History.swift */; };
+		FA82FFD829ABC6D600DA091A /* Date +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFD729ABC6D600DA091A /* Date +.swift */; };
+		FA82FFDA29ABE43000DA091A /* TagStatisticsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFD929ABE43000DA091A /* TagStatisticsVM.swift */; };
 		FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3922971CEE3000952DD /* TActivityType.swift */; };
 		FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3942971DA67000952DD /* TCityStatisticView.swift */; };
 		FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83E3972971DAD3000952DD /* TCityVM.swift */; };
@@ -106,6 +114,14 @@
 		FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TImeBurg.entitlements; sourceTree = "<group>"; };
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA800F8729A58250005D6F73 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		FA82FFCB29AB935D00DA091A /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
+		FA82FFCD29AB936B00DA091A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		FA82FFCF29AB98FD00DA091A /* Color +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color +.swift"; sourceTree = "<group>"; };
+		FA82FFD129ABC1A800DA091A /* TagVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagVM.swift; sourceTree = "<group>"; };
+		FA82FFD329ABC1FC00DA091A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		FA82FFD529ABC35F00DA091A /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		FA82FFD729ABC6D600DA091A /* Date +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date +.swift"; sourceTree = "<group>"; };
+		FA82FFD929ABE43000DA091A /* TagStatisticsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStatisticsVM.swift; sourceTree = "<group>"; };
 		FA83E3922971CEE3000952DD /* TActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TActivityType.swift; sourceTree = "<group>"; };
 		FA83E3942971DA67000952DD /* TCityStatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityStatisticView.swift; sourceTree = "<group>"; };
 		FA83E3972971DAD3000952DD /* TCityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityVM.swift; sourceTree = "<group>"; };
@@ -197,6 +213,7 @@
 			children = (
 				FA362F4F297DD83700EE0CE1 /* TTimerView.swift */,
 				FA1B317B29801726001169B8 /* TTimerVM.swift */,
+				FA82FFD129ABC1A800DA091A /* TagVM.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -265,6 +282,7 @@
 		FA547A88296C7F8A00B3EA1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA82FFCA29AB933D00DA091A /* History */,
 				FAFAAC6929A2CD2900779E13 /* TestView */,
 				FAA32C43298C13DB00FB89DA /* MyCities */,
 				FADCDBEF297EFC76000B3FDC /* Progress */,
@@ -282,6 +300,7 @@
 				FA1B317A2980170B001169B8 /* Timer */,
 				FA83E3972971DAD3000952DD /* TCityVM.swift */,
 				FAB2242D29783E3F00B9482C /* THouseVM.swift */,
+				FA82FFD929ABE43000DA091A /* TagStatisticsVM.swift */,
 				FAB224262978335300B9482C /* City */,
 				FA83E3962971DA86000952DD /* CityStatistic */,
 				FAEBB51A296D8A3A008166A0 /* TButtons.swift */,
@@ -342,6 +361,15 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
+		FA82FFCA29AB933D00DA091A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				FA82FFCB29AB935D00DA091A /* HistoryVM.swift */,
+				FA82FFCD29AB936B00DA091A /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		FA83E3912971CEAD000952DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +379,8 @@
 				FAB224292978388500B9482C /* THouse.swift */,
 				FA1B318329805913001169B8 /* TCityPreview.swift */,
 				FA0CAD162985ABE300A19F19 /* THouseStorage.swift */,
+				FA82FFD329ABC1FC00DA091A /* Tag.swift */,
+				FA82FFD529ABC35F00DA091A /* History.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +416,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD4D6A229A3F77000FFF367 /* View +.swift */,
+				FA82FFCF29AB98FD00DA091A /* Color +.swift */,
+				FA82FFD729ABC6D600DA091A /* Date +.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -601,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA82FFD429ABC1FC00DA091A /* Tag.swift in Sources */,
 				FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */,
 				FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */,
 				FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */,
@@ -611,6 +644,7 @@
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
 				FA1B318429805913001169B8 /* TCityPreview.swift in Sources */,
 				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
+				FA82FFD029AB98FD00DA091A /* Color +.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
 				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
@@ -622,6 +656,7 @@
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
 				FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */,
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
+				FA82FFD629ABC35F00DA091A /* History.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
@@ -636,18 +671,23 @@
 				FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */,
 				FAEBB51B296D8A3A008166A0 /* TButtons.swift in Sources */,
 				FA3C25CD29A0EE8B00F1B639 /* BuildingService.swift in Sources */,
+				FA82FFCE29AB936B00DA091A /* HistoryView.swift in Sources */,
 				FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */,
+				FA82FFD829ABC6D600DA091A /* Date +.swift in Sources */,
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
 				FA3C25CB29A00C5B00F1B639 /* BuildingRepositoryNet.swift in Sources */,
 				FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */,
+				FA82FFDA29ABE43000DA091A /* TagStatisticsVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
 				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
+				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
 				FADCDBF5297F0787000B3FDC /* TCircleProgressView.swift in Sources */,
+				FA82FFCC29AB935D00DA091A /* HistoryVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +832,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TImeBurg/TImeBurg.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -835,6 +876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TImeBurg/TImeBurg.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;

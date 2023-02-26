@@ -7,20 +7,9 @@
 
 import SwiftUI
 
-class TTagVM: ObservableObject {
-    
-    @Published var name: String
-    @Published var color: Color
-    
-    init(name: String, color: Color) {
-        self.name = name
-        self.color = color
-    }
-}
-
 struct TTagView: View {
     
-    @ObservedObject var vm: TTagVM
+    @ObservedObject var vm: TagVM
     
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
@@ -42,6 +31,6 @@ struct TTagView: View {
 
 struct TTagView_Previews: PreviewProvider {
     static var previews: some View {
-        TTagView(vm: TTagVM(name: "reading", color: .pink))
+        TTagView(vm: TagVM(name: "reading", color: .pink))
     }
 }

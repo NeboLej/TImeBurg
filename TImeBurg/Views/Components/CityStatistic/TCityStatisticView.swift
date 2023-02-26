@@ -26,7 +26,7 @@ struct TCityStatisticView: View {
             HStack {
                 VStack(spacing: 9) {
                     lineView(title: "Количество зданий", rightView: Text("\(vm.buildings.count)").modifier(WhiteCapsule()))
-                    lineView(title: "Самый популярный тег", rightView: TTagView(vm: TTagVM(name: "game", color: .green)))
+                    lineView(title: "Самый популярный тег", rightView: TTagView(vm: TagVM(name: "game", color: .green)))
                     lineView(title: "Озеленение", rightView: TRatingView(rating: vm.greenRating))
                     lineView(title: "Комфорт", rightView: TRatingView(rating: vm.comfortRating))
                     lineView(title: "Уникальные постройки", rightView: Text("\(vm.getUnicalBuildingsCount())").modifier(WhiteCapsule()))

@@ -13,11 +13,13 @@ class TTabViewModel: ObservableObject {
     @Published var currentTab: Tab = .home
     private let homeVM: THomeViewModel
     private let allCitiesVM: AllCitiesVM
+    private let historyVM: HistoryVM
     
     init(servicesFactory: TServicesFactoryProtocol) {
         self.servicesFactory = servicesFactory
         homeVM = THomeViewModel(serviceFactory: servicesFactory)
         allCitiesVM = AllCitiesVM(serviceFactory: servicesFactory)
+        historyVM = HistoryVM()
     }
     
     func getHomeViewModel() -> THomeViewModel {
@@ -28,9 +30,14 @@ class TTabViewModel: ObservableObject {
         allCitiesVM
     }
     
+    func getHistoryViewModel() -> HistoryVM {
+        historyVM
+    }
+    
 }
 enum Tab: String, CaseIterable {
     case list = "list.bullet.indent"
     case home = "house"
+    case history = "book.closed"
     case gear = "gearshape"
 }
