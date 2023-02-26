@@ -23,6 +23,9 @@ class BuildingRepositoryNet: BuildingRepositoryProtocol {
                     BuildingStored(value: BuildingStored.initModel(image: "House2", width: 30, startTimeInterval: 10, endTimeInterval: 60)),
                     BuildingStored(value: BuildingStored.initModel(image: "House3", width: 60, startTimeInterval: 100, endTimeInterval: 150)),
                     BuildingStored(value: BuildingStored.initModel(image: "House4", width: 60, startTimeInterval: 140, endTimeInterval: 200)),
+                    BuildingStored(value: BuildingStored.initModel(image: "House5", width: 65, startTimeInterval: 200, endTimeInterval: 250)),
+                    BuildingStored(value: BuildingStored.initModel(image: "House6", width: 40, startTimeInterval: 50, endTimeInterval: 100)),
+                    BuildingStored(value: BuildingStored.initModel(image: "House7", width: 30, startTimeInterval: 10, endTimeInterval: 60)),
                 ] ))
             }
         }
