@@ -24,10 +24,10 @@ class HistoryVM: ObservableObject {
         History(date: Date().getOffsetDate(offset: 1), time: 30, tag: Tag(id: "qqq", name: "job", color: "C54E6C")),
         History(date: Date().getOffsetDate(offset: 1), time: 200, tag: Tag(id: "eee", name: "painting", color: "F7CE76")),
         History(date: Date().getOffsetDate(offset: 1), time: 200, tag: Tag(id: "eee", name: "painting", color: "F7CE76")),
-        History(date: Date().getOffsetDate(offset: 1), time: 200, tag: Tag(id: "rrr", name: "sdf", color: "F7CE76")),
+        History(date: Date().getOffsetDate(offset: 1), time: 200, tag: Tag(id: "rrr", name: "sdf", color: "9AD9DB")),
         History(date: Date().getOffsetDate(offset: 1), time: 33, tag: Tag(id: "ttt", name: "dcsdc", color: "F7CE76")),
-        History(date: Date().getOffsetDate(offset: 1), time: 70, tag: Tag(id: "yyy", name: "vfdv", color: "F7CE76")),
-        History(date: Date().getOffsetDate(offset: 1), time: 22, tag: Tag(id: "uuu", name: "asd", color: "F7CE76")),
+        History(date: Date().getOffsetDate(offset: 1), time: 70, tag: Tag(id: "yyy", name: "vfdv", color: "A15D98")),
+        History(date: Date().getOffsetDate(offset: 1), time: 22, tag: Tag(id: "uuu", name: "asd", color: "218B82")),
     ]
     
     init() {

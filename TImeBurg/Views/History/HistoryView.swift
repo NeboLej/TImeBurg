@@ -70,7 +70,7 @@ struct HistoryView: View {
     func tagsView() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 7) {
-                    ForEach(Array(vm.month.enumerated()), id: \.offset) { index, text in
+                ForEach(Array(vm.month.enumerated()), id: \.offset) { index, text in
                     tagCell(text: text, tag: index)
                 }
             }
@@ -106,8 +106,7 @@ struct TagStatisticsView: View {
                     }
                 }
             }
-            Circle()
-                .fill(.pink.opacity(0.4))
+            PieChartView(tags: $vm.tags )
                 .frame(width: 140)
         }
     }
@@ -120,5 +119,32 @@ struct TagStatisticsView: View {
             Text("\(time) min")
                 .font(.custom(TFont.interRegular, size: 10))
         }
+    }
+}
+
+struct PieChartView : View {
+    @Binding var tags: [TagInfoVM]
+    @State var lineWidth: Double = 30
+    private var fullTime: Int { tags.reduce(0) {  $0 + $1.time } }
+    
+    var body: some View {
+        ZStack{
+            ForEach(Array(tags.enumerated()), id: \.offset) { index, tag in
+                Circle()
+                    .trim(from: 0, to: Double(tag.time) / Double(fullTime))
+                    .stroke(
+                        tag.tag.color,
+                        style: StrokeStyle(lineWidth: lineWidth))
+                    .rotationEffect(.degrees(-90), anchor: .center)
+                    .rotationEffect(.degrees(getAngle(id: index)))
+            }
+            .padding(lineWidth / 2)
+        }
+    }
+    
+    func getAngle(id: Int) -> Double {
+        let time = tags.prefix(id).reduce(0) { $0 + $1.time }
+        let angle = 360.0 * Double(time) / Double(fullTime)
+        return angle
     }
 }
