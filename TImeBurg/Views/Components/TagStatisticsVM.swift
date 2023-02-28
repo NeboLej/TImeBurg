@@ -12,6 +12,7 @@ class TagStatisticsVM: ObservableObject {
     @Published var tags: [TagInfoVM] = []
     @Published var isAllTags = false
     @Published var isShowButton = true
+    var fullTime: Int = 0// { tags.reduce(0) { $0 + $1.time } }
     
     private let allTags: [TagInfoVM]
     
@@ -26,12 +27,15 @@ class TagStatisticsVM: ObservableObject {
         }
         allTags = dictTags.map{ TagInfoVM(tag: TagVM(tag: $0.key), time: $0.value) }.sorted { $0.time > $1.time }
         isShowButton = allTags.count > 4
+        fullTime = allTags.reduce(0) { $0 + $1.time }
         tags = Array(allTags.prefix(4))
+        tags.append(TagInfoVM(tag: TagVM(name: "Other", color: .white), time: fullTime - tags.reduce(0) { $0 + $1.time }))
     }
     
     func showAll() {
         if isAllTags {
             tags = Array(allTags.prefix(4))
+            tags.append(TagInfoVM(tag: TagVM(name: "other", color: .white), time: fullTime - tags.reduce(0) { $0 + $1.time }))
         } else {
             tags = allTags
         }

@@ -9,7 +9,11 @@ import Foundation
 
 class HistoryVM: ObservableObject {
     @Published var month = ["January 2023", "December 2022", "November 2022", "October 2022", "September 2022"]
-    @Published var selectedMonth = 0
+    @Published var selectedMonth = 0 {
+        didSet {
+            tagStatisticsVM = TagStatisticsVM(history: Array(history.prefix(selectedMonth)))
+        }
+    }
     @Published var currentCity: TCityVM = TCityVM(city: .init(id: "122022", name: "December 2022", image: "testCity", spentTime: 123, comfortRating: 0.3, greenRating: 3.2, buildings: [], history: [:]))
     @Published var tagStatisticsVM: TagStatisticsVM
     var monthColors = ["218B82", "F7CE76", "C54E6C", "9AD9DB", "EF874D", "A15D98"]
@@ -38,6 +42,13 @@ class HistoryVM: ObservableObject {
         if selectedMonth != index{
             selectedMonth = index
         }
+    }
+    
+    func getFullTime() -> String{
+        let time = Array(history.prefix(selectedMonth)).reduce(0) { $0 + $1.time }
+        let ch = time / 60 > 0 ? String("\(time / 60) h") : ""
+        let min = time % 60 > 0 ? String("\(time % 60) min") : ""
+        return "\(ch) \(min)"
     }
 }
 

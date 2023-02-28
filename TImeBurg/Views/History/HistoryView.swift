@@ -38,9 +38,16 @@ struct HistoryView: View {
                     .resizable()
                     .scaledToFit()
                     .padding(10)
-                Text(vm.month[vm.selectedMonth].uppercased())
-                    .padding(.leading, 15)
-                    .padding(.bottom, 20)
+                HStack {
+                    Text(vm.month[vm.selectedMonth].uppercased())
+                        .font(.custom(TFont.interRegular, size: 18))
+                    Spacer()
+                    Text(vm.getFullTime())
+                        .font(.custom(TFont.interRegular, size: 16))
+                        .padding(.trailing, 15)
+                }
+                .padding(.leading, 15)
+                .padding(.bottom, 20)
             }
         }
         
@@ -81,70 +88,5 @@ struct HistoryView: View {
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
         HistoryView(vm: HistoryVM())
-    }
-}
-
-
-struct TagStatisticsView: View {
-    @ObservedObject var vm: TagStatisticsVM
-    
-    var body: some View {
-        HStack(alignment: .top, spacing: 20) {
-            VStack(alignment: .leading, spacing: 5) {
-                ForEach(vm.tags) {
-                    tagInfoCell(tag: $0.tag, time: $0.time)
-                }
-                
-                if vm.isShowButton {
-                    Button {
-                        withAnimation {
-                            vm.showAll()
-                        }
-                    } label: {
-                        Text( vm.isAllTags ? "hide" : "show All")
-                            .font(.custom(TFont.interRegular, size: 12))
-                    }
-                }
-            }
-            PieChartView(tags: $vm.tags )
-                .frame(width: 140)
-        }
-    }
-    
-    @ViewBuilder
-    func tagInfoCell(tag: TagVM, time: Int) -> some View {
-        HStack {
-            TTagView(vm: tag)
-            Spacer()
-            Text("\(time) min")
-                .font(.custom(TFont.interRegular, size: 10))
-        }
-    }
-}
-
-struct PieChartView : View {
-    @Binding var tags: [TagInfoVM]
-    @State var lineWidth: Double = 30
-    private var fullTime: Int { tags.reduce(0) {  $0 + $1.time } }
-    
-    var body: some View {
-        ZStack{
-            ForEach(Array(tags.enumerated()), id: \.offset) { index, tag in
-                Circle()
-                    .trim(from: 0, to: Double(tag.time) / Double(fullTime))
-                    .stroke(
-                        tag.tag.color,
-                        style: StrokeStyle(lineWidth: lineWidth))
-                    .rotationEffect(.degrees(-90), anchor: .center)
-                    .rotationEffect(.degrees(getAngle(id: index)))
-            }
-            .padding(lineWidth / 2)
-        }
-    }
-    
-    func getAngle(id: Int) -> Double {
-        let time = tags.prefix(id).reduce(0) { $0 + $1.time }
-        let angle = 360.0 * Double(time) / Double(fullTime)
-        return angle
     }
 }
