@@ -32,22 +32,31 @@ struct HistoryView: View {
     
     @ViewBuilder
     func historyTable() -> some View {
-        VStack(alignment: .leading, spacing: 1) {
+        VStack(spacing: 1) {
             ForEach(vm.getHistory()) { dayHistory in
                 Section {
                     ForEach(dayHistory.history) {
                         historyCell(tag: $0.tag, time: $0.time)
                     }
                 } header: {
-                    Text(dayHistory.date.toReadableDate())
-                        .font(.custom(TFont.interRegular, size: 14))
-                        .foregroundColor(.black.opacity(0.6))
-                        .padding(.top, 15)
-                        .padding(.bottom, 3)
-                        .padding(.leading, 10)
+                    historyHeader(date: dayHistory.date, fullTime: dayHistory.fullTime)
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    func historyHeader(date: Date, fullTime: String) -> some View {
+        HStack {
+            Text(date.toReadableDate())
+            Spacer()
+            Text(fullTime)
+        }
+        .font(.custom(TFont.interRegular, size: 14))
+        .foregroundColor(.black.opacity(0.6))
+        .padding(.top, 15)
+        .padding(.bottom, 3)
+        .padding(.horizontal, 10)
     }
     
     @ViewBuilder
@@ -57,6 +66,7 @@ struct HistoryView: View {
                 .fill(tag.color)
                 .frame(width: 10)
             Text("\(time) min")
+                .font(.custom(TFont.interRegular, size: 16))
                 .foregroundColor(Color(hex: "5A5A5A"))
                 .padding(.horizontal, 10)
             Spacer()
@@ -90,7 +100,6 @@ struct HistoryView: View {
                 .padding(.bottom, 20)
             }
         }
-        
         .rotationEffect(.degrees(3))
         .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 5)
         .padding(10)
