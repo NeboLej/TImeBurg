@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct History {
+struct History: Identifiable {
+    let id: String = UUID().uuidString
     let date: Date
     let time: Int
     let tag: Tag

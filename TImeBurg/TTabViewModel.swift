@@ -13,13 +13,13 @@ class TTabViewModel: ObservableObject {
     @Published var currentTab: Tab = .home
     private let homeVM: THomeViewModel
     private let allCitiesVM: AllCitiesVM
-    private let historyVM: HistoryVM
+    private let historyVM: HistoryViewModel
     
     init(servicesFactory: TServicesFactoryProtocol) {
         self.servicesFactory = servicesFactory
         homeVM = THomeViewModel(serviceFactory: servicesFactory)
         allCitiesVM = AllCitiesVM(serviceFactory: servicesFactory)
-        historyVM = HistoryVM()
+        historyVM = HistoryViewModel()
     }
     
     func getHomeViewModel() -> THomeViewModel {
@@ -30,7 +30,7 @@ class TTabViewModel: ObservableObject {
         allCitiesVM
     }
     
-    func getHistoryViewModel() -> HistoryVM {
+    func getHistoryViewModel() -> HistoryViewModel {
         historyVM
     }
     

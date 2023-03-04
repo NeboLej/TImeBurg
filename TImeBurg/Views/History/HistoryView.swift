@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @ObservedObject var vm: HistoryVM
+    @ObservedObject var vm: HistoryViewModel
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
@@ -16,7 +16,7 @@ struct HistoryView: View {
             Spacer()
             pageView()
         }
-        .background(.gray.opacity(0.4))
+        .background(Color.background)
     }
     
     @ViewBuilder
@@ -25,7 +25,47 @@ struct HistoryView: View {
             photoView()
             TagStatisticsView(vm: vm.tagStatisticsVM)
                 .padding(10)
+            historyTable()
+                .padding(.horizontal, 10)
         }
+    }
+    
+    @ViewBuilder
+    func historyTable() -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            ForEach(vm.getHistory()) { dayHistory in
+                Section {
+                    ForEach(dayHistory.history) {
+                        historyCell(tag: $0.tag, time: $0.time)
+                    }
+                } header: {
+                    Text(dayHistory.date.toReadableDate())
+                        .font(.custom(TFont.interRegular, size: 14))
+                        .foregroundColor(.black.opacity(0.6))
+                        .padding(.top, 15)
+                        .padding(.bottom, 3)
+                        .padding(.leading, 10)
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func historyCell(tag: TagVM, time: Int) -> some View {
+        HStack(spacing: 0) {
+           Rectangle()
+                .fill(tag.color)
+                .frame(width: 10)
+            Text("\(time) min")
+                .foregroundColor(Color(hex: "5A5A5A"))
+                .padding(.horizontal, 10)
+            Spacer()
+            TTagView(vm: tag)
+                .padding(10)
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color(hex: "D9D9D9"))
+        .cornerRadius(20, corners: [.bottomRight, .topRight])
     }
     
     @ViewBuilder
@@ -70,7 +110,7 @@ struct HistoryView: View {
                 .rotationEffect(.degrees(-90), anchor: .center)
         }
         .frame(width: 26, height: 150)
-        .background( tag == vm.selectedMonth ? .white : Color(hex: vm.monthColors.randomElement()!))
+        .background( tag == vm.selectedMonth ? Color.background : Color(hex: vm.monthColors.randomElement()!))
     }
     
     @ViewBuilder
@@ -87,6 +127,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(vm: HistoryVM())
+        HistoryView(vm: HistoryViewModel())
     }
 }
