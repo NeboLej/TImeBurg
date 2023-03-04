@@ -11,7 +11,8 @@ import Combine
 protocol TCityServiceProtocol {
     var cityPreviews: CurrentValueSubject<[TCityPreview], Never> { get }
     var currentCity: CurrentValueSubject<TCity, Never> { get }
-//
+    
+    func fetch() -> [TCity]
 //    func getCity(id: String) -> TCity
     func updateCurrentCity(house: THouse)
     func updateCurrentCity(city: TCity)
@@ -38,6 +39,10 @@ class TCityService: TCityServiceProtocol {
         let city = storage.getObjects(CityStored.self).first(where: { $0.id == id })
         guard let city = city else { return nil }
         return TCity(city: city)
+    }
+    
+    func fetch() -> [TCity] {
+        storage.getObjects(CityStored.self).map { TCity(city: $0) }
     }
     
     func updateCurrentCity(house: THouse) {

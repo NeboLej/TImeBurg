@@ -23,7 +23,7 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     
     private let houseService: THouseServiceProtocol
     private let cityService: TCityServiceProtocol
-
+    private var parent: Any?
     
     init(minutes: Float, tag: Tag, serviceFactory: TServicesFactoryProtocol) {
         self.minutes = minutes

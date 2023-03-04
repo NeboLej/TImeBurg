@@ -5,7 +5,7 @@
 //  Created by Nebo on 13.01.2023.
 //
 
-import Foundation
+import UIKit
 
 class TCityVM: ObservableObject {
     var id: String
@@ -15,14 +15,17 @@ class TCityVM: ObservableObject {
     @Published var greenRating: Double
     @Published var buildings: [THouseVM] = []
     @Published var isCanEdit: Bool = false
+    @Published var image: UIImage?
     
     init(id: String = "", name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
+        let imageService = ImageService()
         self.id = id
         self.name = name
         self.numberOfPeople = numberOfPeople
         self.comfortRating = comfortRating
         self.greenRating = greenRating
         self.buildings = buildings.map { THouseVM(house: $0, parent: parent) }
+        self.image = imageService.getImage(fileName: id)
     }
     
     convenience init(city: TCity, parent: Any? = nil) {

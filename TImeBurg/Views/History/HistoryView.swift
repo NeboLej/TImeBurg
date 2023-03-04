@@ -84,7 +84,7 @@ struct HistoryView: View {
             Rectangle()
                 .fill(.white)
             VStack(alignment: .leading) {
-                Image("testCity")
+                Image(uiImage: vm.currentCity.image ?? UIImage(named: "testCity")!)
                     .resizable()
                     .scaledToFit()
                     .padding(10)
@@ -136,6 +136,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(vm: HistoryViewModel())
+        HistoryView(vm: HistoryViewModel(serviceFactory: TServicesFactory()))
     }
 }

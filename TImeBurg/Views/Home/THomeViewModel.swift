@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class THomeViewModel: ObservableObject, THouseListenerProtocol {
+class THomeViewModel: ObservableObject, THouseListenerProtocol, ProgressListener {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
@@ -54,6 +54,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
                 _self?.tags = $0
             }
             .store(in: &cancellableSet)
+        afterSnapshot()
     }
     
     func startActivity() -> TProgressVM {
@@ -116,5 +117,12 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         house.line = line
         changedСity.buildings.removeAll(where: { $0.id == id } )
         changedСity.buildings.append(house)
+    }
+    
+    func afterSnapshot() {
+        weak var _self = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            _self?.snapshotCity = true
+        }
     }
 }

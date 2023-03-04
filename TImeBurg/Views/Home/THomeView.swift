@@ -41,6 +41,7 @@ struct THomeView: View {
         .background(.white)
         .fullScreenCover(isPresented: $vm.isProgress) {
             vm.isProgress = false
+            vm.afterSnapshot()
         } content: {
             TProgressView(vm: vm.startActivity())
         }

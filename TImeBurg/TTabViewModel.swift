@@ -19,7 +19,7 @@ class TTabViewModel: ObservableObject {
         self.servicesFactory = servicesFactory
         homeVM = THomeViewModel(serviceFactory: servicesFactory)
         allCitiesVM = AllCitiesVM(serviceFactory: servicesFactory)
-        historyVM = HistoryViewModel()
+        historyVM = HistoryViewModel(serviceFactory: servicesFactory)
     }
     
     func getHomeViewModel() -> THomeViewModel {
