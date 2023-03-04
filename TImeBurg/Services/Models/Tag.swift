@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tag: Hashable {
+struct Tag: TagProtocol, Hashable {
     let id: String
     let name: String
     let color: String
@@ -16,5 +16,9 @@ struct Tag: Hashable {
         self.id = id
         self.name = name
         self.color = color
+    }
+    
+    init(tag: TagProtocol) {
+        self.init(id: tag.id, name: tag.name, color: tag.color)
     }
 }

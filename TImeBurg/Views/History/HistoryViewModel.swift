@@ -14,7 +14,7 @@ class HistoryViewModel: ObservableObject {
             tagStatisticsVM = TagStatisticsVM(history: Array(history.prefix(selectedMonth)))
         }
     }
-    @Published var currentCity: TCityVM = TCityVM(city: .init(id: "122022", name: "December 2022", image: "testCity", spentTime: 123, comfortRating: 0.3, greenRating: 3.2, buildings: [], history: [:]))
+    @Published var currentCity: TCityVM = TCityVM(city: .init(id: "122022", name: "December 2022", image: "testCity", spentTime: 123, comfortRating: 0.3, greenRating: 3.2, buildings: [], history: []))
     @Published var tagStatisticsVM: TagStatisticsVM
     var monthColors = ["218B82", "F7CE76", "C54E6C", "9AD9DB", "EF874D", "A15D98"]
     
@@ -37,10 +37,6 @@ class HistoryViewModel: ObservableObject {
     init() {
         tagStatisticsVM = TagStatisticsVM(history: history)
     }
-    
-//    func getHistory() -> [History] {
-//        Array(history.prefix(selectedMonth))
-//    }
     
     func selectMonth(index: Int) {
         if selectedMonth != index{
@@ -65,52 +61,5 @@ class HistoryViewModel: ObservableObject {
         }
         
         return result.sorted { $0.date >  $1.date }
-    }
-}
-
-
-struct TagInfoVM: Identifiable {
-    let id: String
-    let tag: TagVM
-    let time: Int
-    
-    init(tag: TagVM, time: Int) {
-        self.id = tag.id
-        self.tag = tag
-        self.time = time
-    }
-}
-
-class HistoryDayVM: ObservableObject, Identifiable {
-    let id = UUID().uuidString
-    @Published var date: Date
-    @Published var history: [HistoryVM]
-    @Published var fullTime: String = ""
-    
-    init(date: Date, history: [HistoryVM]) {
-        self.date = date
-        self.history = history
-        let time = history.reduce(0) { $0 + $1.time }
-        let ch = time / 60 > 0 ? String("\(time / 60) h") : ""
-        let min = time % 60 > 0 ? String("\(time % 60) min") : ""
-        fullTime = "\(ch) \(min)"
-    }
-}
-
-class HistoryVM: ObservableObject, Identifiable {
-    var id: String
-    @Published var date:  Date
-    @Published var time: Int
-    @Published var tag: TagVM
-    
-    init(id: String, date: Date, time: Int, tag: TagVM, parent: Any? = nil) {
-        self.id = id
-        self.date = date
-        self.time = time
-        self.tag = tag
-    }
-    
-    convenience init(history: History, parent: Any? = nil) {
-        self.init(id: history.id, date: history.date, time: history.time, tag: TagVM(tag: history.tag))
     }
 }

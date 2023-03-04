@@ -14,7 +14,8 @@ protocol StoreManagerProtocol {
     
     func getObjects<T>(_ type: T.Type) -> [T] where T: Object
     //    func getObjects<T>(_ type: T.Type) -> Future<[T], Never> where T: Object
-    func updateObject<T>(_ object: T) where T: Object
+    func updateObject<T>(_ object: T) -> Bool where T: Object
+    func updateObjects<T>(_ objects: [T]) where T: Object
     
     func removeAllObjectsOfType<T>(_ type: T.Type) where T: Object
     func removeObject<T>(_ object: T) where T: Object
@@ -25,6 +26,17 @@ protocol StoreManagerProtocol {
     
 }
 
+//let config = Realm.Configuration(
+//     schemaVersion: 1,
+//        migrationBlock: { migration, oldSchemaVersion in
+//        if (oldSchemaVersion < 1) {
+//            // Nothing to do!
+//            // Realm will automatically detect new properties and removed properties
+//            // And will update the schema on disk automatically
+//        }
+//})
+//Realm.Configuration.defaultConfiguration = config
+
 class RealmManager: StoreManagerProtocol {
     
     private var realm: Realm?
@@ -32,7 +44,9 @@ class RealmManager: StoreManagerProtocol {
     init() {
         print("---Realm--- created Realm in  \(Thread.current)")
         do {
-            let config = Realm.Configuration(schemaVersion: 2)
+            let config = Realm.Configuration(schemaVersion: 3,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion > 3 { } } )
             Realm.Configuration.defaultConfiguration = config
             self.realm = try Realm()
         } catch {
@@ -70,21 +84,33 @@ class RealmManager: StoreManagerProtocol {
         return Array(results)
     }
     
-    func updateObject<T>(_ object: T) where T: Object {
+    func updateObject<T>(_ object: T) -> Bool where T: Object {
         print("---Realm--- update \(T.self) in  \(Thread.current)")
-        guard let realm = self.realm else { return }
+        guard let realm = self.realm else { return false }
         let result = realm.object(ofType: T.self, forPrimaryKey: object.value(forKeyPath: T.primaryKey()!) as? AnyObject)
         if result != nil
         {
             do {
                 try realm.write {
                     realm.add(object, update: .modified)
+                    return true
                 }
             } catch {
                 print("---Error updateObject to Realm: \(error)")
+                return false
             }
         } else {
             print("---Error updateObject Realm: object result = nil")
+            return false
+        }
+        return false
+    }
+    
+    func updateObjects<T>(_ objects: [T]) where T: Object {
+        objects.forEach { object in
+            if !updateObject(object) {
+                saveObject(object)
+            }
         }
     }
     

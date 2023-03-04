@@ -15,6 +15,7 @@ protocol TCityServiceProtocol {
 //    func getCity(id: String) -> TCity
     func updateCurrentCity(house: THouse)
     func updateCurrentCity(city: TCity)
+    func updateCurrentCity(history: History)
 }
 
 class TCityService: TCityServiceProtocol {
@@ -45,9 +46,15 @@ class TCityService: TCityServiceProtocol {
         updateCurrentCity(city: city)
     }
     
+    func updateCurrentCity(history: History) {
+        var city = getCurrentCity()
+        city.history.append(history)
+        updateCurrentCity(city: city)
+    }
+    
     func updateCurrentCity(city: TCity) {
         let storageCity = CityStored(value: CityStored.initModel(city: city))
-        storage.updateObject(storageCity)
+        _ = storage.updateObject(storageCity)
         currentCity.send(city)
         getCityPreviews()
     }
@@ -68,7 +75,7 @@ class TCityService: TCityServiceProtocol {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLLL YYYY"
         
-        let newCity = TCity(id: id, name: formatter.string(from: Date()), image: "", spentTime: 0, comfortRating: 0, greenRating: 0, buildings: [], history: [:])
+        let newCity = TCity(id: id, name: formatter.string(from: Date()), image: "", spentTime: 0, comfortRating: 0, greenRating: 0, buildings: [], history: [])
         let storageCity = CityStored(value: CityStored.initModel(city: newCity))
         
         storage.saveObject(storageCity)

@@ -30,6 +30,14 @@
 		FA547A82296C7E2D00B3EA1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */; };
 		FA54C85D29AEB02100AE14A0 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54C85C29AEB02100AE14A0 /* PieChartView.swift */; };
 		FA54C85F29AEB13400AE14A0 /* TagStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54C85E29AEB13400AE14A0 /* TagStatisticsView.swift */; };
+		FA5DB36729B38D6C00AEE29D /* HistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB36629B38D6C00AEE29D /* HistoryVM.swift */; };
+		FA5DB36929B38DA900AEE29D /* HistoryDayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB36829B38DA900AEE29D /* HistoryDayVM.swift */; };
+		FA5DB36B29B38DF800AEE29D /* TagInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB36A29B38DF800AEE29D /* TagInfoVM.swift */; };
+		FA5DB36D29B38EB300AEE29D /* TagStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB36C29B38EB300AEE29D /* TagStored.swift */; };
+		FA5DB36F29B3908800AEE29D /* HistoryStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB36E29B3908800AEE29D /* HistoryStored.swift */; };
+		FA5DB37129B3ACB500AEE29D /* TagRepositoryNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB37029B3ACB500AEE29D /* TagRepositoryNet.swift */; };
+		FA5DB37329B3AEB200AEE29D /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB37229B3AEB200AEE29D /* TagService.swift */; };
+		FA5DB37529B3B00500AEE29D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB37429B3B00500AEE29D /* BaseService.swift */; };
 		FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */; };
 		FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA800F8729A58250005D6F73 /* RoundedCorner.swift */; };
 		FA82FFCC29AB935D00DA091A /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCB29AB935D00DA091A /* HistoryViewModel.swift */; };
@@ -117,6 +125,14 @@
 		FA547A81296C7E2D00B3EA1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA54C85C29AEB02100AE14A0 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		FA54C85E29AEB13400AE14A0 /* TagStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStatisticsView.swift; sourceTree = "<group>"; };
+		FA5DB36629B38D6C00AEE29D /* HistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVM.swift; sourceTree = "<group>"; };
+		FA5DB36829B38DA900AEE29D /* HistoryDayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDayVM.swift; sourceTree = "<group>"; };
+		FA5DB36A29B38DF800AEE29D /* TagInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoVM.swift; sourceTree = "<group>"; };
+		FA5DB36C29B38EB300AEE29D /* TagStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStored.swift; sourceTree = "<group>"; };
+		FA5DB36E29B3908800AEE29D /* HistoryStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStored.swift; sourceTree = "<group>"; };
+		FA5DB37029B3ACB500AEE29D /* TagRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepositoryNet.swift; sourceTree = "<group>"; };
+		FA5DB37229B3AEB200AEE29D /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		FA5DB37429B3B00500AEE29D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		FA800F8729A58250005D6F73 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		FA82FFCB29AB935D00DA091A /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		FA82FFCD29AB936B00DA091A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -208,6 +224,8 @@
 				FA1831BE299D5A5E00D9E1D2 /* BuildingStored.swift */,
 				FA1831C2299D6F7200D9E1D2 /* CityStored.swift */,
 				FA1831C4299D724400D9E1D2 /* HouseStored.swift */,
+				FA5DB36C29B38EB300AEE29D /* TagStored.swift */,
+				FA5DB36E29B3908800AEE29D /* HistoryStored.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */,
+				FA5DB37029B3ACB500AEE29D /* TagRepositoryNet.swift */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -303,7 +322,9 @@
 				FAD4D6A129A3F75000FFF367 /* Ext */,
 				FA1B317A2980170B001169B8 /* Timer */,
 				FA83E3972971DAD3000952DD /* TCityVM.swift */,
+				FA5DB36629B38D6C00AEE29D /* HistoryVM.swift */,
 				FAB2242D29783E3F00B9482C /* THouseVM.swift */,
+				FA5DB36A29B38DF800AEE29D /* TagInfoVM.swift */,
 				FA82FFD929ABE43000DA091A /* TagStatisticsVM.swift */,
 				FAB224262978335300B9482C /* City */,
 				FA83E3962971DA86000952DD /* CityStatistic */,
@@ -341,9 +362,11 @@
 			children = (
 				FA83E3912971CEAD000952DD /* Models */,
 				FAFC71E1296C86340099D470 /* TServicesFactory.swift */,
+				FA5DB37429B3B00500AEE29D /* BaseService.swift */,
 				FA1B317D298055D5001169B8 /* TCityService.swift */,
 				FA0CAD142985AA2300A19F19 /* THouseService.swift */,
 				FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */,
+				FA5DB37229B3AEB200AEE29D /* TagService.swift */,
 				FAD4D6A429A3F85900FFF367 /* ImageService.swift */,
 			);
 			path = Services;
@@ -372,6 +395,7 @@
 			children = (
 				FA82FFCB29AB935D00DA091A /* HistoryViewModel.swift */,
 				FA82FFCD29AB936B00DA091A /* HistoryView.swift */,
+				FA5DB36829B38DA900AEE29D /* HistoryDayVM.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -654,6 +678,7 @@
 				FA83E39A2971DFFE000952DD /* TPeopleCounterView.swift in Sources */,
 				FA82FFD029AB98FD00DA091A /* Color +.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
+				FA5DB36729B38D6C00AEE29D /* HistoryVM.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
 				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
 				FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */,
@@ -662,14 +687,20 @@
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
+				FA5DB37329B3AEB200AEE29D /* TagService.swift in Sources */,
 				FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */,
+				FA5DB37129B3ACB500AEE29D /* TagRepositoryNet.swift in Sources */,
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
 				FA82FFD629ABC35F00DA091A /* History.swift in Sources */,
+				FA5DB36F29B3908800AEE29D /* HistoryStored.swift in Sources */,
+				FA5DB36929B38DA900AEE29D /* HistoryDayVM.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
+				FA5DB37529B3B00500AEE29D /* BaseService.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
 				FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */,
+				FA5DB36B29B38DF800AEE29D /* TagInfoVM.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
@@ -690,6 +721,7 @@
 				FA82FFDA29ABE43000DA091A /* TagStatisticsVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
 				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
+				FA5DB36D29B38EB300AEE29D /* TagStored.swift in Sources */,
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
 				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,

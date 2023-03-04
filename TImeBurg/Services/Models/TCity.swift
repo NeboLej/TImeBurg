@@ -15,9 +15,9 @@ struct TCity: Equatable {
     var comfortRating: Double
     var greenRating: Double
     var buildings: [THouse]
-    var history: [Date: [TBuildingType]]
+    var history: [History]
     
-    init(id: String, name: String, image: String, spentTime: Int, comfortRating: Double, greenRating: Double, buildings: [THouse], history: [Date : [TBuildingType]]) {
+    init(id: String, name: String, image: String, spentTime: Int, comfortRating: Double, greenRating: Double, buildings: [THouse], history: [History]) {
         self.id = id
         self.name = name
         self.image = image
@@ -29,6 +29,6 @@ struct TCity: Equatable {
     }
     
     init(city: CityProtocol) {
-        self.init(id: city.id, name: city.name, image: city.image, spentTime: city.spentTime, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings.map { THouse(house: $0) }, history: [:] )
+        self.init(id: city.id, name: city.name, image: city.image, spentTime: city.spentTime, comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings.map { THouse(house: $0) }, history: city.history.map { History(history: $0) })
     }
 }

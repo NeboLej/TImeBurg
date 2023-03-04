@@ -53,7 +53,7 @@ struct HistoryView: View {
             Text(fullTime)
         }
         .font(.custom(TFont.interRegular, size: 14))
-        .foregroundColor(.black.opacity(0.6))
+        .foregroundColor(Color.outerSpace)
         .padding(.top, 15)
         .padding(.bottom, 3)
         .padding(.horizontal, 10)
@@ -67,7 +67,7 @@ struct HistoryView: View {
                 .frame(width: 10)
             Text("\(time) min")
                 .font(.custom(TFont.interRegular, size: 16))
-                .foregroundColor(Color(hex: "5A5A5A"))
+                .foregroundColor(Color.outerSpace)
                 .padding(.horizontal, 10)
             Spacer()
             TTagView(vm: tag)
@@ -106,23 +106,6 @@ struct HistoryView: View {
     }
     
     @ViewBuilder
-    func tagCell(text: String, tag: Int) -> some View {
-        Button {
-            withAnimation {
-                vm.selectMonth(index: tag)
-            }
-        } label: {
-            Text(text)
-                .foregroundColor(.black)
-                .padding(10)
-                .aspectRatio(contentMode: .fill)
-                .rotationEffect(.degrees(-90), anchor: .center)
-        }
-        .frame(width: 26, height: 150)
-        .background( tag == vm.selectedMonth ? Color.background : Color(hex: vm.monthColors.randomElement()!))
-    }
-    
-    @ViewBuilder
     func tagsView() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 7) {
@@ -130,7 +113,24 @@ struct HistoryView: View {
                     tagCell(text: text, tag: index)
                 }
             }
-        }.background(Color(hex: "23204D"))
+        }.background(Color.darkViolet)
+    }
+    
+    @ViewBuilder
+    func tagCell(text: String, tag: Int) -> some View {
+        Button {
+            withAnimation {
+                vm.selectMonth(index: tag)
+            }
+        } label: {
+            Text(text)
+                .foregroundColor(Color.outerSpace)
+                .padding(10)
+                .aspectRatio(contentMode: .fill)
+                .rotationEffect(.degrees(-90), anchor: .center)
+        }
+        .frame(width: 26, height: 150)
+        .background( tag == vm.selectedMonth ? Color.background : Color(hex: vm.monthColors.randomElement()!))
     }
 }
 
