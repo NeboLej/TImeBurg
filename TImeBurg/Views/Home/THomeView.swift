@@ -41,6 +41,7 @@ struct THomeView: View {
         .background(.white)
         .fullScreenCover(isPresented: $vm.isProgress) {
             vm.isProgress = false
+            vm.afterSnapshot()
         } content: {
             TProgressView(vm: vm.startActivity())
         }
@@ -146,7 +147,7 @@ struct THomeView: View {
                         .offset(x: offsetX)
                         .frame(height: 150)
                         .animation(Animation.easeOut, value: offsetX)
-                    TTagView(vm: TTagVM(name: "reading", color: .pink))
+                    TTagView(vm: !vm.tagsVM.isEmpty ? vm.tagsVM[vm.currentTag] : TagVM(name: "Test", color: .pink))
                 }
                 .padding(.trailing, vm.selectedHouse == nil ? 20 : 40)
             }

@@ -24,6 +24,8 @@ struct TTabView: View {
                     .tag(Tab.list)
                 THomeView(vm: vm.getHomeViewModel())
                     .tag(Tab.home)
+                HistoryView(vm: vm.getHistoryViewModel())
+                    .tag(Tab.history)
                 TestView(vm: TestVM())
                     .tag(Tab.gear)
             }

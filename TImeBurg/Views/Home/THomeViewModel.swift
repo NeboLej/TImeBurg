@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class THomeViewModel: ObservableObject, THouseListenerProtocol {
+class THomeViewModel: ObservableObject, THouseListenerProtocol, ProgressListener {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
@@ -17,25 +17,26 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var isProgress = false
     @Published var snapshotCity = false
     @Published var currentCityVM: TCityVM = TCityVM()
+    @Published var tagsVM: [TagVM] = []
     @Published var countPeople: Int = 0
     @Published var cityCanEdit = false
     @Published var isShowMenu = false
+    @Published var currentTag = 0
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
     private let cityService: TCityServiceProtocol
-    private let houseService: THouseServiceProtocol
     private let serviceFactory: TServicesFactoryProtocol
     private let imageService: ImageServiceProtocol
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
     private var changedСity: TCity!
+    private var tags: [Tag] = [] { didSet { tagsVM = tags.map{ TagVM(tag: $0) } } }
     
     init(serviceFactory: TServicesFactoryProtocol) {
         self.serviceFactory = serviceFactory
         cityService = serviceFactory.cityService
-        houseService = serviceFactory.houseService
         imageService = ImageService()
         
         weak var _self = self
@@ -46,10 +47,18 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
                 _self?.currentCityVM = TCityVM(city: $0, parent: _self)
             }
             .store(in: &cancellableSet)
+        
+        serviceFactory.tagService
+            .tags
+            .sink {
+                _self?.tags = $0
+            }
+            .store(in: &cancellableSet)
+        afterSnapshot()
     }
     
     func startActivity() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), serviceFactory: serviceFactory)
+        TProgressVM(minutes: Float(timeActivity), tag: tags[currentTag], serviceFactory: serviceFactory)
     }
     
     func saveImage(image: UIImage) {
@@ -108,5 +117,12 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         house.line = line
         changedСity.buildings.removeAll(where: { $0.id == id } )
         changedСity.buildings.append(house)
+    }
+    
+    func afterSnapshot() {
+        weak var _self = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            _self?.snapshotCity = true
+        }
     }
 }

@@ -46,12 +46,12 @@ struct CustomTabBarView: View {
                              lineCap: .round
                          ))
                     .frame(width: 65, height: 65)
-                    .offset(x: 27, y: -5)
+                    .offset(x: 11, y: -5)
                     .offset(x: indicatorOffset(width: width), y: yOffset)
                     .shadow(color: .black.opacity(0.4), radius: 2, x: 0, y: 6)
             }
         }
-        .frame(height: 10)
+        .frame(height: 35)
         .padding(.bottom, 10)
         .padding([.horizontal, .top])
         .background(LinearGradient(colors: [Color.brightNavyBlue, Color.blueViolet], startPoint: .leading, endPoint: .trailing))
@@ -67,12 +67,20 @@ struct CustomTabBarView: View {
     
     func getIndex() -> Int {
         switch currentTab {
-            case .home:
-                return 1
             case .list:
                 return 0
-            case .gear:
+            case .home:
+                return 1
+            case .history:
                 return 2
+            case .gear:
+                return 3
         }
+    }
+}
+
+struct CustomTabBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        TTabView(vm: TTabViewModel(servicesFactory: TServicesFactory()))
     }
 }

@@ -12,13 +12,14 @@ protocol BuildingServiceProtocol {
     
 }
 
-class BuildingService: BuildingServiceProtocol {
+class BuildingService: BaseService, BuildingServiceProtocol {
     
     private let storage: StoreManagerProtocol
-    private var cancellableSet: Set<AnyCancellable> = []
     
     init(storage: StoreManagerProtocol, net: BuildingRepositoryProtocol) {
         self.storage = storage
+        super.init()
+        
         net.fetch()
             .receive(on: DispatchQueue.main)
             .sink { buildings in
@@ -33,5 +34,4 @@ class BuildingService: BuildingServiceProtocol {
             storage.saveObjects(newBuildings)
         }
     }
-    
 }

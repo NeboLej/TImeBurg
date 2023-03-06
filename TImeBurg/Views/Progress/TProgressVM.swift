@@ -19,12 +19,15 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     
     private lazy var timerVM: TTimerVM = TTimerVM(minutes: minutes, parent: self)
     private var newHome: THouse? = nil
+    private let tag: Tag
     
     private let houseService: THouseServiceProtocol
     private let cityService: TCityServiceProtocol
+    private var parent: Any?
     
-    init(minutes: Float, serviceFactory: TServicesFactoryProtocol) {
+    init(minutes: Float, tag: Tag, serviceFactory: TServicesFactoryProtocol) {
         self.minutes = minutes
+        self.tag = tag
         self.houseService = serviceFactory.houseService
         self.cityService = serviceFactory.cityService
     }
@@ -49,6 +52,7 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     
     func saveHouse() {
         cityService.updateCurrentCity(house: newHome!)
+        cityService.updateCurrentCity(history: History(date: Date(), time: Int(minutes), tag: tag))
     }
     
     //MARK: TTimerListenerProtocol
