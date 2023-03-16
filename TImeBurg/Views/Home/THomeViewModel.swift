@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class THomeViewModel: ObservableObject, THouseListenerProtocol, ProgressListener {
+class THomeViewModel: ObservableObject, THouseListenerProtocol {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
