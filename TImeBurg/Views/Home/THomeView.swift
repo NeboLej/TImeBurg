@@ -11,8 +11,7 @@ struct THomeView: View {
     
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
-    @State private var tagPickerShow = false
-//    @State private var tagPickerSelection =
+    @State private var tagPickerShow = true
     
     var body: some View {
         ZStack {
@@ -49,35 +48,8 @@ struct THomeView: View {
                 TProgressView(vm: vm.startActivity())
             }
             
-            if tagPickerShow {
-                tagPicker()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
+            TagPicker(tagPickerShow: $tagPickerShow, currentTag: $vm.currentTag, tagsVM: $vm.tagsVM)
         }
-    }
-    
-    @ViewBuilder
-    private func tagPicker() -> some View {
-        ZStack {
-            Rectangle()
-                .fill(.white)
-                .opacity(0.2)
-                .onTapGesture {
-                    withAnimation {
-                        tagPickerShow = false
-                    }
-                }
-            Picker(selection: $vm.currentTag) {
-                ForEach(vm.tagsVM) {
-                    TTagView(vm: $0).tag($0)
-                        .opacity(1)
-                }
-            } label: {
-                
-            }
-            .pickerStyle(.inline)
-        }
-        .ignoresSafeArea()
     }
     
     @ViewBuilder
@@ -182,7 +154,7 @@ struct THomeView: View {
                         .animation(Animation.easeOut, value: offsetX)
                     TTagView(vm: vm.currentTag)
                         .onTapGesture {
-                            withAnimation {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
                                 tagPickerShow = true
                             }
                         }

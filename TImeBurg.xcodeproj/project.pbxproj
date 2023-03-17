@@ -55,6 +55,9 @@
 		FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C44298C140300FB89DA /* AllCitiesVM.swift */; };
 		FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C46298C141900FB89DA /* AllCitiesView.swift */; };
 		FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */; };
+		FAAEFA2329C46CFD0012A548 /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2229C46CFD0012A548 /* GlassView.swift */; };
+		FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2429C46E0D0012A548 /* Blur +.swift */; };
+		FAAEFA2729C48EBC0012A548 /* TagPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2629C48EBC0012A548 /* TagPicker.swift */; };
 		FAB224252978334800B9482C /* TCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224242978334800B9482C /* TCityView.swift */; };
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
@@ -149,6 +152,9 @@
 		FAA32C44298C140300FB89DA /* AllCitiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesVM.swift; sourceTree = "<group>"; };
 		FAA32C46298C141900FB89DA /* AllCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesView.swift; sourceTree = "<group>"; };
 		FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityPreviewVM.swift; sourceTree = "<group>"; };
+		FAAEFA2229C46CFD0012A548 /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
+		FAAEFA2429C46E0D0012A548 /* Blur +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blur +.swift"; sourceTree = "<group>"; };
+		FAAEFA2629C48EBC0012A548 /* TagPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPicker.swift; sourceTree = "<group>"; };
 		FAB224242978334800B9482C /* TCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityView.swift; sourceTree = "<group>"; };
 		FAB224292978388500B9482C /* THouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouse.swift; sourceTree = "<group>"; };
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
@@ -338,6 +344,8 @@
 				FAF6899429A1577D00CAB875 /* CustomTabBarView.swift */,
 				FA54C85C29AEB02100AE14A0 /* PieChartView.swift */,
 				FA54C85E29AEB13400AE14A0 /* TagStatisticsView.swift */,
+				FAAEFA2229C46CFD0012A548 /* GlassView.swift */,
+				FAAEFA2629C48EBC0012A548 /* TagPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 				FAD4D6A229A3F77000FFF367 /* View +.swift */,
 				FA82FFCF29AB98FD00DA091A /* Color +.swift */,
 				FA82FFD729ABC6D600DA091A /* Date +.swift */,
+				FAAEFA2429C46E0D0012A548 /* Blur +.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -671,6 +680,7 @@
 				FA83E3952971DA67000952DD /* TCityStatisticView.swift in Sources */,
 				FAFC7213296C8DFE0099D470 /* Fonts.swift in Sources */,
 				FAEBB51D296DDE7F008166A0 /* TTagView.swift in Sources */,
+				FAAEFA2729C48EBC0012A548 /* TagPicker.swift in Sources */,
 				FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */,
 				FA1831C3299D6F7200D9E1D2 /* CityStored.swift in Sources */,
 				FA547A7C296C7E2900B3EA1E /* TTabView.swift in Sources */,
@@ -725,7 +735,9 @@
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
 				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,
+				FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
+				FAAEFA2329C46CFD0012A548 /* GlassView.swift in Sources */,
 				FADCDBF5297F0787000B3FDC /* TCircleProgressView.swift in Sources */,
 				FA82FFCC29AB935D00DA091A /* HistoryViewModel.swift in Sources */,
 			);
