@@ -16,7 +16,7 @@ struct GlassView<Content>: View where Content : View {
     var saturation: CGFloat
     var strokeGradient: LinearGradient
     
-    init(blurRadius: CGFloat = 5, saturation: CGFloat = 1.5, strokeGradient: LinearGradient = LinearGradient(colors: [ .white.opacity(0.6), .white.opacity(0.15), .blueViolet.opacity(0.2), .blueViolet.opacity(0.4)], startPoint: .topLeading, endPoint: .bottomTrailing), @ViewBuilder content: () -> Content) {
+    init(blurRadius: CGFloat = 7, saturation: CGFloat = 1.5, strokeGradient: LinearGradient = LinearGradient(colors: [ .white.opacity(0.6), .white.opacity(0.15), .blueViolet.opacity(0.2), .blueViolet.opacity(0.4)], startPoint: .topLeading, endPoint: .bottomTrailing), @ViewBuilder content: () -> Content) {
         self.content = content()
         self.blurRadius = blurRadius
         self.saturation = saturation
