@@ -79,6 +79,7 @@ struct TagPickerView: View {
                 
                 TTagView(vm: .init(name: nameNewTag.isEmpty ? "Tag Name" : nameNewTag, color: colorNewTag), fontSize: 18, circleWith: 12, opacity: 1, height: 30)
                     .padding(.top, 30)
+                    .padding(.horizontal)
                 Spacer()
                 HStack {
                     TTextField(placeholder: "Tag Name", text: $nameNewTag)
@@ -90,7 +91,9 @@ struct TagPickerView: View {
                 .padding()
                 
                 TButton(action: {
-                    tagPickerShow = false
+                    withAnimation(.easeInOut) {
+                        tagPickerShow = false
+                    }
                 }, text: Text("Save"))
                 .padding()
             }
