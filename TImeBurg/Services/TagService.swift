@@ -21,6 +21,8 @@ class TagService: BaseService, TagServiceProtocol {
         self.storage = storage
         super.init()
         
+        getTags()
+        
         net.fetch()
             .receive(on: DispatchQueue.main)
             .sink { tags in

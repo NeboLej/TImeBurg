@@ -21,7 +21,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var countPeople: Int = 0
     @Published var cityCanEdit = false
     @Published var isShowMenu = false
-    @Published var currentTag = 0
+    @Published var currentTag: TagVM = TagVM(name: "test", color: .red)
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
@@ -52,13 +52,16 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
             .tags
             .sink {
                 _self?.tags = $0
+                if !$0.isEmpty {
+                    _self?.currentTag = TagVM(tag: $0.first!)
+                }
             }
             .store(in: &cancellableSet)
         afterSnapshot()
     }
     
     func startActivity() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), tag: tags[currentTag], serviceFactory: serviceFactory)
+        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, serviceFactory: serviceFactory)
     }
     
     func saveImage(image: UIImage) {
