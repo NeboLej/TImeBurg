@@ -17,7 +17,7 @@ struct TagPickerView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(.white.opacity(isShow ? 0.1 : 0))
+                .fill(.white.opacity(isShow ? 0.2 : 0))
                 .onTapGesture {
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
                         switch vm.statePickerView {
@@ -25,6 +25,7 @@ struct TagPickerView: View {
                                 isShow = false
                             case .new:
                                 vm.statePickerView = .selected
+                                vm.nameNewTag = ""
                                 isNew = false
                         }
                     }
@@ -52,28 +53,37 @@ struct TagPickerView: View {
                 
                 Spacer()
                 HStack {
-                    TButton(action: {
+                    Spacer()
+                    Button {
                         withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
                             vm.statePickerView = .new
                             isNew = true
                         }
-                    }, text: Text("New tag"))
-                    
-                    TButton(action: {
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
+                    .font(.title)
+                    .foregroundColor(.blueViolet)
+
+                    Button {
                         withAnimation(.easeInOut) {
                             vm.statePickerView = .selected
                             isShow = false
                             isNew = false
                         }
-                    }, text: Text("Save"))
+                    } label: {
+                        Image(systemName: "checkmark.circle")
+                    }
+                    .font(.title)
+                    .foregroundColor(.white)
+
                 }
                 .padding()
-                .padding(.bottom, 10)
             }
         }
         .offset(x: isShow ? 0 : 400)
         .offset(y: isNew ? -1000 : 0)
-        .frame(height: UIScreen.main.bounds.height * 0.42)
+        .frame(height: UIScreen.main.bounds.height * 0.37)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
     }
     
@@ -81,9 +91,11 @@ struct TagPickerView: View {
     private func newTagView() -> some View {
         GlassView {
             VStack {
-                TTagView(vm: .init(name: vm.nameNewTag.isEmpty ? "Tag Name" : vm.nameNewTag, color: vm.colorNewTag), fontSize: 18, circleWith: 12, opacity: 1, height: 30)
+                TTagView(vm: .init(name: vm.nameNewTag.isEmpty ? "Tag Name" : vm.nameNewTag, color: vm.colorNewTag), fontSize: 16, circleWith: 8, opacity: 1, height: 20)
+                    .scaleEffect(x: 1.3, y: 1.3)
                     .padding(.top, 30)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 50)
+                    
                 Spacer()
                 HStack {
                     TTextField(placeholder: "Tag Name", text: $vm.nameNewTag)
@@ -93,18 +105,36 @@ struct TagPickerView: View {
                         .overlay(ColorPicker("Color Tag", selection: $vm.colorNewTag, supportsOpacity: false).opacity(0.015))
                 }
                 .padding()
-                
-                TButton(action: {
-                    withAnimation(.easeInOut) {
-                        if vm.saveTag() {
+                HStack{
+                    Spacer()
+                    Button {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
                             vm.statePickerView = .selected
-                            isShow = false
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                isNew = false
+                            vm.nameNewTag = ""
+                            isNew = false
+                        }
+                    } label: {
+                        Image(systemName: "xmark.circle")
+                    }
+                    .font(.title)
+                    .foregroundColor(.blueViolet)
+                    
+                    Button {
+                        withAnimation(.easeInOut) {
+                            if vm.saveTag() {
+                                vm.statePickerView = .selected
+                                isShow = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    isNew = false
+                                }
                             }
                         }
+                    } label: {
+                        Image(systemName: "checkmark.circle")
                     }
-                }, text: Text("Save"))
+                    .font(.title)
+                    .foregroundColor(.white)
+                }
                 .padding()
             }
         }

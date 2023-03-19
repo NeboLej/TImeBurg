@@ -144,6 +144,8 @@ struct THomeView: View {
                 
                 Spacer()
                 
+
+
                 VStack(alignment: .center, spacing: 10) {
                     Image(vm.selectedHouse == nil ? vm.imageSet[vm.activityType.rawValue] : vm.selectedHouse!.image)
                         .resizable()
@@ -152,12 +154,19 @@ struct THomeView: View {
                         .offset(x: offsetX)
                         .frame(height: 150)
                         .animation(Animation.easeOut, value: offsetX)
-                    TTagView(vm: vm.currentTag)
-                        .onTapGesture {
-                            withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                                vm.tagPickerShow = true
-                            }
+                    
+                    Button {
+                        withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                            vm.tagPickerShow = true
                         }
+                    } label: {
+                        HStack(spacing: 3) {
+                            TTagView(vm: vm.currentTag)
+                            Image(systemName: "arrow.clockwise.circle")
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .offset(x: 8)
                 }
                 .padding(.trailing, vm.selectedHouse == nil ? 20 : 40)
             }
