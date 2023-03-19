@@ -10,6 +10,7 @@ import Combine
 
 protocol TagServiceProtocol {
     var tags: CurrentValueSubject<[Tag], Never> { get }
+    func saveTag(tag: Tag)
 }
 
 class TagService: BaseService, TagServiceProtocol {
@@ -28,6 +29,12 @@ class TagService: BaseService, TagServiceProtocol {
             .sink { tags in
                 self.updateTags(tags: tags)
             }.store(in: &cancellableSet)
+    }
+    
+    func saveTag(tag: Tag) {
+        let tagStored = TagStored(value: TagStored.initModel(tag: tag))
+        storage.saveObject(tagStored)
+        getTags()
     }
     
     private func updateTags(tags: [TagProtocol]) {
