@@ -9,28 +9,25 @@ import SwiftUI
 
 struct TagPickerView: View {
     
-    @Binding var tagPickerShow: Bool
+    @ObservedObject var vm: TagPickerVM
     @Binding var currentTag: TagVM
-    @Binding var tagsVM: [TagVM]
-    
-    private enum StateTagView{
-        case selected, new
-    }
-    
-    @State private var statePickerView: StateTagView = .new
-    @State private var nameNewTag: String = ""
-    @State private var colorNewTag: Color = .blueViolet
+    @Binding var isShow: Bool
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(.white.opacity(tagPickerShow ? 0.1 : 0))
+                .fill(.white.opacity(isShow ? 0.1 : 0))
                 .onTapGesture {
                     withAnimation(.easeInOut) {
-                        emptyClick()
+                        switch vm.statePickerView {
+                            case .selected:
+                                isShow = false
+                            case .new:
+                                vm.statePickerView = .selected
+                        }
                     }
                 }
-            switch statePickerView {
+            switch vm.statePickerView {
                 case .selected:
                     selectedTagView()
                 case .new:
@@ -45,7 +42,7 @@ struct TagPickerView: View {
         GlassView {
             VStack {
                 Picker(selection: $currentTag) {
-                    ForEach(tagsVM) {
+                    ForEach(vm.tagsVM) {
                         TTagView(vm: $0, fontSize: 16, circleWith: 8, opacity: 1, height: 20).tag($0)
                     }
                 } label: {}
@@ -56,18 +53,22 @@ struct TagPickerView: View {
                 Spacer()
                 HStack {
                     TButton(action: {
-                        statePickerView = .new
+                        withAnimation(.easeInOut) {
+                            vm.statePickerView = .new
+                        }
                     }, text: Text("New tag"))
                     
                     TButton(action: {
-                        tagPickerShow = false
+                        withAnimation(.easeInOut) {
+                            isShow = false
+                        }
                     }, text: Text("Save"))
                 }
                 .padding()
                 .padding(.bottom, 10)
             }
         }
-        .offset(x: tagPickerShow ? 0 : 400)
+        .offset(x: isShow ? 0 : 400)
         .frame(height: UIScreen.main.bounds.height * 0.42)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
     }
@@ -76,40 +77,31 @@ struct TagPickerView: View {
     private func newTagView() -> some View {
         GlassView {
             VStack {
-                
-                TTagView(vm: .init(name: nameNewTag.isEmpty ? "Tag Name" : nameNewTag, color: colorNewTag), fontSize: 18, circleWith: 12, opacity: 1, height: 30)
+                TTagView(vm: .init(name: vm.nameNewTag.isEmpty ? "Tag Name" : vm.nameNewTag, color: vm.colorNewTag), fontSize: 18, circleWith: 12, opacity: 1, height: 30)
                     .padding(.top, 30)
                     .padding(.horizontal)
                 Spacer()
                 HStack {
-                    TTextField(placeholder: "Tag Name", text: $nameNewTag)
+                    TTextField(placeholder: "Tag Name", text: $vm.nameNewTag)
                     Circle()
-                        .fill(colorNewTag)
+                        .fill(vm.colorNewTag)
                         .frame(width: 30)
-                        .overlay(ColorPicker("Color Tag", selection: $colorNewTag, supportsOpacity: false).opacity(0.015))
+                        .overlay(ColorPicker("Color Tag", selection: $vm.colorNewTag, supportsOpacity: false).opacity(0.015))
                 }
                 .padding()
                 
                 TButton(action: {
                     withAnimation(.easeInOut) {
-                        tagPickerShow = false
+                        isShow = false
+                        vm.saveTag()
                     }
                 }, text: Text("Save"))
                 .padding()
             }
         }
-        .offset(x: tagPickerShow ? 0 : 400)
+        .offset(x: isShow ? 0 : 400)
         .frame(height: UIScreen.main.bounds.height * 0.3)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
-    }
-    
-    private func emptyClick() {
-        switch statePickerView {
-            case .selected:
-                tagPickerShow = false
-            case .new:
-                statePickerView = .selected
-        }
     }
 }
 

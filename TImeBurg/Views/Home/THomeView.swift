@@ -11,7 +11,7 @@ struct THomeView: View {
     
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
-    @State private var tagPickerShow = true
+    
     
     var body: some View {
         ZStack {
@@ -48,7 +48,7 @@ struct THomeView: View {
                 TProgressView(vm: vm.startActivity())
             }
             
-            TagPickerView(tagPickerShow: $tagPickerShow, currentTag: $vm.currentTag, tagsVM: $vm.tagsVM)
+            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
         }
     }
     
@@ -155,7 +155,7 @@ struct THomeView: View {
                     TTagView(vm: vm.currentTag)
                         .onTapGesture {
                             withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
-                                tagPickerShow = true
+                                vm.tagPickerShow = true
                             }
                         }
                 }

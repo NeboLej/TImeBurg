@@ -39,6 +39,7 @@
 		FA5DB37329B3AEB200AEE29D /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB37229B3AEB200AEE29D /* TagService.swift */; };
 		FA5DB37529B3B00500AEE29D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DB37429B3B00500AEE29D /* BaseService.swift */; };
 		FA6DA04B29A136C400792E67 /* Pods_TImeBurg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */; };
+		FA7E318929C662A2006AC632 /* TagPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E318829C662A2006AC632 /* TagPickerVM.swift */; };
 		FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA800F8729A58250005D6F73 /* RoundedCorner.swift */; };
 		FA82FFCC29AB935D00DA091A /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCB29AB935D00DA091A /* HistoryViewModel.swift */; };
 		FA82FFCE29AB936B00DA091A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA82FFCD29AB936B00DA091A /* HistoryView.swift */; };
@@ -137,6 +138,7 @@
 		FA5DB37029B3ACB500AEE29D /* TagRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepositoryNet.swift; sourceTree = "<group>"; };
 		FA5DB37229B3AEB200AEE29D /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		FA5DB37429B3B00500AEE29D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		FA7E318829C662A2006AC632 /* TagPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPickerVM.swift; sourceTree = "<group>"; };
 		FA800F8729A58250005D6F73 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		FA82FFCB29AB935D00DA091A /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		FA82FFCD29AB936B00DA091A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -313,7 +315,7 @@
 		FA547A88296C7F8A00B3EA1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAAEFA2D29C4B8A50012A548 /* TagPickerr */,
+				FAAEFA2D29C4B8A50012A548 /* TagPicker */,
 				FA82FFCA29AB933D00DA091A /* History */,
 				FAFAAC6929A2CD2900779E13 /* TestView */,
 				FAA32C43298C13DB00FB89DA /* MyCities */,
@@ -444,12 +446,13 @@
 			path = MyCities;
 			sourceTree = "<group>";
 		};
-		FAAEFA2D29C4B8A50012A548 /* TagPickerr */ = {
+		FAAEFA2D29C4B8A50012A548 /* TagPicker */ = {
 			isa = PBXGroup;
 			children = (
 				FAAEFA2E29C4B8D60012A548 /* TagPickerView.swift */,
+				FA7E318829C662A2006AC632 /* TagPickerVM.swift */,
 			);
-			path = TagPickerr;
+			path = TagPicker;
 			sourceTree = "<group>";
 		};
 		FAB224262978335300B9482C /* City */ = {
@@ -742,6 +745,7 @@
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
 				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
 				FA5DB36D29B38EB300AEE29D /* TagStored.swift in Sources */,
+				FA7E318929C662A2006AC632 /* TagPickerVM.swift in Sources */,
 				FAAEFA2F29C4B8D60012A548 /* TagPickerView.swift in Sources */,
 				FADCDBF1297EFC9B000B3FDC /* TProgressView.swift in Sources */,
 				FAAEFA3129C4BD220012A548 /* TTextField.swift in Sources */,
