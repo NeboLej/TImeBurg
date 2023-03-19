@@ -12,26 +12,26 @@ struct TagPickerView: View {
     @ObservedObject var vm: TagPickerVM
     @Binding var currentTag: TagVM
     @Binding var isShow: Bool
+    @State var isNew = false
     
     var body: some View {
         ZStack {
             Rectangle()
                 .fill(.white.opacity(isShow ? 0.1 : 0))
                 .onTapGesture {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
                         switch vm.statePickerView {
                             case .selected:
                                 isShow = false
                             case .new:
                                 vm.statePickerView = .selected
+                                isNew = false
                         }
                     }
                 }
-            switch vm.statePickerView {
-                case .selected:
-                    selectedTagView()
-                case .new:
-                    newTagView()
+            ZStack {
+                selectedTagView()
+                newTagView()
             }
         }
         .ignoresSafeArea()
@@ -53,14 +53,17 @@ struct TagPickerView: View {
                 Spacer()
                 HStack {
                     TButton(action: {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
                             vm.statePickerView = .new
+                            isNew = true
                         }
                     }, text: Text("New tag"))
                     
                     TButton(action: {
                         withAnimation(.easeInOut) {
+                            vm.statePickerView = .selected
                             isShow = false
+                            isNew = false
                         }
                     }, text: Text("Save"))
                 }
@@ -69,6 +72,7 @@ struct TagPickerView: View {
             }
         }
         .offset(x: isShow ? 0 : 400)
+        .offset(y: isNew ? -1000 : 0)
         .frame(height: UIScreen.main.bounds.height * 0.42)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
     }
@@ -93,7 +97,11 @@ struct TagPickerView: View {
                 TButton(action: {
                     withAnimation(.easeInOut) {
                         if vm.saveTag() {
+                            vm.statePickerView = .selected
                             isShow = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                isNew = false
+                            }
                         }
                     }
                 }, text: Text("Save"))
@@ -101,6 +109,7 @@ struct TagPickerView: View {
             }
         }
         .offset(x: isShow ? 0 : 400)
+        .offset(y: isNew ? 0 : 1000)
         .frame(height: UIScreen.main.bounds.height * 0.3)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
         .alert("Title cannot be empty", isPresented: $vm.showError) {
