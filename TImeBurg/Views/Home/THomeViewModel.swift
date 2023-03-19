@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class THomeViewModel: ObservableObject, THouseListenerProtocol {
+class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListenerProtocol {
 
     @Published var activityType: TActivityType = .building
     @Published var timeActivity: Double = 10.0
@@ -21,22 +21,26 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
     @Published var countPeople: Int = 0
     @Published var cityCanEdit = false
     @Published var isShowMenu = false
-    @Published var currentTag = 0
+    @Published var currentTag: TagVM = TagVM(id: "0",name: "loading", color: .white)
+    @Published var tagPickerShow = false
+    @Published var tagPickerVM = TagPickerVM(tagsVM: [])
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
     private let cityService: TCityServiceProtocol
     private let serviceFactory: TServicesFactoryProtocol
     private let imageService: ImageServiceProtocol
+    private let tagService: TagServiceProtocol
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
     private var changedСity: TCity!
-    private var tags: [Tag] = [] { didSet { tagsVM = tags.map{ TagVM(tag: $0) } } }
+    private var tags: [Tag] = []
     
     init(serviceFactory: TServicesFactoryProtocol) {
         self.serviceFactory = serviceFactory
         cityService = serviceFactory.cityService
+        tagService = serviceFactory.tagService
         imageService = ImageService()
         
         weak var _self = self
@@ -52,13 +56,18 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
             .tags
             .sink {
                 _self?.tags = $0
+                _self?.tagsVM = $0.map { TagVM(tag: $0) }
+                _self?.tagPickerVM = TagPickerVM(tagsVM: _self?.tagsVM ?? [], parent: _self)
+                if !$0.isEmpty && _self?.currentTag.id == "0" {
+                    _self?.currentTag = TagVM(tag: $0.first!)
+                }
             }
             .store(in: &cancellableSet)
         afterSnapshot()
     }
     
     func startActivity() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), tag: tags[currentTag], serviceFactory: serviceFactory)
+        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, serviceFactory: serviceFactory)
     }
     
     func saveImage(image: UIImage) {
@@ -101,6 +110,13 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         }
     }
     
+    func afterSnapshot() {
+        weak var _self = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            _self?.snapshotCity = true
+        }
+    }
+    
     //MARK: - THouseListenerProtocol
     func onHouseClick(id: String) {
         selectedHouse = nil
@@ -119,10 +135,10 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol {
         changedСity.buildings.append(house)
     }
     
-    func afterSnapshot() {
-        weak var _self = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-            _self?.snapshotCity = true
-        }
+    //MARK: TagPickerListenerProtocol
+    func saveNewTag(name: String, colorHex: String) {
+        let tag = Tag(name: name, color: colorHex)
+        currentTag = TagVM(tag: tag)
+        tagService.saveTag(tag: tag)
     }
 }

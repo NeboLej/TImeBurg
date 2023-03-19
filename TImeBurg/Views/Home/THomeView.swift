@@ -12,38 +12,43 @@ struct THomeView: View {
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
     
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            city(vm: vm.currentCityVM)
-                .gesture(TapGesture().onEnded {
-                    withAnimation(.easeInOut) {
-                        vm.onClickCity()
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                city(vm: vm.currentCityVM)
+                    .gesture(TapGesture().onEnded {
+                        withAnimation(.easeInOut) {
+                            vm.onClickCity()
+                        }
+                    })
+                    .onReceive(vm.$snapshotCity, perform: { newValue in
+                        if newValue {
+                            let image = TCityView(vm: vm.currentCityVM)
+                                .frame(height: 350).snapshot()
+                                vm.saveImage(image: image)
+                        }
+                    })
+                    .overlay(alignment: .trailing) {
+                        cityMenu()
                     }
-                })
-                .onReceive(vm.$snapshotCity, perform: { newValue in
-                    if newValue {
-                        let image = TCityView(vm: vm.currentCityVM)
-                            .frame(height: 350).snapshot()
-                            vm.saveImage(image: image)
-                    }
-                })
-                .overlay(alignment: .trailing) {
-                    cityMenu()
-                }
-            newHouseView()
-                .padding(.top, -30)
-                .padding(.horizontal, 5)
-            TCityStatisticView(vm: vm.currentCityVM)
-                .padding(.horizontal, 5)
-        }
-        .coordinateSpace(name: "SCROLL")
-        .ignoresSafeArea(.all, edges: .top)
-        .background(.white)
-        .fullScreenCover(isPresented: $vm.isProgress) {
-            vm.isProgress = false
-            vm.afterSnapshot()
-        } content: {
-            TProgressView(vm: vm.startActivity())
+                newHouseView()
+                    .padding(.top, -30)
+                    .padding(.horizontal, 5)
+                TCityStatisticView(vm: vm.currentCityVM)
+                    .padding(.horizontal, 5)
+            }
+            .coordinateSpace(name: "SCROLL")
+            .ignoresSafeArea(.all, edges: .top)
+            .background(.white)
+            .fullScreenCover(isPresented: $vm.isProgress) {
+                vm.isProgress = false
+                vm.afterSnapshot()
+            } content: {
+                TProgressView(vm: vm.startActivity())
+            }
+            
+            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
         }
     }
     
@@ -147,7 +152,12 @@ struct THomeView: View {
                         .offset(x: offsetX)
                         .frame(height: 150)
                         .animation(Animation.easeOut, value: offsetX)
-                    TTagView(vm: !vm.tagsVM.isEmpty ? vm.tagsVM[vm.currentTag] : TagVM(name: "Test", color: .pink))
+                    TTagView(vm: vm.currentTag)
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
+                                vm.tagPickerShow = true
+                            }
+                        }
                 }
                 .padding(.trailing, vm.selectedHouse == nil ? 20 : 40)
             }
