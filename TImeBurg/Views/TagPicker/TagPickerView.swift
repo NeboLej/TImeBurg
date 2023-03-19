@@ -92,8 +92,9 @@ struct TagPickerView: View {
                 
                 TButton(action: {
                     withAnimation(.easeInOut) {
-                        isShow = false
-                        vm.saveTag()
+                        if vm.saveTag() {
+                            isShow = false
+                        }
                     }
                 }, text: Text("Save"))
                 .padding()
@@ -102,7 +103,13 @@ struct TagPickerView: View {
         .offset(x: isShow ? 0 : 400)
         .frame(height: UIScreen.main.bounds.height * 0.3)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
+        .alert("Title cannot be empty", isPresented: $vm.showError) {
+            Button(role: .cancel) { } label: {
+                Text("Ok")
+            }
+        }
     }
+    
 }
 
 struct TagPicker_Previews: PreviewProvider {

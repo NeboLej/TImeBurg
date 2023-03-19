@@ -14,9 +14,11 @@ protocol TagPickerListenerProtocol {
 class TagPickerVM: ObservableObject {
     
     @Published var statePickerView: StateTagView = .selected
+    @Published var tagsVM: [TagVM]
+    
     @Published var nameNewTag: String = ""
     @Published var colorNewTag: Color = .blueViolet
-    @Published var tagsVM: [TagVM]
+    @Published var showError = false
     
     private let parent: Any?
     
@@ -29,7 +31,17 @@ class TagPickerVM: ObservableObject {
         case selected, new
     }
     
-    func saveTag() {
-        (parent as? TagPickerListenerProtocol)?.saveNewTag(name: nameNewTag, colorHex: colorNewTag.toHex())
+    func saveTag() -> Bool {
+        let isValid = tagValidation(name: nameNewTag)
+        if isValid {
+            (parent as? TagPickerListenerProtocol)?.saveNewTag(name: nameNewTag, colorHex: colorNewTag.toHex())
+        } else {
+            showError = true
+        }
+       return isValid
+    }
+    
+   func tagValidation(name: String) -> Bool {
+        !name.isEmpty
     }
 }
