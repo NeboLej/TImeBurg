@@ -48,8 +48,6 @@ struct TagPickerView: View {
                     }
                 } label: {}
                 .pickerStyle(.inline)
-                .scaleEffect(x: 1.2, y: 1.2)
-                .padding()
                 
                 Spacer()
                 HStack {
@@ -76,14 +74,13 @@ struct TagPickerView: View {
                     }
                     .font(.title)
                     .foregroundColor(.white)
-
                 }
                 .padding()
             }
         }
         .offset(x: isShow ? 0 : 400)
         .offset(y: isNew ? -1000 : 0)
-        .frame(height: UIScreen.main.bounds.height * 0.37)
+        .frame(height: UIScreen.main.bounds.height * 0.42)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
     }
     
