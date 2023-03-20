@@ -20,6 +20,7 @@ struct TagPickerView: View {
                 .fill(.white.opacity(isShow ? 0.2 : 0))
                 .onTapGesture {
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.1)) {
+                        endEditing()
                         switch vm.statePickerView {
                             case .selected:
                                 isShow = false
@@ -47,7 +48,8 @@ struct TagPickerView: View {
                         TTagView(vm: $0, fontSize: 16, circleWith: 8, opacity: 1, height: 20).tag($0)
                     }
                 } label: {}
-                .pickerStyle(.inline)
+                    .pickerStyle(.inline)
+                    .frame(width:  UIScreen.main.bounds.width * 0.70)
                 
                 Spacer()
                 HStack {
@@ -62,7 +64,7 @@ struct TagPickerView: View {
                     }
                     .font(.title)
                     .foregroundColor(.blueViolet)
-
+                    
                     Button {
                         withAnimation(.easeInOut) {
                             vm.statePickerView = .selected
@@ -92,7 +94,7 @@ struct TagPickerView: View {
                     .scaleEffect(x: 1.3, y: 1.3)
                     .padding(.top, 30)
                     .padding(.horizontal, 50)
-                    
+                
                 Spacer()
                 HStack {
                     TTextField(placeholder: "Tag Name", text: $vm.nameNewTag)
@@ -109,6 +111,7 @@ struct TagPickerView: View {
                             vm.statePickerView = .selected
                             vm.nameNewTag = ""
                             isNew = false
+                            endEditing()
                         }
                     } label: {
                         Image(systemName: "xmark.circle")
@@ -121,6 +124,7 @@ struct TagPickerView: View {
                             if vm.saveTag() {
                                 vm.statePickerView = .selected
                                 isShow = false
+                                endEditing()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                     isNew = false
                                 }
@@ -144,8 +148,10 @@ struct TagPickerView: View {
                 Text("Ok")
             }
         }
+//        .onTapGesture {
+//            endEditing()
+//        }
     }
-    
 }
 
 struct TagPicker_Previews: PreviewProvider {

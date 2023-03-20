@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA08523229C7D8C200B5D2BF /* UIApplication + .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08523129C7D8C200B5D2BF /* UIApplication + .swift */; };
 		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
 		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
 		FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BB299D56B300D9E1D2 /* RealmManager.swift */; };
@@ -105,6 +106,7 @@
 		1A1FA8B5C31EA558784E02D5 /* Pods_TImeBurg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TImeBurg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DAC34CCB7ACF360DF89F56D /* Pods-TImeBurg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TImeBurg.release.xcconfig"; path = "Target Support Files/Pods-TImeBurg/Pods-TImeBurg.release.xcconfig"; sourceTree = "<group>"; };
 		6A8DB99D8123A222121200BC /* Pods-TImeBurg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TImeBurg.debug.xcconfig"; path = "Target Support Files/Pods-TImeBurg/Pods-TImeBurg.debug.xcconfig"; sourceTree = "<group>"; };
+		FA08523129C7D8C200B5D2BF /* UIApplication + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + .swift"; sourceTree = "<group>"; };
 		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
 		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
 		FA1831BB299D56B300D9E1D2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				FA82FFCF29AB98FD00DA091A /* Color +.swift */,
 				FA82FFD729ABC6D600DA091A /* Date +.swift */,
 				FAAEFA2429C46E0D0012A548 /* Blur +.swift */,
+				FA08523129C7D8C200B5D2BF /* UIApplication + .swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				FA5DB37329B3AEB200AEE29D /* TagService.swift in Sources */,
 				FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */,
 				FA5DB37129B3ACB500AEE29D /* TagRepositoryNet.swift in Sources */,
+				FA08523229C7D8C200B5D2BF /* UIApplication + .swift in Sources */,
 				FADCDBE8297ED369000B3FDC /* TLottieView.swift in Sources */,
 				FA82FFD629ABC35F00DA091A /* History.swift in Sources */,
 				FA5DB36F29B3908800AEE29D /* HistoryStored.swift in Sources */,
