@@ -64,9 +64,9 @@ class HistoryViewModel: ObservableObject {
     func getHistory() -> [HistoryDayVM] {
         var result: [HistoryDayVM] = []
         let historyVM = history.map{ HistoryVM(history: $0) }
-        let dict1 = Dictionary(grouping: historyVM) { Calendar.current.dateComponents( [.year, .month, .day], from: $0.date) }
+        let dict = Dictionary(grouping: historyVM) { Calendar.current.dateComponents( [.year, .month, .day], from: $0.date) }
         
-        dict1.forEach {
+        dict.forEach {
             result.append(HistoryDayVM(date: Calendar.current.date(from: $0.key)!, history: $0.value))
         }
         
