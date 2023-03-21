@@ -25,7 +25,7 @@ struct THomeView: View {
                     .onReceive(vm.$snapshotCity, perform: { newValue in
                         if newValue {
                             let image = TCityView(vm: vm.currentCityVM)
-                                .frame(height: 350).snapshot()
+                                .frame(height: 280, alignment: .top).snapshot()
                                 vm.saveImage(image: image)
                         }
                     })
