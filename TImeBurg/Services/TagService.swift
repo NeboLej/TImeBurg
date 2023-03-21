@@ -10,25 +10,31 @@ import Combine
 
 protocol TagServiceProtocol {
     var tags: CurrentValueSubject<[Tag], Never> { get }
+    func fetch()
     func saveTag(tag: Tag)
 }
 
 class TagService: BaseService, TagServiceProtocol {
     
+    let net: TagRepositoryProtocol
     let storage: StoreManagerProtocol
     let tags = CurrentValueSubject<[Tag], Never>([])
     
     init(storage: StoreManagerProtocol, net: TagRepositoryProtocol) {
         self.storage = storage
+        self.net = net
         super.init()
         
-        getTags()
-        
+        fetch()
+    }
+    
+    func fetch() {
         net.fetch()
             .receive(on: DispatchQueue.main)
             .sink { tags in
                 self.updateTags(tags: tags)
             }.store(in: &cancellableSet)
+        getTags()
     }
     
     func saveTag(tag: Tag) {
