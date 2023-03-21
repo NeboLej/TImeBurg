@@ -14,7 +14,7 @@ struct TagStatisticsView: View {
         VStack {
             HStack(alignment: .top, spacing: 20) {
                 PieChartView(tags: $vm.tags )
-                    .frame(width: 140)
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.width * 0.4)
                     .shadow(color: .black.opacity(0.3), radius: 3, x: 0, y: 3)
                 VStack {
                     ForEach(vm.tags) {
