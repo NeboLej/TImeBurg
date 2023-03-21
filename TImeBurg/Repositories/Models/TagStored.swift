@@ -30,4 +30,11 @@ class TagStored: Object, TagProtocol {
     static func initModel(tag: TagProtocol) -> [String: Any] {
         ["id": tag.id, "name": tag.name, "color": tag.color]
     }
+    
+    convenience init(id: String, name: String, color: String) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.color = color
+    }
 }

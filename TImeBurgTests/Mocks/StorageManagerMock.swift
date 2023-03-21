@@ -50,4 +50,12 @@ class StorageManagerMock: StoreManagerProtocol {
     func removeAll() {
         
     }
+    
+    func updateObject<T>(_ object: T) -> Bool where T : Object {
+        true
+    }
+    
+    func updateObjects<T>(_ objects: [T]) where T : Object {
+        
+    }
 }
