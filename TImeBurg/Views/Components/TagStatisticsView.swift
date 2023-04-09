@@ -60,7 +60,8 @@ struct TagStatisticsView: View {
                 .font(.custom(TFont.interRegular, size: 12))
             let ch = time / 60 > 0 ? String("\(time / 60) h") : ""
             let min = time % 60 > 0 ? String("\(time % 60) min") : ""
-            Text("\(ch) \(min)")
+            let text = ch.isEmpty ? "" : "\(ch) \(min)"
+            Text(text)
                 .font(.custom(TFont.interRegular, size: 12))
                 .frame(width: 90)
         }

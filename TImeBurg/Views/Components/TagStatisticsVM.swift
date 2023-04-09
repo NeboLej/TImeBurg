@@ -12,7 +12,7 @@ class TagStatisticsVM: ObservableObject {
     @Published var tags: [TagInfoVM] = []
     @Published var isAllTags = false
     @Published var isShowButton = true
-    var fullTime: Int = 0// { tags.reduce(0) { $0 + $1.time } }
+    var fullTime: Int
     
     private let maxTags = 4
     private let allTags: [TagInfoVM]
@@ -30,7 +30,7 @@ class TagStatisticsVM: ObservableObject {
         isShowButton = allTags.count > maxTags
         fullTime = allTags.reduce(0) { $0 + $1.time }
         tags = Array(allTags.prefix(maxTags))
-        if allTags.count >=  maxTags {
+        if allTags.count > maxTags {
             tags.append(TagInfoVM(tag: TagVM(name: "Other", color: .white), time: fullTime - tags.reduce(0) { $0 + $1.time }))
         }
     }

@@ -67,7 +67,7 @@ class HistoryViewModel: ObservableObject {
         let dict = Dictionary(grouping: historyVM) { Calendar.current.dateComponents( [.year, .month, .day], from: $0.date) }
         
         dict.forEach {
-            result.append(HistoryDayVM(date: Calendar.current.date(from: $0.key)!, history: $0.value))
+            result.append(HistoryDayVM(date: Calendar.current.date(from: $0.key)!, history: $0.value.reversed()))
         }
         
         return result.sorted { $0.date >  $1.date }
