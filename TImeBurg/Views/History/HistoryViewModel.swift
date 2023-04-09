@@ -15,8 +15,8 @@ class HistoryViewModel: ObservableObject {
     @Published var tagStatisticsVM: TagStatisticsVM
     var monthColors = ["218B82", "F7CE76", "C54E6C", "9AD9DB", "EF874D", "A15D98"]
 
-    //TEST DATA
     private var history: [History] = [
+        //TEST DATA
 //        History(date: Date(), time: 120, tag: Tag(id: "qqq", name: "job", color: "C54E6C")),
 //        History(date: Date(), time: 20, tag: Tag(name: "reading", color: "EF874D")),
 //        History(date: Date().getOffsetDate(offset: -3), time: 120, tag: Tag(id: "eee", name: "painting", color: "F7CE76")),
@@ -78,5 +78,9 @@ class HistoryViewModel: ObservableObject {
         history = cities[selectedMonth].history
         tagStatisticsVM = TagStatisticsVM(history: history)
         currentCity = TCityVM(city: cities[selectedMonth], parent: _self)
+    }
+    
+    func getMonthColor(index: Int) -> String {
+        monthColors[index % monthColors.count]
     }
 }
