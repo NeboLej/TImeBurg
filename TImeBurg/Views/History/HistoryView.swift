@@ -148,7 +148,7 @@ struct HistoryView: View {
                 .rotationEffect(.degrees(-90), anchor: .center)
         }
         .frame(width: 26, height: 150)
-        .background( tag == vm.selectedMonth ? Color.background : Color(hex: vm.monthColors.randomElement()!))
+        .background( tag == vm.selectedMonth ? Color.background : Color(hex: vm.getMonthColor(index: tag)))
     }
 }
 
