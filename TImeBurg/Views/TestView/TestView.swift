@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+
 struct TestView: View {
     
     @ObservedObject var vm = TestVM()
@@ -21,22 +22,8 @@ struct TestView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: vm.image)
-                .resizable()
-//                .scaledToFit()
-                .frame(width: 50, height: 50)
-            
-//            textView
-
-            Button("Save to image") {
-                let image = textView.snapshot()
-                
-                vm.saveImage(image: image)
-                
-//                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                
-            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

@@ -32,7 +32,7 @@ class TCityService: TCityServiceProtocol {
     
     private func getCityPreviews() {
         let cities = storage.getObjects(CityStored.self).map { TCityPreview(id: String($0.id), name: $0.name, image: $0.image, spentTime: $0.spentTime) }
-        cityPreviews.send(cities)
+        cityPreviews.send(cities.reversed())
     }
     
     func getCity(id: String) -> TCity? {
@@ -42,7 +42,7 @@ class TCityService: TCityServiceProtocol {
     }
     
     func fetch() -> [TCity] {
-        storage.getObjects(CityStored.self).map { TCity(city: $0) }
+        storage.getObjects(CityStored.self).map { TCity(city: $0) }.reversed()
     }
     
     func updateCurrentCity(house: THouse) {

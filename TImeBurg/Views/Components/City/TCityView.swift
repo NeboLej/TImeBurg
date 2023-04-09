@@ -12,13 +12,13 @@ struct TCityView: View {
     @ObservedObject var vm: TCityVM
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            backgroundView()
-            VStack(alignment: .center, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
+            ZStack(alignment: .bottom) {
+                backgroundView()
                 houses()
-                sidewalkView()
-                roadView()
             }
+            sidewalkView()
+            roadView()
         }
     }
     
@@ -35,9 +35,13 @@ struct TCityView: View {
     
     @ViewBuilder
     func backgroundView() -> some View {
-        Image("BackgroundCity1")
+        Image("bg18")
             .resizable()
             .aspectRatio(contentMode: .fill)
+            .overlay(
+                Rectangle()
+                    .fill(Color.blueViolet.opacity(0.3))
+            )
     }
     
     @ViewBuilder
@@ -79,6 +83,7 @@ struct TCityView: View {
 
 struct TCityView_Previews: PreviewProvider {
     static var previews: some View {
-        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [ .init(image: "House1", timeExpenditure: 123, width: 60, line: 0, offsetX: 50)], history: [])))
+        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+//        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [ .init(image: "House1", timeExpenditure: 123, width: 60, line: 0, offsetX: 50)], history: [])))
     }
 }
