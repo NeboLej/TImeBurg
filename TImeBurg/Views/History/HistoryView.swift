@@ -14,9 +14,27 @@ struct HistoryView: View {
         HStack(alignment: .top, spacing: 0) {
             tagsView()
             Spacer()
-            pageView()
+            if vm.currentCity.buildings.isEmpty {
+                emptyState()
+            } else {
+                pageView()
+            }
         }
         .background(Color.background)
+    }
+    
+    @ViewBuilder
+    func emptyState() -> some View {
+        VStack {
+            Spacer()
+            Text("В этом месяце у вас еще не было активности")
+                .font(.custom(TFont.interRegular, size: 20))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.outerSpace)
+                .padding()
+                .offset(x: -26, y: -30)
+            Spacer()
+        }
     }
     
     @ViewBuilder
