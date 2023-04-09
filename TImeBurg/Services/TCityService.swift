@@ -22,11 +22,13 @@ protocol TCityServiceProtocol {
 class TCityService: TCityServiceProtocol {
     
     let storage: StoreManagerProtocol
+    let net: CityRepositoryProtocol
     let cityPreviews = CurrentValueSubject<[TCityPreview], Never>([])
     lazy var currentCity: CurrentValueSubject<TCity, Never> = { CurrentValueSubject<TCity, Never> (getCurrentCity()) }()
     
-    init(storage: StoreManagerProtocol) {
+    init(storage: StoreManagerProtocol, net: CityRepositoryProtocol) {
         self.storage = storage
+        self.net = net
         getCityPreviews()
     }
     
@@ -80,10 +82,25 @@ class TCityService: TCityServiceProtocol {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLLL YYYY"
         
-        let newCity = TCity(id: id, name: formatter.string(from: Date()), image: "", spentTime: 0, comfortRating: 0, greenRating: 0, buildings: [], history: [])
+        let newCity = TCity(id: id, name: formatter.string(from: Date()), image: "", bgImage: getBackgroundImage(), spentTime: 0, comfortRating: 0, greenRating: 0, buildings: [], history: [])
         let storageCity = CityStored(value: CityStored.initModel(city: newCity))
         
         storage.saveObject(storageCity)
         return newCity
+    }
+    
+    private func getBackgroundImage() -> String {
+        let usedBgs = storage.getObjects(CityStored.self).map { $0.bgImage }
+        let uniqueUsedBgs = Set(usedBgs)
+        let allBgs = Set(net.getBackgroundImages())
+        
+        let uniqueUnusedBgs = allBgs.subtracting(uniqueUsedBgs)
+        
+        var image = allBgs.randomElement()
+        
+        if !uniqueUnusedBgs.isEmpty {
+            image = uniqueUnusedBgs.randomElement()
+        }
+        return image!
     }
 }

@@ -15,12 +15,15 @@ class TCityVM: ObservableObject {
     @Published var greenRating: Double
     @Published var buildings: [THouseVM] = []
     @Published var isCanEdit: Bool = false
+    @Published var bgImage: String
     @Published var image: UIImage?
+
     
-    init(id: String = "", name: String = "", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
+    init(id: String = "", name: String = "", bgImage: String = "bg5", numberOfPeople: Int = 0, comfortRating: Double = 0, greenRating: Double = 0, buildings: [THouse] = [], parent: Any? = nil) {
         let imageService = ImageService()
         self.id = id
         self.name = name
+        self.bgImage = bgImage
         self.numberOfPeople = numberOfPeople
         self.comfortRating = comfortRating
         self.greenRating = greenRating
@@ -29,7 +32,7 @@ class TCityVM: ObservableObject {
     }
     
     convenience init(city: TCity, parent: Any? = nil) {
-        self.init(id: city.id, name: city.name, numberOfPeople: Int(city.spentTime / 10), comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
+        self.init(id: city.id, name: city.name, bgImage: city.bgImage, numberOfPeople: Int(city.spentTime / 10), comfortRating: city.comfortRating, greenRating: city.greenRating, buildings: city.buildings, parent: parent)
     }
     
     func getUnicalBuildingsCount() -> Int {

@@ -25,8 +25,9 @@ class TServicesFactory: TServicesFactoryProtocol {
         let storage = RealmManager()
         let buildingRepository = BuildingRepositoryNet()
         let tagRepository = TagRepositoryNet()
+        let cityRepository = CityRepositoryNet()
         
-        cityService = TCityService(storage: storage)
+        cityService = TCityService(storage: storage, net: cityRepository)
         houseService = THouseService(storage: storage)
         buildingService = BuildingService(storage: storage, net: buildingRepository)
         tagService = TagService(storage: storage, net: tagRepository)

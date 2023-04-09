@@ -83,6 +83,7 @@
 		FAFAAC5B29A295F000779E13 /* CityServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */; };
 		FAFAAC5F29A2968100779E13 /* StorageManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC5E29A2968100779E13 /* StorageManagerMock.swift */; };
 		FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAAC6A29A2CD3D00779E13 /* TestView.swift */; };
+		FAFBA74229E33F0900E1B3F7 /* CityRepositoryNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBA74129E33F0900E1B3F7 /* CityRepositoryNet.swift */; };
 		FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DB296C84140099D470 /* TTabViewModel.swift */; };
 		FAFC71DE296C85170099D470 /* THomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DD296C85170099D470 /* THomeView.swift */; };
 		FAFC71E0296C85280099D470 /* THomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFC71DF296C85280099D470 /* THomeViewModel.swift */; };
@@ -185,6 +186,7 @@
 		FAFAAC5A29A295F000779E13 /* CityServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityServiceTests.swift; sourceTree = "<group>"; };
 		FAFAAC5E29A2968100779E13 /* StorageManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerMock.swift; sourceTree = "<group>"; };
 		FAFAAC6A29A2CD3D00779E13 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		FAFBA74129E33F0900E1B3F7 /* CityRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepositoryNet.swift; sourceTree = "<group>"; };
 		FAFC71DB296C84140099D470 /* TTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTabViewModel.swift; sourceTree = "<group>"; };
 		FAFC71DD296C85170099D470 /* THomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeView.swift; sourceTree = "<group>"; };
 		FAFC71DF296C85280099D470 /* THomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THomeViewModel.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			children = (
 				FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */,
 				FA5DB37029B3ACB500AEE29D /* TagRepositoryNet.swift */,
+				FAFBA74129E33F0900E1B3F7 /* CityRepositoryNet.swift */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 			files = (
 				FA54C85F29AEB13400AE14A0 /* TagStatisticsView.swift in Sources */,
 				FA54C85D29AEB02100AE14A0 /* PieChartView.swift in Sources */,
+				FAFBA74229E33F0900E1B3F7 /* CityRepositoryNet.swift in Sources */,
 				FA82FFD429ABC1FC00DA091A /* Tag.swift in Sources */,
 				FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */,
 				FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */,
