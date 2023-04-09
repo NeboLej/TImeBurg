@@ -27,7 +27,7 @@ struct HistoryView: View {
     func emptyState() -> some View {
         VStack {
             Spacer()
-            Text("В этом месяце у вас еще не было активности")
+            Text("You have not been active this month yet")
                 .font(.custom(TFont.interRegular, size: 20))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.outerSpace)

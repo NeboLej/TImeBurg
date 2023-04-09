@@ -35,7 +35,7 @@ struct TCityView: View {
     
     @ViewBuilder
     func backgroundView() -> some View {
-        Image("bg18")
+        Image(vm.bgImage)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .overlay(
