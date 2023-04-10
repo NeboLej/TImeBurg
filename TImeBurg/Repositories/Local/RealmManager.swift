@@ -115,6 +115,7 @@ class RealmManager: StoreManagerProtocol {
     }
     
     func removeObject<T>(_ object: T) where T: Object {
+        print("---Realm--- deleted Object \(T.self) in  \(Thread.current)")
         guard let realm = self.realm else { return }
         do {
             try realm.write {
