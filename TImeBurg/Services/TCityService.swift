@@ -25,11 +25,17 @@ class TCityService: TCityServiceProtocol {
     let net: CityRepositoryProtocol
     let cityPreviews = CurrentValueSubject<[TCityPreview], Never>([])
     lazy var currentCity: CurrentValueSubject<TCity, Never> = { CurrentValueSubject<TCity, Never> (getCurrentCity()) }()
+    private let currentCityId: String = {
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        return "\(month)\(year)"
+    }()
     
     init(storage: StoreManagerProtocol, net: CityRepositoryProtocol) {
         self.storage = storage
         self.net = net
         getCityPreviews()
+        deletedEmptyCities()
     }
     
     private func getCityPreviews() {
@@ -66,15 +72,23 @@ class TCityService: TCityServiceProtocol {
         getCityPreviews()
     }
     
+    func deletedEmptyCities() {
+        fetchEmptyCities().forEach {
+            if $0.id != currentCityId {
+                storage.removeObject($0)
+            }
+        }
+    }
+    
+    private func fetchEmptyCities() -> [CityStored] {
+        storage.getObjects(CityStored.self).filter{ $0.history.isEmpty }
+    }
+    
     private func getCurrentCity() -> TCity {
-        let year = Calendar.current.component(.year, from: Date())
-        let month = Calendar.current.component(.month, from: Date())
-        
-        let cityId = "\(month)\(year)"
-        if let city = getCity(id: cityId) {
+        if let city = getCity(id: currentCityId) {
             return city
         } else {
-            return addNewCity(id: cityId)
+            return addNewCity(id: currentCityId)
         }
     }
     
