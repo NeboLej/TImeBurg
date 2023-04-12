@@ -28,7 +28,7 @@ class TServicesFactory: TServicesFactoryProtocol {
         let cityRepository = CityRepositoryNet()
         
         cityService = TCityService(storage: storage, net: cityRepository)
-        houseService = THouseService(storage: storage)
+        houseService = THouseService(storage: storage, cityService: cityService)
         buildingService = BuildingService(storage: storage, net: buildingRepository)
         tagService = TagService(storage: storage, net: tagRepository)
     }
