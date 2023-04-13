@@ -27,7 +27,7 @@ class THouseService: THouseServiceProtocol {
     
     func getNewHouse(time: Int) -> THouse {
         let building = storage.getObjects(BuildingStored.self).filter { ($0.startTimeInterval...$0.endTimeInterval).contains(time) }.randomElement()
-        guard let building = building else { return THouse(image: "House4", timeExpenditure: time, width: 50, line: 0, offsetX: searchFreeSpace(width: 30.0)) }
+        guard let building = building else { return THouse(image: "House2", timeExpenditure: time, width: 30, line: 0, offsetX: searchFreeSpace(width: 30.0)) }
         let newHouse = THouse(image: building.image, timeExpenditure: time, width: building.width, line: 0, offsetX: searchFreeSpace(width: building.width))
         return newHouse
     }
