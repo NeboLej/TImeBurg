@@ -12,10 +12,6 @@ struct THomeView: View {
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
     
-    func hh() {
-        print(UIScreen.main.bounds.width)
-    }
-    
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
@@ -23,7 +19,6 @@ struct THomeView: View {
                     .gesture(TapGesture().onEnded {
                         withAnimation(.easeInOut) {
                             vm.onClickCity()
-                            hh()
                         }
                     })
                     .onReceive(vm.$snapshotCity, perform: { newValue in

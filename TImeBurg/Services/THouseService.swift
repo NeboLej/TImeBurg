@@ -27,30 +27,30 @@ class THouseService: THouseServiceProtocol {
     
     func getNewHouse(time: Int) -> THouse {
         let building = storage.getObjects(BuildingStored.self).filter { ($0.startTimeInterval...$0.endTimeInterval).contains(time) }.randomElement()
-        guard let building = building else { return THouse(image: "House5", timeExpenditure: time, width: 50, line: 0, offsetX: calc(width: 30.0)) }
-        let newHouse = THouse(image: building.image, timeExpenditure: time, width: building.width, line: 0, offsetX: 0)
+        guard let building = building else { return THouse(image: "House4", timeExpenditure: time, width: 50, line: 0, offsetX: searchFreeSpace(width: 30.0)) }
+        let newHouse = THouse(image: building.image, timeExpenditure: time, width: building.width, line: 0, offsetX: searchFreeSpace(width: building.width))
         return newHouse
     }
     
-    func calc(width: Double) -> Double {
+    private func searchFreeSpace(width: Double) -> Double {
         let screenWidth = Utilts.screenWidth
+        let padding = 5.0
         
-        let dd = Int(screenWidth/2)
-        for x in stride(from: 0, to: dd, by: 5) {
-            let interval = (Double(x) - width/2)...(Double(x) + width/2)
+        let halfWith = Int(screenWidth/2) - 15
+        for x in stride(from: 0, to: halfWith, by: 5) {
             
-            if calc2(interval: (Double(x) - width/2)...(Double(x) + width/2)) {
+            if intervalСomparison(interval: (Double(x) - width/2 - padding)...(Double(x) + width/2 + padding)) {
                 return Double(x)
             }
             
-            if calc2(interval: (Double(-x) - width/2)...(Double(-x) + width/2)) {
+            if intervalСomparison(interval: (Double(-x) - width/2 - padding)...(Double(-x) + width/2 + padding)) {
                 return Double(-x)
             }
         }
         return 0.0
     }
     
-    func calc2(interval: ClosedRange<Double>) -> Bool {
+    private func intervalСomparison(interval: ClosedRange<Double>) -> Bool {
         let houses = cityService.currentCity.value.buildings
         
         for house in houses {
