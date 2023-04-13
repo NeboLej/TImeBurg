@@ -59,6 +59,7 @@
 		FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C44298C140300FB89DA /* AllCitiesVM.swift */; };
 		FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C46298C141900FB89DA /* AllCitiesView.swift */; };
 		FAA32C49298C18CC00FB89DA /* TCityPreviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */; };
+		FAA4C72729E75CAF002BEE54 /* Utilits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4C72629E75CAF002BEE54 /* Utilits.swift */; };
 		FAAEFA2329C46CFD0012A548 /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2229C46CFD0012A548 /* GlassView.swift */; };
 		FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2429C46E0D0012A548 /* Blur +.swift */; };
 		FAAEFA2F29C4B8D60012A548 /* TagPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEFA2E29C4B8D60012A548 /* TagPickerView.swift */; };
@@ -161,6 +162,7 @@
 		FAA32C44298C140300FB89DA /* AllCitiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesVM.swift; sourceTree = "<group>"; };
 		FAA32C46298C141900FB89DA /* AllCitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesView.swift; sourceTree = "<group>"; };
 		FAA32C48298C18CC00FB89DA /* TCityPreviewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCityPreviewVM.swift; sourceTree = "<group>"; };
+		FAA4C72629E75CAF002BEE54 /* Utilits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilits.swift; sourceTree = "<group>"; };
 		FAAEFA2229C46CFD0012A548 /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		FAAEFA2429C46E0D0012A548 /* Blur +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blur +.swift"; sourceTree = "<group>"; };
 		FAAEFA2E29C4B8D60012A548 /* TagPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPickerView.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */,
 				FA5DB37229B3AEB200AEE29D /* TagService.swift */,
 				FAD4D6A429A3F85900FFF367 /* ImageService.swift */,
+				FAA4C72629E75CAF002BEE54 /* Utilits.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				FA5DB36B29B38DF800AEE29D /* TagInfoVM.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
+				FAA4C72729E75CAF002BEE54 /* Utilits.swift in Sources */,
 				FA1B317E298055D5001169B8 /* TCityService.swift in Sources */,
 				FA800F8829A58250005D6F73 /* RoundedCorner.swift in Sources */,
 				FAF6899529A1577D00CAB875 /* CustomTabBarView.swift in Sources */,

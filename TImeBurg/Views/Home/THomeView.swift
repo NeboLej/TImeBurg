@@ -12,7 +12,6 @@ struct THomeView: View {
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
     
-    
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
