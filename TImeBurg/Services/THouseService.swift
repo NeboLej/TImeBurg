@@ -10,6 +10,7 @@ import Combine
 
 protocol THouseServiceProtocol {
     func getNewHouse(time: Int) -> THouse
+    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse
 //    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse
 }
 
@@ -26,6 +27,17 @@ class THouseService: THouseServiceProtocol {
     }
     
     func getNewHouse(time: Int) -> THouse {
+        getHouse(time: time)
+    }
+    
+    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse {
+        var house = getHouse(time: oldHouse.timeExpenditure + time)
+        house.offsetX = oldHouse.offsetX
+        storage.removeObjectById(HouseStored.self, id: oldHouse.id)
+        return house
+    }
+    
+    func getHouse(time: Int) -> THouse {
         let building = storage.getObjects(BuildingStored.self).filter { ($0.startTimeInterval...$0.endTimeInterval).contains(time) }.randomElement()
         guard let building = building else { return THouse(image: "House2", timeExpenditure: time, width: 30, line: 0, offsetX: searchFreeSpace(width: 30.0)) }
         let newHouse = THouse(image: building.image, timeExpenditure: time, width: building.width, line: 0, offsetX: searchFreeSpace(width: building.width))
@@ -60,11 +72,4 @@ class THouseService: THouseServiceProtocol {
         }
         return true
     }
-    
-//    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse {
-//        let generalTime = time + oldHouse.timeExpenditure
-//        let newHouse = storage.getHouses(time: generalTime).randomElement()
-//        guard let newHouse = newHouse else { return oldHouse.copy(timeExpenditure: generalTime) }
-//        return oldHouse.copy(image: newHouse.image, timeExpenditure: generalTime, width: newHouse.width)
-//    }
 }

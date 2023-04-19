@@ -18,16 +18,18 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     @Published var progress: Float = 0.0
     
     private lazy var timerVM: TTimerVM = TTimerVM(minutes: minutes, parent: self)
-    private var newHome: THouse? = nil
+    private var newHouse: THouse? = nil
     private let tag: Tag
     
     private let houseService: THouseServiceProtocol
     private let cityService: TCityServiceProtocol
     private var parent: Any?
+    private let upgradedHouse: THouse?
     
-    init(minutes: Float, tag: Tag, serviceFactory: TServicesFactoryProtocol) {
+    init(minutes: Float, tag: Tag, upgradedHouse: THouse?, serviceFactory: TServicesFactoryProtocol) {
         self.minutes = minutes
         self.tag = tag
+        self.upgradedHouse = upgradedHouse
         self.houseService = serviceFactory.houseService
         self.cityService = serviceFactory.cityService
     }
@@ -41,17 +43,12 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     }
     
     func getHome() -> THouse {
-        switch state {
-            case .progress:
-                return THouse(image: "House3", timeExpenditure: 0, width: 0, line: 0, offsetX: 0)
-            case .completed:
-                newHome = houseService.getNewHouse(time: Int(minutes))
-                return newHome!
-        }
+        newHouse = upgradedHouse == nil ? houseService.getNewHouse(time: Int(minutes)) : houseService.upgradeHouse(oldHouse: upgradedHouse!, time: Int(minutes))
+        return newHouse!
     }
     
     func saveHouse() {
-        cityService.updateCurrentCity(house: newHome!)
+        cityService.updateCurrentCity(house: newHouse!)
         cityService.updateCurrentCity(history: History(date: Date(), time: Int(minutes), tag: tag))
     }
     
