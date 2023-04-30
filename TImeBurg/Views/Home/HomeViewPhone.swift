@@ -12,9 +12,12 @@ struct HomeViewPhone: View {
     @ObservedObject var vm: THomeViewModel
     
     var body: some View {
-        ZStack {
-            THomeView(vm: vm)
-            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
+        GeometryReader { proxy in
+            ZStack {
+                THomeView(vm: vm, width: proxy.size.width + proxy.safeAreaInsets.trailing + proxy.safeAreaInsets.leading)
+                TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
+            }
+
         }
     }
 }

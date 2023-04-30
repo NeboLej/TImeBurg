@@ -12,16 +12,17 @@ struct HomeViewIpad: View {
     @ObservedObject var vm: THomeViewModel
     
     var body: some View {
-        ZStack {
-            HStack(alignment: .top, spacing: 0) {
-                HistoryView(vm: vm.historyViewModel)
-                    .frame(width: UIScreen.main.bounds.width * 0.4)
-                THomeView(vm: vm)
-                    .frame(width: UIScreen.main.bounds.width * 0.6)
+        GeometryReader { proxy in
+            ZStack {
+                HStack(alignment: .top, spacing: 0) {
+                    HistoryView(vm: vm.historyViewModel)
+                        .frame(width: proxy.size.width * 0.4)
+                    THomeView(vm: vm, width: (proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing) * 0.6)
+                        .frame(width: (proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing) * 0.6)
+                }
+                TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
             }
-            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
         }
-
     }
 }
 

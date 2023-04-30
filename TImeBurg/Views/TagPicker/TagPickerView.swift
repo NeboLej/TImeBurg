@@ -156,6 +156,6 @@ struct TagPickerView: View {
 
 struct TagPicker_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        HomeViewPhone(vm: THomeViewModel(serviceFactory: TServicesFactory()))
     }
 }
