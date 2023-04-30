@@ -9,12 +9,13 @@ import SwiftUI
 
 struct TagStatisticsView: View {
     @ObservedObject var vm: TagStatisticsVM
+    @State var width: CGFloat
     
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 20) {
                 PieChartView(tags: $vm.tags )
-                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.width * 0.4)
+                    .frame(width: width * 0.4)
                     .shadow(color: .black.opacity(0.3), radius: 3, x: 0, y: 3)
                 VStack {
                     ForEach(vm.tags) {
@@ -74,6 +75,6 @@ struct TagStatisticsView_Previews: PreviewProvider {
             History(date: Date(), time: 40, tag: .init(name: "name1", color: "ced")),
             History(date: Date(), time: 140, tag: .init(name: "name2", color: "236cfe")),
             History(date: Date(), time: 240, tag: .init(name: "name3", color: "0fd")),
-        ]))
+        ]), width: 400)
     }
 }

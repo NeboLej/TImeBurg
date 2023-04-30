@@ -46,8 +46,6 @@ struct THomeView: View {
             } content: {
                 TProgressView(vm: vm.startActivity())
             }
-            
-            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
         }
     }
     
