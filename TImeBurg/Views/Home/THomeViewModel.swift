@@ -34,6 +34,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
+    private var currentHouse: THouse?
     private var changedСity: TCity!
     private var tags: [Tag] = []
     
@@ -67,7 +68,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     }
     
     func startActivity() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, serviceFactory: serviceFactory)
+        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
     }
     
     func saveImage(image: UIImage) {
@@ -120,10 +121,11 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     //MARK: - THouseListenerProtocol
     func onHouseClick(id: String) {
         selectedHouse = nil
-        let house = currentCityVM.buildings.first { $0.id == id }
-        if let house = house {
-            selectedHouse = house
-        }
+        currentHouse = nil
+        let houseVM = currentCityVM.buildings.first { $0.id == id }
+        if let houseVM = houseVM { selectedHouse = houseVM }
+        let house = currentCity?.buildings.first { $0.id == id }
+        if let house = house { currentHouse = house }
     }
     
     func onHouseMove(id: String, offsetX: CGFloat, line: Int) {

@@ -19,6 +19,7 @@ protocol StoreManagerProtocol {
     
     func removeAllObjectsOfType<T>(_ type: T.Type) where T: Object
     func removeObject<T>(_ object: T) where T: Object
+    func removeObjectById<T>(_ type: T.Type, id: String) where T: Object
     func removeAll()
     
     //    func updateObjects<T>(_ objects: [T]) throws where T: Object
@@ -123,6 +124,18 @@ class RealmManager: StoreManagerProtocol {
             }
         } catch {
             print("---Error removeObject to Realm: \(error)")
+        }
+    }
+    
+    func removeObjectById<T>(_ type: T.Type, id: String) where T: Object {
+        print("---Realm--- deleted Object \(T.self) in  \(Thread.current)")
+        guard let realm = self.realm else { return }
+        do {
+            try realm.write {
+                realm.delete(realm.objects(T.self).filter("id=%@", id))
+            }
+        } catch {
+            print("---Error removeObject by id \(id) to Realm: \(error)")
         }
     }
     
