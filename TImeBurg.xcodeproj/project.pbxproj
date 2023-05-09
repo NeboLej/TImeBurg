@@ -70,6 +70,7 @@
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
 		FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242D29783E3F00B9482C /* THouseVM.swift */; };
+		FAD159442A0A85F20035326F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159432A0A85F20035326F /* AppDelegate.swift */; };
 		FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A229A3F77000FFF367 /* View +.swift */; };
 		FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A429A3F85900FFF367 /* ImageService.swift */; };
 		FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */; };
@@ -175,6 +176,7 @@
 		FAB224292978388500B9482C /* THouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouse.swift; sourceTree = "<group>"; };
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
 		FAB2242D29783E3F00B9482C /* THouseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseVM.swift; sourceTree = "<group>"; };
+		FAD159432A0A85F20035326F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD4D6A229A3F77000FFF367 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
 		FAD4D6A429A3F85900FFF367 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				FA547A8D296C7FED00B3EA1E /* Repositories */,
 				FA547A8B296C7FC900B3EA1E /* Resources */,
 				FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */,
+				FAD159432A0A85F20035326F /* AppDelegate.swift */,
 				FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */,
 				FA547A80296C7E2D00B3EA1E /* Preview Content */,
 			);
@@ -744,6 +747,7 @@
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
 				FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */,
+				FAD159442A0A85F20035326F /* AppDelegate.swift in Sources */,
 				FA5DB36B29B38DF800AEE29D /* TagInfoVM.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
