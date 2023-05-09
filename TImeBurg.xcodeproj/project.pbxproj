@@ -71,6 +71,9 @@
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
 		FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242D29783E3F00B9482C /* THouseVM.swift */; };
 		FAD159442A0A85F20035326F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159432A0A85F20035326F /* AppDelegate.swift */; };
+		FAD159462A0A9D5B0035326F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159452A0A9D5B0035326F /* NotificationService.swift */; };
+		FAD159482A0AA0FE0035326F /* SystemNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159472A0AA0FE0035326F /* SystemNotification.swift */; };
+		FAD1594A2A0AA11D0035326F /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159492A0AA11D0035326F /* NotificationType.swift */; };
 		FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A229A3F77000FFF367 /* View +.swift */; };
 		FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A429A3F85900FFF367 /* ImageService.swift */; };
 		FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */; };
@@ -177,6 +180,9 @@
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
 		FAB2242D29783E3F00B9482C /* THouseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseVM.swift; sourceTree = "<group>"; };
 		FAD159432A0A85F20035326F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAD159452A0A9D5B0035326F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FAD159472A0AA0FE0035326F /* SystemNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotification.swift; sourceTree = "<group>"; };
+		FAD159492A0AA11D0035326F /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		FAD4D6A229A3F77000FFF367 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
 		FAD4D6A429A3F85900FFF367 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
@@ -398,6 +404,7 @@
 				FA5DB37229B3AEB200AEE29D /* TagService.swift */,
 				FAD4D6A429A3F85900FFF367 /* ImageService.swift */,
 				FAA4C72629E75CAF002BEE54 /* Utilits.swift */,
+				FAD159452A0A9D5B0035326F /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -441,6 +448,8 @@
 				FA0CAD162985ABE300A19F19 /* THouseStorage.swift */,
 				FA82FFD329ABC1FC00DA091A /* Tag.swift */,
 				FA82FFD529ABC35F00DA091A /* History.swift */,
+				FAD159472A0AA0FE0035326F /* SystemNotification.swift */,
+				FAD159492A0AA11D0035326F /* NotificationType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -730,6 +739,7 @@
 				FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */,
 				FADCDBF3297EFCB6000B3FDC /* TProgressVM.swift in Sources */,
 				FA1831C5299D724400D9E1D2 /* HouseStored.swift in Sources */,
+				FAD159462A0A9D5B0035326F /* NotificationService.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
@@ -777,6 +787,8 @@
 				FAAEFA3129C4BD220012A548 /* TTextField.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
 				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,
+				FAD159482A0AA0FE0035326F /* SystemNotification.swift in Sources */,
+				FAD1594A2A0AA11D0035326F /* NotificationType.swift in Sources */,
 				FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
 				FA15E56C29FEB97D00946BAE /* HomeViewPhone.swift in Sources */,
