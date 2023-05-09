@@ -22,7 +22,7 @@ class NotificationService: NotificationServiceProtocol {
         let content = UNMutableNotificationContent()
         content.title = notification.title
         content.body = notification.message
-        content.sound = .default
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "NotificationSound.wav"))
         content.userInfo = ["notificationInfo": notification.type.rawValue]
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: notification.showTime)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
