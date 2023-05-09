@@ -74,6 +74,7 @@
 		FAD159462A0A9D5B0035326F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159452A0A9D5B0035326F /* NotificationService.swift */; };
 		FAD159482A0AA0FE0035326F /* SystemNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159472A0AA0FE0035326F /* SystemNotification.swift */; };
 		FAD1594A2A0AA11D0035326F /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159492A0AA11D0035326F /* NotificationType.swift */; };
+		FAD1594E2A0AC04E0035326F /* NotificationSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAD1594D2A0AC04E0035326F /* NotificationSound.wav */; };
 		FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A229A3F77000FFF367 /* View +.swift */; };
 		FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A429A3F85900FFF367 /* ImageService.swift */; };
 		FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */; };
@@ -183,6 +184,7 @@
 		FAD159452A0A9D5B0035326F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		FAD159472A0AA0FE0035326F /* SystemNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotification.swift; sourceTree = "<group>"; };
 		FAD159492A0AA11D0035326F /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		FAD1594D2A0AC04E0035326F /* NotificationSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = NotificationSound.wav; path = ../../../../Downloads/NotificationSound.wav; sourceTree = "<group>"; };
 		FAD4D6A229A3F77000FFF367 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
 		FAD4D6A429A3F85900FFF367 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 		FA547A8B296C7FC900B3EA1E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FAD1594D2A0AC04E0035326F /* NotificationSound.wav */,
 				FAFC71E5296C88F40099D470 /* Colors.swift */,
 				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
 				FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */,
@@ -656,6 +659,7 @@
 				FADCDBEB297ED70D000B3FDC /* AnimationHome1.json in Resources */,
 				FAFC7203296C8D530099D470 /* Inter-Regular.otf in Resources */,
 				FAFC71E4296C87850099D470 /* Images.xcassets in Resources */,
+				FAD1594E2A0AC04E0035326F /* NotificationSound.wav in Resources */,
 				FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
