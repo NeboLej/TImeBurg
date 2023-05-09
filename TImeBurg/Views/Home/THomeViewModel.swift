@@ -32,6 +32,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     private let serviceFactory: TServicesFactoryProtocol
     private let imageService: ImageServiceProtocol
     private let tagService: TagServiceProtocol
+    private let notificationService: NotificationServiceProtocol
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
@@ -43,6 +44,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         self.serviceFactory = serviceFactory
         cityService = serviceFactory.cityService
         tagService = serviceFactory.tagService
+        notificationService = serviceFactory.notificationService
         imageService = ImageService()
         historyViewModel = HistoryViewModel(serviceFactory: serviceFactory)
         
@@ -69,7 +71,12 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         afterSnapshot()
     }
     
-    func startActivity() -> TProgressVM {
+    func startActivity() {
+        isProgress = true
+        _ = notificationService.add(notification: SystemNotification(title: "Успех!", message: "Вы построили новый дом, давай скорее на него посмотрим", type: .endOfActivity, showTime: Date().addingTimeInterval(TimeInterval(timeActivity * 60))))
+    }
+    
+    func getProgressVM() -> TProgressVM {
         TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
     }
     

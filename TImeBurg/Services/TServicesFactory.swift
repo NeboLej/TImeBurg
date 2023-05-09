@@ -12,6 +12,7 @@ protocol TServicesFactoryProtocol {
     var houseService: THouseServiceProtocol { get }
     var buildingService: BuildingServiceProtocol { get }
     var tagService: TagServiceProtocol { get }
+    var notificationService: NotificationServiceProtocol { get }
 }
 
 class TServicesFactory: TServicesFactoryProtocol {
@@ -20,6 +21,7 @@ class TServicesFactory: TServicesFactoryProtocol {
     var houseService: THouseServiceProtocol
     var buildingService: BuildingServiceProtocol
     var tagService: TagServiceProtocol
+    var notificationService: NotificationServiceProtocol
     
     init() {
         let storage = RealmManager()
@@ -31,5 +33,6 @@ class TServicesFactory: TServicesFactoryProtocol {
         houseService = THouseService(storage: storage, cityService: cityService)
         buildingService = BuildingService(storage: storage, net: buildingRepository)
         tagService = TagService(storage: storage, net: tagRepository)
+        notificationService = NotificationService()
     }
 }
