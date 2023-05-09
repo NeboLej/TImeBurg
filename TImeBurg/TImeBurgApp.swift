@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct TImeBurgApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     let serviceFactory: TServicesFactoryProtocol
     
