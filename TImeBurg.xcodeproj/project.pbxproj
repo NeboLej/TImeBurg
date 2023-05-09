@@ -10,6 +10,8 @@
 		FA08523229C7D8C200B5D2BF /* UIApplication + .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08523129C7D8C200B5D2BF /* UIApplication + .swift */; };
 		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
 		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
+		FA15E56A29FE966300946BAE /* HomeViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15E56929FE966300946BAE /* HomeViewIpad.swift */; };
+		FA15E56C29FEB97D00946BAE /* HomeViewPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15E56B29FEB97D00946BAE /* HomeViewPhone.swift */; };
 		FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BB299D56B300D9E1D2 /* RealmManager.swift */; };
 		FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BE299D5A5E00D9E1D2 /* BuildingStored.swift */; };
 		FA1831C3299D6F7200D9E1D2 /* CityStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831C2299D6F7200D9E1D2 /* CityStored.swift */; };
@@ -112,6 +114,8 @@
 		FA08523129C7D8C200B5D2BF /* UIApplication + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + .swift"; sourceTree = "<group>"; };
 		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
 		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
+		FA15E56929FE966300946BAE /* HomeViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewIpad.swift; sourceTree = "<group>"; };
+		FA15E56B29FEB97D00946BAE /* HomeViewPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewPhone.swift; sourceTree = "<group>"; };
 		FA1831BB299D56B300D9E1D2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		FA1831BE299D5A5E00D9E1D2 /* BuildingStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingStored.swift; sourceTree = "<group>"; };
 		FA1831C2299D6F7200D9E1D2 /* CityStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStored.swift; sourceTree = "<group>"; };
@@ -537,6 +541,8 @@
 			children = (
 				FAFC71DD296C85170099D470 /* THomeView.swift */,
 				FAFC71DF296C85280099D470 /* THomeViewModel.swift */,
+				FA15E56929FE966300946BAE /* HomeViewIpad.swift */,
+				FA15E56B29FEB97D00946BAE /* HomeViewPhone.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -701,6 +707,7 @@
 				FA54C85F29AEB13400AE14A0 /* TagStatisticsView.swift in Sources */,
 				FA54C85D29AEB02100AE14A0 /* PieChartView.swift in Sources */,
 				FAFBA74229E33F0900E1B3F7 /* CityRepositoryNet.swift in Sources */,
+				FA15E56A29FE966300946BAE /* HomeViewIpad.swift in Sources */,
 				FA82FFD429ABC1FC00DA091A /* Tag.swift in Sources */,
 				FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */,
 				FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */,
@@ -768,6 +775,7 @@
 				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,
 				FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
+				FA15E56C29FEB97D00946BAE /* HomeViewPhone.swift in Sources */,
 				FAAEFA2329C46CFD0012A548 /* GlassView.swift in Sources */,
 				FADCDBF5297F0787000B3FDC /* TCircleProgressView.swift in Sources */,
 				FA82FFCC29AB935D00DA091A /* HistoryViewModel.swift in Sources */,
@@ -938,6 +946,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -951,7 +960,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -983,6 +992,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -997,7 +1007,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

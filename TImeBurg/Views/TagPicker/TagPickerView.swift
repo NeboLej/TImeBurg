@@ -80,8 +80,8 @@ struct TagPickerView: View {
                 .padding()
             }
         }
-        .offset(x: isShow ? 0 : 400)
-        .offset(y: isNew ? -1000 : 0)
+        .offset(x: isShow ? 0 : UIScreen.main.bounds.width)
+        .offset(y: isNew ? -UIScreen.main.bounds.height : 0)
         .frame(height: UIScreen.main.bounds.height * 0.42)
         .frame(width:  UIScreen.main.bounds.width * 0.75)
     }
@@ -156,6 +156,6 @@ struct TagPickerView: View {
 
 struct TagPicker_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        HomeViewPhone(vm: THomeViewModel(serviceFactory: TServicesFactory()))
     }
 }

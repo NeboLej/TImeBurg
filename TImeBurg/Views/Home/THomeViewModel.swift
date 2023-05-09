@@ -24,6 +24,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     @Published var currentTag: TagVM = TagVM(id: "0",name: "loading", color: .white)
     @Published var tagPickerShow = false
     @Published var tagPickerVM = TagPickerVM(tagsVM: [])
+    @Published var historyViewModel: HistoryViewModel
     
     let imageSet = ["Building", "Tree", "FixRoad"]
     
@@ -43,6 +44,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         cityService = serviceFactory.cityService
         tagService = serviceFactory.tagService
         imageService = ImageService()
+        historyViewModel = HistoryViewModel(serviceFactory: serviceFactory)
         
         weak var _self = self
         

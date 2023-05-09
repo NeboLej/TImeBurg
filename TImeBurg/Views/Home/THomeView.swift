@@ -11,6 +11,7 @@ struct THomeView: View {
     
     @ObservedObject var vm: THomeViewModel
     @State private var offsetX = 0.0
+    let width: CGFloat
     
     var body: some View {
         ZStack {
@@ -46,8 +47,6 @@ struct THomeView: View {
             } content: {
                 TProgressView(vm: vm.startActivity())
             }
-            
-            TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
         }
     }
     
@@ -62,7 +61,7 @@ struct THomeView: View {
                 .frame(width: size.width, height: height, alignment: .top)
                 .offset(y: minY > 0 ? -minY : 0)
         }
-        .frame(height: 350)
+        .frame(height: width * 0.9)
     }
     
     @ViewBuilder
@@ -230,6 +229,6 @@ struct THomeView: View {
 
 struct THomeView_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()), width: UIScreen.main.bounds.width)
     }
 }

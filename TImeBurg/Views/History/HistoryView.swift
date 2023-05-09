@@ -39,12 +39,14 @@ struct HistoryView: View {
     
     @ViewBuilder
     func pageView() -> some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            photoView()
-            TagStatisticsView(vm: vm.tagStatisticsVM)
-                .padding(10)
-            historyTable()
-                .padding(.horizontal, 10)
+        GeometryReader{ proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                photoView()
+                TagStatisticsView(vm: vm.tagStatisticsVM, width: proxy.size.width)
+                    .padding(10)
+                historyTable()
+                    .padding(.horizontal, 10)
+            }
         }
     }
     

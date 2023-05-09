@@ -83,7 +83,7 @@ struct TCityView: View {
 
 struct TCityView_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
-//        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [ .init(image: "House1", timeExpenditure: 123, width: 60, line: 0, offsetX: 50)], history: [])))
+//        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        TCityView(vm: TCityVM(city: TCity(id: "qw", name: "qADa", image: "", bgImage: "bg12", spentTime: 123, comfortRating: 0.9, greenRating: 0.2, buildings: [ .init(image: "House8", timeExpenditure: 123, width: 70, line: 0, offsetX: 50)], history: [])))
     }
 }

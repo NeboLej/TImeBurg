@@ -121,6 +121,6 @@ struct TProgressView: View {
 
 struct TProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        THomeView(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        HomeViewPhone(vm: THomeViewModel(serviceFactory: TServicesFactory()))
     }
 }

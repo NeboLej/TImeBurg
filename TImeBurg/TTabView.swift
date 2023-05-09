@@ -22,8 +22,15 @@ struct TTabView: View {
             TabView(selection: $vm.currentTab) {
                 AllCitiesView(vm: vm.getAllCitiesViewModel())
                     .tag(Tab.list)
-                THomeView(vm: vm.getHomeViewModel())
-                    .tag(Tab.home)
+                
+                if (UIDevice.current.userInterfaceIdiom == .pad){
+                    HomeViewIpad(vm: vm.getHomeViewModel())
+                        .tag(Tab.home)
+                } else {
+                    HomeViewPhone(vm: vm.getHomeViewModel())
+                        .tag(Tab.home)
+                }
+
                 HistoryView(vm: vm.getHistoryViewModel())
                     .tag(Tab.history)
                 TestView(vm: TestVM())
