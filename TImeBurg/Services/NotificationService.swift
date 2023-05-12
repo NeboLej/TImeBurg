@@ -40,4 +40,11 @@ class NotificationService: NotificationServiceProtocol {
     func deleteAll(withType: NotificationType) -> Bool {
         return true
     }
+    
+    
+    /*
+     время начала
+     время постройки
+     айди тега
+     */
 }
