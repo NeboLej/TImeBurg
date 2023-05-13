@@ -13,9 +13,11 @@ struct TImeBurgApp: App {
     @Environment(\.scenePhase) var scenePhase
     
     let serviceFactory: TServicesFactoryProtocol
+    let lifeCycleServie: LifeCycleServiceProtocol
     
     init() {
         serviceFactory = TServicesFactory()
+        lifeCycleServie = serviceFactory.lifeCycleService
     }
     
     var body: some Scene {
@@ -28,10 +30,13 @@ struct TImeBurgApp: App {
             switch phase {
                 case .background:
                     print("🔄--- App background")
+                    lifeCycleServie.scenePhase.send(.background)
                 case .inactive:
                     print("🔄--- App inactive")
+                    lifeCycleServie.scenePhase.send(.inactive)
                 case .active:
                     print("🔄--- App active")
+                    lifeCycleServie.scenePhase.send(.active)
                 @unknown default:
                     print("🔄--- App Error life cycle")
             }

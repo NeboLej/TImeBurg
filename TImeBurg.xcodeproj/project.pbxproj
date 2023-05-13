@@ -23,6 +23,8 @@
 		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
 		FA3824302A0EDFD6009C71C2 /* LifeCycleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38242F2A0EDFD6009C71C2 /* LifeCycleService.swift */; };
 		FA3824322A0EE0AB009C71C2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824312A0EE0AA009C71C2 /* Task.swift */; };
+		FA3824342A0F86F8009C71C2 /* LifeCycleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */; };
+		FA3824362A0F888C009C71C2 /* TaskStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824352A0F888C009C71C2 /* TaskStored.swift */; };
 		FA3C25CB29A00C5B00F1B639 /* BuildingRepositoryNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */; };
 		FA3C25CD29A0EE8B00F1B639 /* BuildingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
@@ -133,6 +135,8 @@
 		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
 		FA38242F2A0EDFD6009C71C2 /* LifeCycleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleService.swift; sourceTree = "<group>"; };
 		FA3824312A0EE0AA009C71C2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleType.swift; sourceTree = "<group>"; };
+		FA3824352A0F888C009C71C2 /* TaskStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStored.swift; sourceTree = "<group>"; };
 		FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingRepositoryNet.swift; sourceTree = "<group>"; };
 		FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingService.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				FA1831C4299D724400D9E1D2 /* HouseStored.swift */,
 				FA5DB36C29B38EB300AEE29D /* TagStored.swift */,
 				FA5DB36E29B3908800AEE29D /* HistoryStored.swift */,
+				FA3824352A0F888C009C71C2 /* TaskStored.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				FAD159472A0AA0FE0035326F /* SystemNotification.swift */,
 				FAD159492A0AA11D0035326F /* NotificationType.swift */,
 				FA3824312A0EE0AA009C71C2 /* Task.swift */,
+				FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -762,6 +768,7 @@
 				FA5DB36929B38DA900AEE29D /* HistoryDayVM.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
+				FA3824342A0F86F8009C71C2 /* LifeCycleType.swift in Sources */,
 				FA5DB37529B3B00500AEE29D /* BaseService.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
@@ -781,6 +788,7 @@
 				FA82FFCE29AB936B00DA091A /* HistoryView.swift in Sources */,
 				FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */,
 				FA82FFD829ABC6D600DA091A /* Date +.swift in Sources */,
+				FA3824362A0F888C009C71C2 /* TaskStored.swift in Sources */,
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,

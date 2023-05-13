@@ -17,7 +17,6 @@ struct HomeViewPhone: View {
                 THomeView(vm: vm, width: proxy.size.width + proxy.safeAreaInsets.trailing + proxy.safeAreaInsets.leading)
                 TagPickerView(vm: vm.tagPickerVM, currentTag: $vm.currentTag, isShow: $vm.tagPickerShow)
             }
-
         }
     }
 }
