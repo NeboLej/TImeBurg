@@ -33,6 +33,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     private let imageService: ImageServiceProtocol
     private let tagService: TagServiceProtocol
     private let notificationService: NotificationServiceProtocol
+    private let lifeCycleService: LifeCycleServiceProtocol
     
     private var cancellableSet: Set<AnyCancellable> = []
     private var currentCity: TCity?
@@ -45,9 +46,9 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         cityService = serviceFactory.cityService
         tagService = serviceFactory.tagService
         notificationService = serviceFactory.notificationService
+        lifeCycleService = serviceFactory.lifeCycleService
         imageService = ImageService()
         historyViewModel = HistoryViewModel(serviceFactory: serviceFactory)
-        
         weak var _self = self
         
         cityService.currentCity
@@ -73,6 +74,8 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
     
     func startActivity() {
         isProgress = true
+        let task = Task(startTime: Date(), time: Int(timeActivity), tagId: currentTag.id, houseId: currentHouse?.id)
+        lifeCycleService.startTask(task: task)
         _ = notificationService.add(notification: SystemNotification(title: "Успех!", message: "Вы построили новый дом, давай скорее на него посмотрим", type: .endOfActivity, showTime: Date().addingTimeInterval(TimeInterval(timeActivity * 60))))
     }
     

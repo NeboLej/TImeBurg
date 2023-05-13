@@ -10,6 +10,6 @@ import Foundation
 struct Task {
     let startTime: Date
     let time: Int
-    let tag: Tag
-    let house: THouse?
+    let tagId: String
+    let houseId: String?
 }

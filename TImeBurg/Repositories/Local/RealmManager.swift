@@ -45,9 +45,9 @@ class RealmManager: StoreManagerProtocol {
     init() {
         print("---Realm--- created Realm in  \(Thread.current)")
         do {
-            let config = Realm.Configuration(schemaVersion: 4,
+            let config = Realm.Configuration(schemaVersion: 5,
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 4 { } } )
+                if oldSchemaVersion < 5 { } } )
             Realm.Configuration.defaultConfiguration = config
             self.realm = try Realm()
         } catch {
