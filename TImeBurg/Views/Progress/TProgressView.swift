@@ -56,7 +56,10 @@ struct TProgressView: View {
             }
         }
         .alert("При закрытии этого экрана таймер будет остановлен", isPresented: $isShowAlert) {
-            Button(role: .destructive) {  dismiss() } label: {
+            Button(role: .destructive) {
+                dismiss()
+                vm.close()
+            } label: {
                 Text("Закрыть")
             }
             Button(role: .cancel) { } label: {

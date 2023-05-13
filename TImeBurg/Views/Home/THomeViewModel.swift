@@ -69,18 +69,40 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
                 }
             }
             .store(in: &cancellableSet)
+        
+        lifeCycleService.currentTask
+            .sink {
+                if let task = $0 {
+                    _self?.startTask(task: task)
+                }
+            }
+            .store(in: &cancellableSet)
+        
         afterSnapshot()
     }
     
-    func startActivity() {
-        isProgress = true
+    func createdTask() {
+        progressVM = nil
         let task = Task(startTime: Date(), time: Int(timeActivity), tagId: currentTag.id, houseId: currentHouse?.id)
         lifeCycleService.startTask(task: task)
         _ = notificationService.add(notification: SystemNotification(title: "Успех!", message: "Вы построили новый дом, давай скорее на него посмотрим", type: .endOfActivity, showTime: Date().addingTimeInterval(TimeInterval(timeActivity * 60))))
     }
     
+    func startTask(task: Task) {
+        currentTag = TagVM(tag: tags.first(where: { $0.id == task.tagId })!)
+        timeActivity = Double(task.time)
+        currentHouse = currentCity?.buildings.first(where: { $0.id == task.houseId})
+        startSecond = Int(Date().timeIntervalSince1970 - task.startTime.timeIntervalSince1970)
+        isProgress = true
+    }
+    
+    private var progressVM: TProgressVM? = nil
+    private var startSecond: Int = 0
     func getProgressVM() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
+        if progressVM == nil {
+            progressVM = TProgressVM(minutes: Int(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, startSecond: startSecond, serviceFactory: serviceFactory)
+        }
+        return progressVM!
     }
     
     func saveImage(image: UIImage) {

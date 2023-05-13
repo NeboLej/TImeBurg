@@ -8,5 +8,5 @@
 import Foundation
 
 enum LifeCycleType {
-    case active, inactive, background
+    case foreground, background
 }
