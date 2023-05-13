@@ -134,7 +134,7 @@ struct THomeView: View {
                         .foregroundColor(.white)
                         .padding(.top, -15)
                     Spacer()
-                    TButton(action: { vm.startActivity() }, text: Text("Start") )
+                    TButton(action: { vm.createdTask() }, text: Text("Start") )
                         .frame(maxWidth: .infinity)
                 }
                 .frame(width: 150)

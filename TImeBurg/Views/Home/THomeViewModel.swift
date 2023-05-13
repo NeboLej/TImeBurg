@@ -73,7 +73,7 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         lifeCycleService.currentTask
             .sink {
                 if let task = $0 {
-                    _self?.continueTask(task: task)
+                    _self?.startTask(task: task)
                 }
             }
             .store(in: &cancellableSet)
@@ -81,17 +81,26 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         afterSnapshot()
     }
     
-    func startActivity() {
-        isProgress = true
+    func createdTask() {
+        progressVM = nil
         let task = Task(startTime: Date(), time: Int(timeActivity), tagId: currentTag.id, houseId: currentHouse?.id)
         lifeCycleService.startTask(task: task)
         _ = notificationService.add(notification: SystemNotification(title: "Успех!", message: "Вы построили новый дом, давай скорее на него посмотрим", type: .endOfActivity, showTime: Date().addingTimeInterval(TimeInterval(timeActivity * 60))))
     }
     
+    func startTask(task: Task) {
+        currentTag = TagVM(tag: tags.first(where: { $0.id == task.tagId })!)
+        timeActivity = Double(task.time)
+        currentHouse = currentCity?.buildings.first(where: { $0.id == task.houseId})
+        startSecond = Int(Date().timeIntervalSince1970 - task.startTime.timeIntervalSince1970)
+        isProgress = true
+    }
+    
     private var progressVM: TProgressVM? = nil
+    private var startSecond: Int = 0
     func getProgressVM() -> TProgressVM {
         if progressVM == nil {
-            progressVM = TProgressVM(minutes: Int(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
+            progressVM = TProgressVM(minutes: Int(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, startSecond: startSecond, serviceFactory: serviceFactory)
         }
         return progressVM!
     }
@@ -141,13 +150,6 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
             _self?.snapshotCity = true
         }
-    }
-    
-    func continueTask(task: Task) {
-        currentTag = TagVM(tag: tags.first(where: { $0.id == task.tagId })!)
-        timeActivity = Double(task.time)
-        currentHouse = currentCity?.buildings.first(where: { $0.id == task.houseId})
-        isProgress = true
     }
     
     //MARK: - THouseListenerProtocol

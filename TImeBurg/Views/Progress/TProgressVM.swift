@@ -17,7 +17,7 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     @Published var state: State = .progress
     @Published var progress: Float = 0.0
     
-    private lazy var timerVM: TTimerVM = TTimerVM(minutes: Float(minutes), parent: self)
+    private lazy var timerVM: TTimerVM = TTimerVM(minutes: Float(minutes), startSecond: startSecond, parent: self)
     private var newHouse: THouse? = nil
     private let tag: Tag
     
@@ -26,11 +26,13 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     private let lifeCycleService: LifeCycleServiceProtocol
     private var parent: Any?
     private let upgradedHouse: THouse?
+    private let startSecond: Int
     
-    init(minutes: Int, tag: Tag, upgradedHouse: THouse?, serviceFactory: TServicesFactoryProtocol) {
+    init(minutes: Int, tag: Tag, upgradedHouse: THouse?, startSecond: Int, serviceFactory: TServicesFactoryProtocol) {
         self.minutes = minutes
         self.tag = tag
         self.upgradedHouse = upgradedHouse
+        self.startSecond = startSecond
         self.houseService = serviceFactory.houseService
         self.cityService = serviceFactory.cityService
         self.lifeCycleService = serviceFactory.lifeCycleService
@@ -55,9 +57,12 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
         lifeCycleService.endTask()
     }
     
+    func close() {
+        lifeCycleService.endTask()
+    }
+    
     //MARK: TTimerListenerProtocol
     func timeRuns(seconds: Float) {
-        print("💯 \(seconds)")
         calcProgress(newValue: seconds)
     }
     
