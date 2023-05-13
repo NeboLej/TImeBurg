@@ -14,12 +14,10 @@ protocol THouseServiceProtocol {
 //    func upgradeHouse(oldHouse: THouse, time: Int) -> THouse
 }
 
-class THouseService: THouseServiceProtocol {
+class THouseService: BaseService, THouseServiceProtocol {
     
     private let storage: StoreManagerProtocol
     private let cityService: TCityServiceProtocol
-    private var cancellableSet: Set<AnyCancellable> = []
-
     
     init(storage: StoreManagerProtocol, cityService: TCityServiceProtocol) {
         self.storage = storage

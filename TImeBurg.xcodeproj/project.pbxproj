@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FA08523229C7D8C200B5D2BF /* UIApplication + .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08523129C7D8C200B5D2BF /* UIApplication + .swift */; };
 		FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD142985AA2300A19F19 /* THouseService.swift */; };
-		FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CAD162985ABE300A19F19 /* THouseStorage.swift */; };
 		FA15E56A29FE966300946BAE /* HomeViewIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15E56929FE966300946BAE /* HomeViewIpad.swift */; };
 		FA15E56C29FEB97D00946BAE /* HomeViewPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15E56B29FEB97D00946BAE /* HomeViewPhone.swift */; };
 		FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1831BB299D56B300D9E1D2 /* RealmManager.swift */; };
@@ -22,6 +21,10 @@
 		FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3185298062C2001169B8 /* TBuildingType.swift */; };
 		FA362F4E297DD55E00EE0CE1 /* TCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */; };
 		FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA362F4F297DD83700EE0CE1 /* TTimerView.swift */; };
+		FA3824302A0EDFD6009C71C2 /* LifeCycleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38242F2A0EDFD6009C71C2 /* LifeCycleService.swift */; };
+		FA3824322A0EE0AB009C71C2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824312A0EE0AA009C71C2 /* Task.swift */; };
+		FA3824342A0F86F8009C71C2 /* LifeCycleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */; };
+		FA3824362A0F888C009C71C2 /* TaskStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3824352A0F888C009C71C2 /* TaskStored.swift */; };
 		FA3C25CB29A00C5B00F1B639 /* BuildingRepositoryNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */; };
 		FA3C25CD29A0EE8B00F1B639 /* BuildingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */; };
 		FA4753332972E977008AA4DD /* TRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4753322972E977008AA4DD /* TRatingView.swift */; };
@@ -70,6 +73,11 @@
 		FAB2242A2978388500B9482C /* THouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB224292978388500B9482C /* THouse.swift */; };
 		FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242B29783B5B00B9482C /* THouseView.swift */; };
 		FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2242D29783E3F00B9482C /* THouseVM.swift */; };
+		FAD159442A0A85F20035326F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159432A0A85F20035326F /* AppDelegate.swift */; };
+		FAD159462A0A9D5B0035326F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159452A0A9D5B0035326F /* NotificationService.swift */; };
+		FAD159482A0AA0FE0035326F /* SystemNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159472A0AA0FE0035326F /* SystemNotification.swift */; };
+		FAD1594A2A0AA11D0035326F /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD159492A0AA11D0035326F /* NotificationType.swift */; };
+		FAD1594E2A0AC04E0035326F /* NotificationSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAD1594D2A0AC04E0035326F /* NotificationSound.wav */; };
 		FAD4D6A329A3F77000FFF367 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A229A3F77000FFF367 /* View +.swift */; };
 		FAD4D6A529A3F85900FFF367 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A429A3F85900FFF367 /* ImageService.swift */; };
 		FAD4D6A729A3FBFC00FFF367 /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */; };
@@ -113,7 +121,6 @@
 		6A8DB99D8123A222121200BC /* Pods-TImeBurg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TImeBurg.debug.xcconfig"; path = "Target Support Files/Pods-TImeBurg/Pods-TImeBurg.debug.xcconfig"; sourceTree = "<group>"; };
 		FA08523129C7D8C200B5D2BF /* UIApplication + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + .swift"; sourceTree = "<group>"; };
 		FA0CAD142985AA2300A19F19 /* THouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseService.swift; sourceTree = "<group>"; };
-		FA0CAD162985ABE300A19F19 /* THouseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseStorage.swift; sourceTree = "<group>"; };
 		FA15E56929FE966300946BAE /* HomeViewIpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewIpad.swift; sourceTree = "<group>"; };
 		FA15E56B29FEB97D00946BAE /* HomeViewPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewPhone.swift; sourceTree = "<group>"; };
 		FA1831BB299D56B300D9E1D2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -126,6 +133,10 @@
 		FA1B3185298062C2001169B8 /* TBuildingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBuildingType.swift; sourceTree = "<group>"; };
 		FA362F4D297DD55E00EE0CE1 /* TCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCheckBoxView.swift; sourceTree = "<group>"; };
 		FA362F4F297DD83700EE0CE1 /* TTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTimerView.swift; sourceTree = "<group>"; };
+		FA38242F2A0EDFD6009C71C2 /* LifeCycleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleService.swift; sourceTree = "<group>"; };
+		FA3824312A0EE0AA009C71C2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleType.swift; sourceTree = "<group>"; };
+		FA3824352A0F888C009C71C2 /* TaskStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStored.swift; sourceTree = "<group>"; };
 		FA3C25CA29A00C5B00F1B639 /* BuildingRepositoryNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingRepositoryNet.swift; sourceTree = "<group>"; };
 		FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingService.swift; sourceTree = "<group>"; };
 		FA4753322972E977008AA4DD /* TRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRatingView.swift; sourceTree = "<group>"; };
@@ -175,6 +186,11 @@
 		FAB224292978388500B9482C /* THouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouse.swift; sourceTree = "<group>"; };
 		FAB2242B29783B5B00B9482C /* THouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseView.swift; sourceTree = "<group>"; };
 		FAB2242D29783E3F00B9482C /* THouseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THouseVM.swift; sourceTree = "<group>"; };
+		FAD159432A0A85F20035326F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAD159452A0A9D5B0035326F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FAD159472A0AA0FE0035326F /* SystemNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotification.swift; sourceTree = "<group>"; };
+		FAD159492A0AA11D0035326F /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		FAD1594D2A0AC04E0035326F /* NotificationSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = NotificationSound.wav; path = ../../../../Downloads/NotificationSound.wav; sourceTree = "<group>"; };
 		FAD4D6A229A3F77000FFF367 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
 		FAD4D6A429A3F85900FFF367 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FAD4D6A629A3FBFC00FFF367 /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
@@ -248,6 +264,7 @@
 				FA1831C4299D724400D9E1D2 /* HouseStored.swift */,
 				FA5DB36C29B38EB300AEE29D /* TagStored.swift */,
 				FA5DB36E29B3908800AEE29D /* HistoryStored.swift */,
+				FA3824352A0F888C009C71C2 /* TaskStored.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +328,7 @@
 				FA547A8D296C7FED00B3EA1E /* Repositories */,
 				FA547A8B296C7FC900B3EA1E /* Resources */,
 				FA547A79296C7E2900B3EA1E /* TImeBurgApp.swift */,
+				FAD159432A0A85F20035326F /* AppDelegate.swift */,
 				FA547A7F296C7E2D00B3EA1E /* TImeBurg.entitlements */,
 				FA547A80296C7E2D00B3EA1E /* Preview Content */,
 			);
@@ -371,6 +389,7 @@
 		FA547A8B296C7FC900B3EA1E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FAD1594D2A0AC04E0035326F /* NotificationSound.wav */,
 				FAFC71E5296C88F40099D470 /* Colors.swift */,
 				FAFC7212296C8DFE0099D470 /* Fonts.swift */,
 				FADCDBE9297ED70C000B3FDC /* AnimationHome1.json */,
@@ -394,7 +413,9 @@
 				FA3C25CC29A0EE8B00F1B639 /* BuildingService.swift */,
 				FA5DB37229B3AEB200AEE29D /* TagService.swift */,
 				FAD4D6A429A3F85900FFF367 /* ImageService.swift */,
+				FA38242F2A0EDFD6009C71C2 /* LifeCycleService.swift */,
 				FAA4C72629E75CAF002BEE54 /* Utilits.swift */,
+				FAD159452A0A9D5B0035326F /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -435,9 +456,12 @@
 				FA4753362972F979008AA4DD /* TCity.swift */,
 				FAB224292978388500B9482C /* THouse.swift */,
 				FA1B318329805913001169B8 /* TCityPreview.swift */,
-				FA0CAD162985ABE300A19F19 /* THouseStorage.swift */,
 				FA82FFD329ABC1FC00DA091A /* Tag.swift */,
 				FA82FFD529ABC35F00DA091A /* History.swift */,
+				FAD159472A0AA0FE0035326F /* SystemNotification.swift */,
+				FAD159492A0AA11D0035326F /* NotificationType.swift */,
+				FA3824312A0EE0AA009C71C2 /* Task.swift */,
+				FA3824332A0F86F8009C71C2 /* LifeCycleType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -644,6 +668,7 @@
 				FADCDBEB297ED70D000B3FDC /* AnimationHome1.json in Resources */,
 				FAFC7203296C8D530099D470 /* Inter-Regular.otf in Resources */,
 				FAFC71E4296C87850099D470 /* Images.xcassets in Resources */,
+				FAD1594E2A0AC04E0035326F /* NotificationSound.wav in Resources */,
 				FA547A7E296C7E2D00B3EA1E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,11 +747,14 @@
 				FA82FFD029AB98FD00DA091A /* Color +.swift in Sources */,
 				FAFC71DC296C84140099D470 /* TTabViewModel.swift in Sources */,
 				FA5DB36729B38D6C00AEE29D /* HistoryVM.swift in Sources */,
+				FA3824302A0EDFD6009C71C2 /* LifeCycleService.swift in Sources */,
 				FAFC71E6296C88F40099D470 /* Colors.swift in Sources */,
 				FA4753332972E977008AA4DD /* TRatingView.swift in Sources */,
 				FA1831BC299D56B300D9E1D2 /* RealmManager.swift in Sources */,
 				FADCDBF3297EFCB6000B3FDC /* TProgressVM.swift in Sources */,
 				FA1831C5299D724400D9E1D2 /* HouseStored.swift in Sources */,
+				FAD159462A0A9D5B0035326F /* NotificationService.swift in Sources */,
+				FA3824322A0EE0AB009C71C2 /* Task.swift in Sources */,
 				FA83E3932971CEE3000952DD /* TActivityType.swift in Sources */,
 				FAFC71DE296C85170099D470 /* THomeView.swift in Sources */,
 				FA1B317C29801726001169B8 /* TTimerVM.swift in Sources */,
@@ -740,10 +768,12 @@
 				FA5DB36929B38DA900AEE29D /* HistoryDayVM.swift in Sources */,
 				FA362F50297DD83700EE0CE1 /* TTimerView.swift in Sources */,
 				FA4753352972F1FA008AA4DD /* ViewModifiers.swift in Sources */,
+				FA3824342A0F86F8009C71C2 /* LifeCycleType.swift in Sources */,
 				FA5DB37529B3B00500AEE29D /* BaseService.swift in Sources */,
 				FA1B3186298062C2001169B8 /* TBuildingType.swift in Sources */,
 				FAA32C47298C141900FB89DA /* AllCitiesView.swift in Sources */,
 				FAFAAC6B29A2CD3D00779E13 /* TestView.swift in Sources */,
+				FAD159442A0A85F20035326F /* AppDelegate.swift in Sources */,
 				FA5DB36B29B38DF800AEE29D /* TagInfoVM.swift in Sources */,
 				FA547A7A296C7E2900B3EA1E /* TImeBurgApp.swift in Sources */,
 				FAB2242A2978388500B9482C /* THouse.swift in Sources */,
@@ -758,6 +788,7 @@
 				FA82FFCE29AB936B00DA091A /* HistoryView.swift in Sources */,
 				FA1831BF299D5A5E00D9E1D2 /* BuildingStored.swift in Sources */,
 				FA82FFD829ABC6D600DA091A /* Date +.swift in Sources */,
+				FA3824362A0F888C009C71C2 /* TaskStored.swift in Sources */,
 				FA0CAD152985AA2300A19F19 /* THouseService.swift in Sources */,
 				FAFC71E2296C86340099D470 /* TServicesFactory.swift in Sources */,
 				FAB2242E29783E3F00B9482C /* THouseVM.swift in Sources */,
@@ -765,7 +796,6 @@
 				FAA32C45298C140300FB89DA /* AllCitiesVM.swift in Sources */,
 				FA82FFDA29ABE43000DA091A /* TagStatisticsVM.swift in Sources */,
 				FAB224252978334800B9482C /* TCityView.swift in Sources */,
-				FA0CAD172985ABE400A19F19 /* THouseStorage.swift in Sources */,
 				FA5DB36D29B38EB300AEE29D /* TagStored.swift in Sources */,
 				FA7E318929C662A2006AC632 /* TagPickerVM.swift in Sources */,
 				FAAEFA2F29C4B8D60012A548 /* TagPickerView.swift in Sources */,
@@ -773,6 +803,8 @@
 				FAAEFA3129C4BD220012A548 /* TTextField.swift in Sources */,
 				FAB2242C29783B5B00B9482C /* THouseView.swift in Sources */,
 				FA82FFD229ABC1A800DA091A /* TagVM.swift in Sources */,
+				FAD159482A0AA0FE0035326F /* SystemNotification.swift in Sources */,
+				FAD1594A2A0AA11D0035326F /* NotificationType.swift in Sources */,
 				FAAEFA2529C46E0D0012A548 /* Blur +.swift in Sources */,
 				FA83E3982971DAD3000952DD /* TCityVM.swift in Sources */,
 				FA15E56C29FEB97D00946BAE /* HomeViewPhone.swift in Sources */,

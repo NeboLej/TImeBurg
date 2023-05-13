@@ -52,6 +52,6 @@ struct TTimerView: View {
 
 struct TTimer_Previews: PreviewProvider {
     static var previews: some View {
-        TTimerView(vm: TTimerVM(minutes: 4))
+        TTimerView(vm: TTimerVM(minutes: 4, startSecond: 0))
     }
 }

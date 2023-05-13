@@ -25,6 +25,7 @@ class TagService: BaseService, TagServiceProtocol {
         self.net = net
         super.init()
         
+        getTags()
         fetch()
     }
     
