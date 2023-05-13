@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol LifeCycleServiceProtocol {
-    var currentTask: CurrentValueSubject<Task?, Never> { get }
-    var scenePhase: CurrentValueSubject<LifeCycleType, Never> { get }
+    var currentTask: PassthroughSubject<Task?, Never> { get }
+    var scenePhase: PassthroughSubject<LifeCycleType, Never> { get }
     
     func startTask(task: Task)
     func endTask()
@@ -19,12 +19,19 @@ protocol LifeCycleServiceProtocol {
 class LifeCycleService: BaseService, LifeCycleServiceProtocol {
     
     let storage: StoreManagerProtocol
-    lazy var currentTask: CurrentValueSubject<Task?, Never> = { CurrentValueSubject<Task?, Never>( nil ) }()
-    lazy var scenePhase: CurrentValueSubject<LifeCycleType, Never> = { CurrentValueSubject<LifeCycleType, Never>( .inactive ) }()
+    var currentTask = PassthroughSubject<Task?, Never>()
+    var scenePhase = PassthroughSubject<LifeCycleType, Never>()
     
     init(storage: StoreManagerProtocol) {
         self.storage = storage
         super.init()
+        
+        scenePhase.sink { phase in
+            if phase == .foreground {
+                self.getTask()
+            }
+        }
+        .store(in: &cancellableSet)
     }
     
     func startTask(task: Task) {
@@ -39,7 +46,8 @@ class LifeCycleService: BaseService, LifeCycleServiceProtocol {
     }
     
     private func getTask() {
-        let tasks = storage.getObjects(TaskStored.self).map { Task(startTime: $0.startTime, time: $0.time, tagId: $0.tagId, houseId: $0.houseId) }
+        let tasks = storage.getObjects(TaskStored.self)
+            .map { Task(startTime: $0.startTime, time: $0.time, tagId: $0.tagId, houseId: $0.houseId) }
         currentTask.send(tasks.first)
     }
 }

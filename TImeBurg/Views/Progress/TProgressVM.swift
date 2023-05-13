@@ -13,11 +13,11 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
         case progress, completed
     }
     
-    @Published var minutes: Float
+    @Published var minutes: Int
     @Published var state: State = .progress
     @Published var progress: Float = 0.0
     
-    private lazy var timerVM: TTimerVM = TTimerVM(minutes: minutes, parent: self)
+    private lazy var timerVM: TTimerVM = TTimerVM(minutes: Float(minutes), parent: self)
     private var newHouse: THouse? = nil
     private let tag: Tag
     
@@ -27,7 +27,7 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     private var parent: Any?
     private let upgradedHouse: THouse?
     
-    init(minutes: Float, tag: Tag, upgradedHouse: THouse?, serviceFactory: TServicesFactoryProtocol) {
+    init(minutes: Int, tag: Tag, upgradedHouse: THouse?, serviceFactory: TServicesFactoryProtocol) {
         self.minutes = minutes
         self.tag = tag
         self.upgradedHouse = upgradedHouse
@@ -41,22 +41,23 @@ class TProgressVM: ObservableObject, TTimerListenerProtocol {
     }
     
     func calcProgress(newValue: Float) {
-        progress = 1.0 - ((100.0 / (minutes * 60)) * newValue)/100.0
+        progress = 1.0 - ((100.0 / (Float(minutes) * 60)) * newValue)/100.0
     }
     
     func getHome() -> THouse {
-        newHouse = upgradedHouse == nil ? houseService.getNewHouse(time: Int(minutes)) : houseService.upgradeHouse(oldHouse: upgradedHouse!, time: Int(minutes))
+        newHouse = upgradedHouse == nil ? houseService.getNewHouse(time: minutes) : houseService.upgradeHouse(oldHouse: upgradedHouse!, time: minutes)
         return newHouse!
     }
     
     func saveHouse() {
         cityService.updateCurrentCity(house: newHouse!)
-        cityService.updateCurrentCity(history: History(date: Date(), time: Int(minutes), tag: tag))
+        cityService.updateCurrentCity(history: History(date: Date(), time: minutes, tag: tag))
         lifeCycleService.endTask()
     }
     
     //MARK: TTimerListenerProtocol
     func timeRuns(seconds: Float) {
+        print("💯 \(seconds)")
         calcProgress(newValue: seconds)
     }
     

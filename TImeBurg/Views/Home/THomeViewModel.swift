@@ -69,6 +69,15 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
                 }
             }
             .store(in: &cancellableSet)
+        
+        lifeCycleService.currentTask
+            .sink {
+                if let task = $0 {
+                    _self?.continueTask(task: task)
+                }
+            }
+            .store(in: &cancellableSet)
+        
         afterSnapshot()
     }
     
@@ -79,8 +88,12 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         _ = notificationService.add(notification: SystemNotification(title: "Успех!", message: "Вы построили новый дом, давай скорее на него посмотрим", type: .endOfActivity, showTime: Date().addingTimeInterval(TimeInterval(timeActivity * 60))))
     }
     
+    private var progressVM: TProgressVM? = nil
     func getProgressVM() -> TProgressVM {
-        TProgressVM(minutes: Float(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
+        if progressVM == nil {
+            progressVM = TProgressVM(minutes: Int(timeActivity), tag: tags.first(where: { $0.id == currentTag.id})!, upgradedHouse: currentHouse, serviceFactory: serviceFactory)
+        }
+        return progressVM!
     }
     
     func saveImage(image: UIImage) {
@@ -128,6 +141,13 @@ class THomeViewModel: ObservableObject, THouseListenerProtocol, TagPickerListene
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
             _self?.snapshotCity = true
         }
+    }
+    
+    func continueTask(task: Task) {
+        currentTag = TagVM(tag: tags.first(where: { $0.id == task.tagId })!)
+        timeActivity = Double(task.time)
+        currentHouse = currentCity?.buildings.first(where: { $0.id == task.houseId})
+        isProgress = true
     }
     
     //MARK: - THouseListenerProtocol
