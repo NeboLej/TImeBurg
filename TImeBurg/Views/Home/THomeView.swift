@@ -45,7 +45,7 @@ struct THomeView: View {
                 vm.isProgress = false
                 vm.afterSnapshot()
             } content: {
-                TProgressView(vm: vm.startActivity())
+                TProgressView(vm: vm.getProgressVM())
             }
         }
     }
@@ -134,7 +134,7 @@ struct THomeView: View {
                         .foregroundColor(.white)
                         .padding(.top, -15)
                     Spacer()
-                    TButton(action: { vm.isProgress = true }, text: Text("Start") )
+                    TButton(action: { vm.createdTask() }, text: Text("Start") )
                         .frame(maxWidth: .infinity)
                 }
                 .frame(width: 150)

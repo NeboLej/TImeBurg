@@ -19,6 +19,7 @@ class TTimerVM: ObservableObject {
             self.time = "\(Int(minutes)):00"
         }
     }
+    let startSeconds: Int
     
     private var initialTime = 0
     private var endDate = Date()
@@ -28,10 +29,12 @@ class TTimerVM: ObservableObject {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    init(minutes: Float, parent: Any? = nil) {
+    init(minutes: Float, startSecond: Int, parent: Any? = nil) {
         self.minutes = minutes
         self.parent = parent
+        self.startSeconds = startSecond
         endDate = Calendar.current.date(byAdding: .minute, value: Int(minutes), to: endDate)!
+        endDate = Calendar.current.date(byAdding: .second, value: -startSecond, to: endDate)!
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
     }
     

@@ -42,7 +42,9 @@ class HistoryViewModel: ObservableObject {
         
         serviceFactory.cityService.currentCity
             .sink {
-                _self?.cities[0] = $0
+                if let cities = _self?.cities, !cities.isEmpty {
+                    _self?.cities[0] = $0
+                }
                 _self?.updatePage(monthIndex: self.selectedMonth)
             }
             .store(in: &cancellableSet)
