@@ -11,6 +11,7 @@ class TTabViewModel: ObservableObject {
     
     let servicesFactory: TServicesFactoryProtocol
     @Published var currentTab: Tab = .home
+    
     private let homeVM: THomeViewModel
     private let allCitiesVM: AllCitiesVM
     private let historyVM: HistoryViewModel
@@ -33,8 +34,9 @@ class TTabViewModel: ObservableObject {
     func getHistoryViewModel() -> HistoryViewModel {
         historyVM
     }
-    
 }
+
+
 enum Tab: String, CaseIterable {
     case list = "list.bullet.indent"
     case home = "house"
