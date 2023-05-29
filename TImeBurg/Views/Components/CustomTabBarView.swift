@@ -10,12 +10,13 @@ import SwiftUI
 struct CustomTabBarView: View {
     @Binding var currentTab: Tab
     @State private var yOffset: CGFloat = 0
+
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
-            
+            let tabs = getTabs()
             HStack(spacing: 0) {
-                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                ForEach(tabs, id: \.rawValue) { tab in
                     Button {
                         withAnimation(.easeInOut(duration: 0.2)) {
                             currentTab = tab
@@ -46,7 +47,7 @@ struct CustomTabBarView: View {
                              lineCap: .round
                          ))
                     .frame(width: 65, height: 65)
-                    .offset(x: 11, y: -5)
+                    .offset(x: -32.5 , y: -5)
                     .offset(x: indicatorOffset(width: width), y: yOffset)
                     .shadow(color: .black.opacity(0.4), radius: 2, x: 0, y: 6)
             }
@@ -59,22 +60,24 @@ struct CustomTabBarView: View {
     
     func indicatorOffset(width: CGFloat) -> CGFloat {
         let index = CGFloat(getIndex())
-        if index == 0 { return 0 }
-        
-        let buttonWidth = width / CGFloat(Tab.allCases.count)
-        return index * buttonWidth
+        let buttonWidth = width / CGFloat(getTabs().count)
+        return (index * buttonWidth) + buttonWidth / 2
     }
     
     func getIndex() -> Int {
-        switch currentTab {
-            case .list:
-                return 0
-            case .home:
-                return 1
-            case .history:
-                return 2
-            case .gear:
-                return 3
+        getTabs().firstIndex(where: { $0 == currentTab })!
+    }
+    
+    var tabsDevice: [Tab] = []
+    func getTabs() -> [Tab] {
+        if tabsDevice.isEmpty {
+            var tabs = Tab.allCases
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                tabs.remove(at: tabs.firstIndex(where: { $0 == .history })!)
+            }
+            return tabs
+        } else {
+            return tabsDevice
         }
     }
 }

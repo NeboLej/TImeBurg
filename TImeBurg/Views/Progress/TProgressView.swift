@@ -44,8 +44,9 @@ struct TProgressView: View {
                 }
                 .padding(.top, 50)
                 .padding(.leading, 30)
+                let width = proxy.size.width > 550 ? 550 : proxy.size.width
                 TLottieView(lottieFile: "OrangeHome")
-                    .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7 * 9 / 12)
+                    .frame(width: width * 0.7, height: width * 0.7 * 9 / 12)
                     .padding(.top, 10)
                 TTimerView(vm: vm.getTimerVM())
                 progressCircleView()
@@ -72,9 +73,12 @@ struct TProgressView: View {
     func completedView() -> some View {
         GeometryReader { proxy in
             VStack {
+                let width = proxy.size.width > 550 ? 550 : proxy.size.width
                 ZStack(alignment: .bottom) {
                     TLottieView(lottieFile: "Bubbles")
-                        .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7)
+                        .frame(width: width * 0.7, height: width * 0.7)
+                        .offset(y: 20)
+                        .padding(.top, proxy.size.width > 550 ? -70 : 0)
                         
                     Image(vm.getHome().image)
                         .resizable()
@@ -86,7 +90,7 @@ struct TProgressView: View {
                 Rectangle()
                     .fill(.white)
                     .frame(height: 1)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, width * 0.2)
                     .offset(y: -10)
                 
                 Text("Completed!")
@@ -124,6 +128,6 @@ struct TProgressView: View {
 
 struct TProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewPhone(vm: THomeViewModel(serviceFactory: TServicesFactory()))
+        TProgressView(vm: TProgressVM(minutes: 1, tag: .init(name: "djn", color: "123452"), upgradedHouse: nil, startSecond: 0, serviceFactory: TServicesFactory()))
     }
 }
