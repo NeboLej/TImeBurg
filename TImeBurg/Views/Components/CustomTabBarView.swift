@@ -67,7 +67,8 @@ struct CustomTabBarView: View {
     func getIndex() -> Int {
         getTabs().firstIndex(where: { $0 == currentTab })!
     }
-    private var tabsDevice: [Tab] = []
+    
+    var tabsDevice: [Tab] = []
     func getTabs() -> [Tab] {
         if tabsDevice.isEmpty {
             var tabs = Tab.allCases
