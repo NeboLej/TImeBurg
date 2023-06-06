@@ -10,8 +10,8 @@ Every month the user builds a new city. The old city remains in the statistics a
 Design and all buildings for the application are drawn by myself
 
 
-![mountains](https://github.com/NeboLej/TImeBurg/blob/master/Timeburg1.gif "Пейзаж с горами")
-![mountains](https://github.com/NeboLej/TImeBurg/blob/master/Timeburg2.gif "Пейзаж с горами")
+![mountains](https://github.com/NeboLej/TImeBurg/blob/master/Timeburg1.gif "Home page")
+![mountains](https://github.com/NeboLej/TImeBurg/blob/master/Timeburg2.gif "History page")
 
 
 *********
